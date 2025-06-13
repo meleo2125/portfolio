@@ -29,7 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="description" content="Mukeshkumar Prajapat - AI & Web Development Portfolio. Building AI-driven solutions and seamless web experiences." />
+        
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="website" />
       </head>
       <body className={cn(
         'min-h-screen bg-background font-sans antialiased overflow-x-hidden max-w-full',

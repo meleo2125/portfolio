@@ -96,7 +96,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="absolute bottom-4 left-1/2 transform -translate-x-1/2 md:bottom-10"
+            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 z-10"
           >
             <motion.a
               href="#about"
@@ -111,7 +111,7 @@ const Hero = () => {
       </div>
 
       {/* Decorative elements */}
-      <div className="absolute inset-0 -z-10">
+      <div className="absolute inset-0 -z-10 hidden md:block">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full filter blur-3xl opacity-20" />
         <div className="absolute top-1/4 right-1/4 w-[300px] h-[300px] bg-accent/20 rounded-full filter blur-3xl opacity-20" />
         <div className="absolute bottom-1/4 left-1/4 w-[300px] h-[300px] bg-secondary/20 rounded-full filter blur-3xl opacity-20" />
