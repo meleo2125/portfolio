@@ -10,7 +10,6 @@ const Hero = () => {
     'Web Developer',
     'Mobile Developer',
     'AI/ML Enthusiast',
-    'Open Source Contributor',
     'Tech Explorer',
     'Computer Science Student'
   ]

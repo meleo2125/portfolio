@@ -9,7 +9,7 @@ const Projects = () => {
     {
       title: "Virtual Herbal Garden",
       description: "Interactive 3D web app for exploring herbal plants with advanced search, virtual tours, and multimedia from Ayurveda, Homeopathy, and more.",
-      image: "/projects/analytics.jpg",
+      image: "/projects/garden.png",
       technologies: ["Next.js", "Three.js", "Tailwind"],
       liveUrl: "https://virtual-3d-garden.vercel.app/",
       githubUrl: "https://github.com/meleo2125/3D-virtual-herbal-garden",
@@ -18,16 +18,16 @@ const Projects = () => {
     {
       title: "Gamified IPR Learning Platform",
       description: "Full-stack app to educate users on Intellectual Property Rights (IPR) using interactive chapters, role-play, and mini-games. Personalized recommendations for better learning outcomes.",
-      image: "/projects/ecommerce.jpg",
-      technologies: ["React Native", "Node.js", "Express.js", "MongoDB", "JWT", "Gemini API", "AWS S3"],
+      image: "/projects/ipr.png",
+      technologies: ["React Native","Tailwind", "Node.js", "Express.js", "MongoDB", "JWT", "Gemini API", "AWS S3"],
       liveUrl: "#",
       githubUrl: "https://github.com/meleo2125/ipr-app"
     },
     {
       title: "AI-Powered Healthcare Platform",
       description: "AI-driven platform for multi-disease diagnosis (schizophrenia, TB, pneumonia, etc.) with 90%+ accuracy. Features a bilingual chatbot and instant medical recommendations.",
-      image: "/projects/taskmanager.jpg",
-      technologies: ["AI", "Deep Learning", "Chatbot", "Healthcare"],
+      image: "/projects/health.png",
+      technologies: ["Next.js", "Python","AI", "Gemini API"],
       liveUrl: "#",
       githubUrl: "https://github.com/SM-Sclass/502lostserver_ALGORITHM_9.0",
       date: "02/2025"
