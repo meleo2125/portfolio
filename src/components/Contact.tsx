@@ -26,37 +26,85 @@ const Contact = () => {
     }
   ]
 
-  const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: '',
+    website: '' // honeypot field
+  })
   const [loading, setLoading] = useState(false)
-  const [success, setSuccess] = useState<string | null>(null)
-  const [error, setError] = useState<string | null>(null)
+  const [success, setSuccess] = useState('')
+  const [error, setError] = useState('')
+
+  const validateEmail = (email: string) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setForm({ ...form, [e.target.id]: e.target.value })
+    const { id, value } = e.target
+    setForm(prev => ({ ...prev, [id]: value }))
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setLoading(true)
-    setSuccess(null)
-    setError(null)
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
-      })
-      const data = await res.json()
-      if (data.success) {
-        setSuccess('Message sent successfully!')
-        setForm({ name: '', email: '', subject: '', message: '' })
-      } else {
-        setError(data.error || 'Failed to send message.')
-      }
-    } catch {
-      setError('Failed to send message.')
+    
+    // Check honeypot field
+    if (form.website) {
+      return // Bot detected
     }
-    setLoading(false)
+
+    // Validate required fields
+    if (!form.name || !form.email || !form.subject || !form.message) {
+      setError('All fields are required')
+      return
+    }
+
+    // Validate email format
+    if (!validateEmail(form.email)) {
+      setError('Please enter a valid email address')
+      return
+    }
+
+    setLoading(true)
+    setError('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          subject: form.subject,
+          message: form.message,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to send message')
+      }
+
+      setSuccess('Message sent successfully!')
+      setForm({
+        name: '',
+        email: '',
+        subject: '',
+        message: '',
+        website: ''
+      })
+
+      // Auto-dismiss success message after 5 seconds
+      setTimeout(() => {
+        setSuccess('')
+      }, 5000)
+    } catch (err) {
+      setError('Failed to send message. Please try again later.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -125,8 +173,20 @@ const Contact = () => {
             viewport={{ once: true }}
             className="glass p-8 rounded-xl"
           >
-            <form className="space-y-6" onSubmit={handleSubmit}>
-              <div className="grid md:grid-cols-2 gap-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot field - hidden from real users */}
+              <div className="hidden">
+                <input
+                  type="text"
+                  id="website"
+                  value={form.website}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
                     Name
@@ -141,6 +201,7 @@ const Contact = () => {
                     required
                   />
                 </div>
+
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-2">
                     Email
@@ -151,7 +212,7 @@ const Contact = () => {
                     value={form.email}
                     onChange={handleChange}
                     className="w-full px-4 py-2 rounded-lg bg-muted border border-muted-foreground/20 focus:border-primary focus:outline-none transition-colors"
-                    placeholder="Your email"
+                    placeholder="your.email@example.com"
                     required
                   />
                 </div>

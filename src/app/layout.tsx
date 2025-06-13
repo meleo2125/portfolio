@@ -32,7 +32,7 @@ export default function RootLayout({
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
       </head>
       <body className={cn(
-        'min-h-screen bg-background font-sans antialiased',
+        'min-h-screen bg-background font-sans antialiased overflow-x-hidden max-w-full',
         inter.variable,
         spaceGrotesk.variable,
         dancingScript.variable,

@@ -11,7 +11,7 @@ import Navigation from '@/components/Navigation'
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-screen overflow-x-hidden max-w-full">
       {/* Background gradient */}
       <div className="fixed inset-0 bg-gradient-to-br from-background via-background to-primary/20 -z-10" />
       

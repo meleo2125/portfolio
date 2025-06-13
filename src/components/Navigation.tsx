@@ -9,6 +9,7 @@ const satisfy = Satisfy({ subsets: ['latin'], weight: '400', variable: '--font-s
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,6 +17,15 @@ const Navigation = () => {
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // Close mobile menu on resize to md+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) setMobileOpen(false)
+    }
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [])
 
   const navItems = [
@@ -69,6 +79,8 @@ const Navigation = () => {
             className="md:hidden p-2"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
+            aria-label="Open menu"
+            onClick={() => setMobileOpen((v) => !v)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -86,6 +98,53 @@ const Navigation = () => {
             </svg>
           </motion.button>
         </div>
+        {/* Mobile menu overlay */}
+        {mobileOpen && (
+          <div className="fixed inset-0 z-40 bg-black/60 md:hidden" onClick={() => setMobileOpen(false)} />
+        )}
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={mobileOpen ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className={cn(
+            'fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg shadow-lg md:hidden',
+            mobileOpen ? 'block' : 'hidden'
+          )}
+        >
+          <button
+            onClick={() => setMobileOpen(false)}
+            className="absolute top-4 right-4 p-2 text-foreground/80 hover:text-primary transition-colors"
+            aria-label="Close menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-7 h-7"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+          <ul className="flex flex-col items-center py-8 space-y-6 mt-10">
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  className="text-xl text-foreground/80 hover:text-primary transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {item.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
       </nav>
     </motion.header>
   )

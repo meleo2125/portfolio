@@ -66,6 +66,7 @@ const Projects = () => {
                   src={project.image}
                   alt={project.title}
                   fill
+                  loading="lazy"
                   className="object-cover transition-transform duration-300 group-hover:scale-110 group-hover:z-30 group-hover:shadow-2xl"
                   style={{ zIndex: 30 }}
                 />
@@ -92,17 +93,19 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-4">
-                  <motion.a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <ArrowTopRightOnSquareIcon className="w-5 h-5" />
-                    Live Demo
-                  </motion.a>
+                  {project.liveUrl && project.liveUrl !== '#' ? (
+                    <motion.a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <ArrowTopRightOnSquareIcon className="w-5 h-5" />
+                      Live Demo
+                    </motion.a>
+                  ) : null}
                   <motion.a
                     href={project.githubUrl}
                     target="_blank"

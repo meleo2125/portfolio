@@ -53,8 +53,8 @@ const Experience = () => {
         </motion.div>
         <div className="relative max-w-3xl mx-auto">
           {/* Timeline vertical line */}
-          <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-primary to-accent rounded-full z-0" />
-          <div className="space-y-16 pl-16">
+          <div className="absolute left-6 top-0 bottom-0 w-1 bg-gradient-to-b from-primary to-accent rounded-full z-0 hidden md:block" />
+          <div className="space-y-8 pl-0 md:space-y-16 md:pl-16">
             {experiences.map((exp, idx) => (
               <motion.div
                 key={exp.title}
@@ -62,25 +62,28 @@ const Experience = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 viewport={{ once: true }}
-                className="relative flex gap-8 items-start"
+                className="relative flex flex-col md:flex-row md:gap-8 items-start"
               >
-                {/* Timeline dot */}
-                <div className="absolute -left-8 top-2 w-6 h-6 rounded-full bg-gradient-to-br from-primary to-accent border-4 border-background z-10 shadow-lg" />
-                <div className="glass p-8 rounded-xl flex-1">
+                {/* Timeline dot (desktop only) */}
+                <div className="absolute -left-8 top-2 w-6 h-6 rounded-full bg-gradient-to-br from-primary to-accent border-4 border-background z-10 shadow-lg hidden md:block" />
+                <div className="glass p-6 md:p-8 rounded-xl flex-1">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-                    <h3 className="text-xl font-heading font-semibold text-primary mb-1 md:mb-0">{exp.title}</h3>
+                    <h3 className="text-xl font-heading font-semibold text-primary mb-1 md:mb-0">
+                      <span className="inline-block md:hidden w-3 h-3 rounded-full bg-primary mr-2" />
+                      {exp.title}
+                    </h3>
                     <span className="text-sm text-foreground/60">{exp.date} | {exp.location}</span>
                   </div>
-                  <ul className="list-disc pl-5 text-foreground/80 space-y-1 mb-2">
+                  <ul className="list-disc pl-4 md:pl-5 text-foreground/80 space-y-1 mb-2">
                     {exp.details.map((d, i) => <li key={i}>{d}</li>)}
                   </ul>
                   {/* Certificates/LORs */}
-                  <div className="flex flex-wrap gap-4 mt-4 items-center">
+                  <div className="flex flex-wrap gap-2 md:gap-4 mt-2 md:mt-4 items-center">
                     {exp.certificates && exp.certificates.map((cert, i) => (
                       <button
                         key={cert.label}
                         onClick={() => setPdfSrc(cert.src)}
-                        className="px-4 py-2 rounded bg-primary text-white font-medium hover:bg-primary/90 transition-colors shadow"
+                        className="px-3 py-1 rounded bg-primary text-white font-medium hover:bg-primary/90 transition-colors shadow md:px-4 md:py-2"
                       >
                         {cert.label}
                       </button>
@@ -90,7 +93,7 @@ const Experience = () => {
                         href="https://www.geeksforgeeks.org/user/mukeshprajtjp2/contributions/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="px-4 py-2 rounded bg-primary text-white font-medium hover:bg-primary/90 transition-colors shadow"
+                        className="px-3 py-1 rounded bg-primary text-white font-medium hover:bg-primary/90 transition-colors shadow md:px-4 md:py-2"
                       >
                         My Work
                       </a>
