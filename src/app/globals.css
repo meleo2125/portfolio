@@ -76,8 +76,10 @@
 }
 
 /* Custom cursor styles */
-* {
-  cursor: none !important;
+@media (hover: hover) {
+  * {
+    cursor: none !important;
+  }
 }
 
 /* Ensure text selection still works */

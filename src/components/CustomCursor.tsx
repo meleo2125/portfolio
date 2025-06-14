@@ -6,8 +6,21 @@ import { motion } from 'framer-motion'
 const CustomCursor = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const [isHovering, setIsHovering] = useState(false)
+  const [isTouchDevice, setIsTouchDevice] = useState(false)
 
   useEffect(() => {
+    // Check if device is touch-enabled
+    const checkTouchDevice = () => {
+      setIsTouchDevice(
+        'ontouchstart' in window ||
+        navigator.maxTouchPoints > 0 ||
+        (navigator as any).msMaxTouchPoints > 0
+      )
+    }
+
+    checkTouchDevice()
+    window.addEventListener('resize', checkTouchDevice)
+
     const handleMouseMove = (e: MouseEvent) => {
       setMousePosition({ x: e.clientX, y: e.clientY })
     }
@@ -31,12 +44,18 @@ const CustomCursor = () => {
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove)
+      window.removeEventListener('resize', checkTouchDevice)
       interactiveElements.forEach(element => {
         element.removeEventListener('mouseenter', handleMouseEnter)
         element.removeEventListener('mouseleave', handleMouseLeave)
       })
     }
   }, [])
+
+  // Don't render cursor on touch devices
+  if (isTouchDevice) {
+    return null
+  }
 
   return (
     <>
