@@ -42,7 +42,7 @@ const Hero = () => {
   }, [displayText, typing, roleIdx])
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative">
+    <section id="home" className="min-h-screen relative pt-32 pb-20 flex flex-col justify-center">
       <div className="container mx-auto px-4 py-20">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
