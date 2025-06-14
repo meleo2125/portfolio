@@ -23,6 +23,7 @@
     --border: 217 19% 27%;
     --input: 217 19% 27%;
     --ring: 271 91% 58%;
+    --vh: 100vh; /* Fallback for browsers that don't support dvh */
   }
 }
 
@@ -32,6 +33,9 @@
   }
   body {
     @apply bg-background text-foreground;
+    min-height: 100dvh; /* Use dynamic viewport height for mobile browsers */
+    /* Fallback for older browsers, overridden by JS if present */
+    min-height: calc(var(--vh) * 1);
   }
 }
 

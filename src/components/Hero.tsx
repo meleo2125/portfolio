@@ -42,12 +42,12 @@ const Hero = () => {
   }, [displayText, typing, roleIdx])
 
   return (
-    <section id="home" className="min-h-screen relative pt-32 pb-20 flex flex-col justify-center">
-      <div className="container mx-auto px-4 py-20">
+    <section id="home" className="min-h-[calc(var(--vh)*100)] flex items-center justify-center relative">
+      <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
           >
             <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">
@@ -69,8 +69,8 @@ const Hero = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
