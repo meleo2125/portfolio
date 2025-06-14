@@ -1,6 +1,7 @@
 import { Inter, Space_Grotesk, Dancing_Script, Satisfy } from 'next/font/google'
 import './globals.css'
 import { cn } from '@/lib/utils'
+import CustomCursor from '@/components/CustomCursor'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -21,11 +22,13 @@ export const metadata = {
   description: 'Personal portfolio showcasing my work and skills',
 }
 
+interface RootLayoutProps {
+  children: React.ReactNode
+}
+
 export default function RootLayout({
   children,
-}: {
-  children: React.ReactNode
-}) {
+}: RootLayoutProps) {
   return (
     <html lang="en" className="dark">
       <head>
@@ -43,6 +46,7 @@ export default function RootLayout({
         dancingScript.variable,
         satisfy.variable
       )}>
+        <CustomCursor />
         {children}
       </body>
     </html>

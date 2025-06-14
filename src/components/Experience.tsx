@@ -72,10 +72,14 @@ const Experience = () => {
                       <span className="inline-block md:hidden w-3 h-3 rounded-full bg-primary mr-2" />
                       {exp.title}
                     </h3>
-                    <span className="text-sm text-foreground/60">{exp.date} | {exp.location}</span>
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-sm text-foreground/60">{exp.date} | {exp.location}</span>
+                    </div>
                   </div>
                   <ul className="list-disc pl-4 md:pl-5 text-foreground/80 space-y-1 mb-2">
-                    {exp.details.map((d, i) => <li key={i}>{d}</li>)}
+                    {exp.details.map((d, i) => (
+                      <li key={i} className="text-justify">{d}</li>
+                    ))}
                   </ul>
                   {/* Certificates/LORs */}
                   <div className="flex flex-wrap gap-2 md:gap-4 mt-2 md:mt-4 items-center">

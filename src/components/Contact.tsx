@@ -134,7 +134,7 @@ const Contact = () => {
             <h3 className="text-2xl font-heading font-semibold">
               Let's Connect
             </h3>
-            <p className="text-foreground/80 leading-relaxed">
+            <p className="text-foreground/80 leading-relaxed text-justify">
               I'm always open to discussing new projects, creative ideas, or
               opportunities to be part of your vision. Feel free to reach out
               through any of the following channels.

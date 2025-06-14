@@ -32,7 +32,7 @@ const About = () => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-square relative rounded-2xl overflow-hidden gradient-border">
+            <div className="aspect-[4/3] relative rounded-2xl overflow-hidden gradient-border">
               <Image
                 src="/your-photo.jpg"
                 alt="Mukeshkumar Prajapat"
@@ -60,24 +60,6 @@ const About = () => {
             <div className="space-y-2">
               <h4 className="font-semibold text-primary">Education:</h4>
               <p><b>B.E. in Computer Science Engineering and Data Science, Honours in AIML</b><br/>Vidyavardhini's College of Engineering and Technology, CGPI 9.32<br/>Dec 2021 - Jun 2025, Mumbai, India</p>
-            </div>
-            <div className="grid grid-cols-2 gap-4 pt-4">
-              <div className="space-y-2">
-                <h4 className="font-semibold text-primary">Name:</h4>
-                <p>Mukeshkumar Prajapat</p>
-              </div>
-              <div className="space-y-2">
-                <h4 className="font-semibold text-primary">Email:</h4>
-                <p>mukeshprajapat3093@gmail.com</p>
-              </div>
-              <div className="space-y-2">
-                <h4 className="font-semibold text-primary">Location:</h4>
-                <p>Mumbai, India</p>
-              </div>
-              <div className="space-y-2">
-                <h4 className="font-semibold text-primary">Phone:</h4>
-                <p>+91 9372694386</p>
-              </div>
             </div>
             <button
               onClick={() => setPdfOpen(true)}

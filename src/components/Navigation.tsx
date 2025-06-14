@@ -40,7 +40,7 @@ const Navigation = () => {
   return (
     <motion.header
       className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+        'fixed top-0 left-0 right-0 z-[9980] transition-all duration-300',
         isScrolled ? 'py-4 bg-background/80 backdrop-blur-lg' : 'py-6'
       )}
       initial={{ y: -100 }}
@@ -51,11 +51,19 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <motion.a
             href="#home"
-            className={`text-3xl font-bold gradient-text ${satisfy.className}`}
+            className="flex items-center gap-1"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Mukesh Prajapat
+            <svg width="24" height="24" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-primary">
+              <path d="M128 240L16 128L64 64L128 96L192 64L240 128L128 240Z" fill="currentColor"/>
+            </svg>
+            <svg width="24" height="24" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-primary">
+              <path d="M128 240L16 128L64 64L128 96L192 64L240 128L128 240Z" fill="currentColor"/>
+            </svg>
+            <svg width="24" height="24" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-primary">
+              <path d="M128 240L16 128L64 64L128 96L192 64L240 128L128 240Z" fill="currentColor"/>
+            </svg>
           </motion.a>
 
           <ul className="hidden md:flex items-center space-x-8">
@@ -100,14 +108,14 @@ const Navigation = () => {
         </div>
         {/* Mobile menu overlay */}
         {mobileOpen && (
-          <div className="fixed inset-0 z-40 bg-black/60 md:hidden" onClick={() => setMobileOpen(false)} />
+          <div className="fixed inset-0 z-[9970] bg-black/60 md:hidden" onClick={() => setMobileOpen(false)} />
         )}
         <motion.div
           initial={{ y: -100, opacity: 0 }}
           animate={mobileOpen ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
           transition={{ duration: 0.3 }}
           className={cn(
-            'fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-lg shadow-lg md:hidden',
+            'fixed top-0 left-0 right-0 z-[9980] bg-background/95 backdrop-blur-lg shadow-lg md:hidden',
             mobileOpen ? 'block' : 'hidden'
           )}
         >

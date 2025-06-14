@@ -50,7 +50,7 @@ const Projects = () => {
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory hide-scrollbar">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
@@ -58,7 +58,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="group relative glass rounded-xl overflow-hidden"
+              className="group relative glass rounded-xl overflow-hidden w-[calc(100vw-2rem)] md:w-[calc(33.333%-1.5rem)] min-w-[300px] md:min-w-0 snap-center"
             >
               <div className="aspect-video relative overflow-visible">
                 <div className="absolute inset-0 z-20 pointer-events-none group-hover:shadow-2xl transition-all duration-300" />
@@ -77,7 +77,7 @@ const Projects = () => {
                 <h3 className="text-xl font-heading font-semibold mb-2">
                   {project.title}
                 </h3>
-                <p className="text-foreground/80 mb-4">
+                <p className="text-foreground/80 mb-4 text-justify">
                   {project.description}
                 </p>
 
@@ -92,13 +92,13 @@ const Projects = () => {
                   ))}
                 </div>
 
-                <div className="flex gap-4">
+                <div className="flex flex-wrap gap-4">
                   {project.liveUrl && project.liveUrl !== '#' ? (
                     <motion.a
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors"
+                      className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors whitespace-nowrap"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -110,7 +110,7 @@ const Projects = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors"
+                    className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors whitespace-nowrap"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -122,7 +122,7 @@ const Projects = () => {
                       href={project.youtubeUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors"
+                      className="flex items-center gap-2 text-foreground/80 hover:text-primary transition-colors whitespace-nowrap"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >

@@ -61,7 +61,7 @@ const Skills = () => {
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
         </motion.div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="flex overflow-x-auto gap-8 pb-4 snap-x snap-mandatory hide-scrollbar">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
@@ -69,7 +69,7 @@ const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="glass p-6 rounded-xl"
+              className="glass p-6 rounded-xl w-[calc(100vw-2rem)] md:w-[calc(25%-1.5rem)] min-w-[300px] md:min-w-0 snap-center"
             >
               <h3 className="text-xl font-heading font-semibold mb-6 text-primary">
                 {category.title}

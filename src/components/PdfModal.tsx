@@ -165,7 +165,7 @@ const PdfModal: React.FC<PdfModalProps> = ({ open, onClose, src }) => {
   const pageSize = calculatePageSize();
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70">
+    <div className="fixed inset-0 z-[9990] flex items-center justify-center bg-black/70">
       <div className="relative bg-background rounded-lg shadow-lg w-full max-w-3xl h-[90vh] flex flex-col overflow-hidden">
         {/* Header/Toolbar */}
         <div className="flex items-center justify-between p-4 bg-muted/50 border-b border-muted-foreground/20">
