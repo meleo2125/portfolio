@@ -10,9 +10,13 @@ import { create } from "./tinyStore";
 type State = {
   hoveredSkill: string | null;
   setHoveredSkill: (s: string | null) => void;
+  selectedSkill: string | null;
+  setSelectedSkill: (s: string | null) => void;
 };
 
 export const useCrossLink = create<State>((set) => ({
   hoveredSkill: null,
   setHoveredSkill: (hoveredSkill) => set({ hoveredSkill }),
+  selectedSkill: null,
+  setSelectedSkill: (selectedSkill) => set({ selectedSkill }),
 }));

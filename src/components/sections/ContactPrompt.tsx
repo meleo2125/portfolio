@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, Github, Linkedin, Instagram } from "lucide-react";
+import { Mail, Github, Linkedin } from "lucide-react";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { contact } from "@/lib/data/experience";
 
@@ -117,15 +117,7 @@ export function ContactPrompt() {
               <Linkedin size={14} strokeWidth={1.5} />
               LinkedIn
             </a>
-            <a
-              href={contact.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-sm border border-white/15 bg-panel-raised px-4 py-2.5 font-mono text-xs uppercase tracking-wider text-text-muted transition-colors hover:border-cyan hover:text-cyan"
-            >
-              <Instagram size={14} strokeWidth={1.5} />
-              Instagram
-            </a>
+
           </div>
 
           <div className="mt-8 border-t border-white/5 pt-4 font-mono text-[11px] text-text-muted">

@@ -64,8 +64,7 @@ export function Hero() {
             className="mt-6 max-w-xl text-base text-text-muted md:text-lg"
           >
             By day I design AI-driven automation for SAP data systems. By choice
-            I ship full-stack products — a media tracker, a 3D medicinal garden,
-            an AI healthcare screener. Same instinct in both:{" "}
+            I ship full-stack products. Same instinct in both:{" "}
             <span className="text-text">
               find the manual, repetitive, or fragmented part of a process and
               replace it with something clean and automatic.
@@ -90,11 +89,12 @@ export function Hero() {
               />
             </a>
             <a
-              href="#contact"
+              href="/resume.pdf"
+              download
               className="flex items-center gap-2 rounded-sm border border-white/15 bg-panel/60 px-5 py-3 font-mono text-sm uppercase tracking-wider text-text transition-colors hover:border-cyan hover:text-cyan"
             >
               <FileText size={14} strokeWidth={1.5} />
-              Contact
+              Resume
             </a>
           </motion.div>
 

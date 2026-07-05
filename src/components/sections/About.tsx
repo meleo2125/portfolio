@@ -23,24 +23,16 @@ export function About() {
         >
           <div className="space-y-5 text-[15px] leading-relaxed text-text-muted md:text-base">
             <p>
-              I thrive on solving real-world problems through technology —
-              combining a foundation in computer science with hands-on work in
-              AI, machine learning, and modern web development. My work spans
-              two worlds: by day, I design AI-driven automation for enterprise
-              SAP systems; by choice, I build full-stack products end to end.
-              What connects both is the same instinct — find the manual,
-              repetitive, or fragmented part of a process, and replace it with
-              something clean and automatic.
+              I thrive on solving real-world problems through technology. My
+              background combines a computer science foundation with hands-on
+              experience in AI, machine learning, and modern web development.
             </p>
             <p>
               Currently an{" "}
               <span className="text-text">Associate in SAP Analytics at Bristlecone</span>,
               where I build automation that has cut manual migration effort by{" "}
               <span className="text-amber">60–90%</span> across projects.
-              Outside of that, I build my own things — a unified tracker for
-              movies, TV, and anime; a 3D explorable garden of medicinal plants;
-              an AI healthcare platform that screens for disease from EEG and
-              X-ray data.
+              Outside of that, I build my own things.
             </p>
             <p>
               <span className="text-text">

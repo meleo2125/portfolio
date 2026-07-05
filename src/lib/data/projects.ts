@@ -25,7 +25,7 @@ export const projects: Project[] = [
     build:
       "Next.js, Tailwind CSS, DaisyUI, Firebase Auth + Firestore, TMDB + Jikan API integration, and a custom 'Lyst' system to create, rank, clone, and share collections.",
     outcome:
-      "Live and actively developed — the flagship product build. Design language ties directly into this portfolio.",
+      "Live and actively developed as my flagship product build. The design language ties directly into this portfolio.",
     stack: ["Next.js", "Tailwind CSS", "Firebase", "JavaScript"],
     liveUrl: "https://thelystapp.vercel.app",
     githubUrl: "https://github.com/meleo2125/thelystapp",
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     build:
       "Next.js, Three.js, React Three Fiber, categorized virtual tours, search / filter / bookmark / notes.",
     outcome:
-      "Live demo with proven experience shipping performant 3D on the web — direct precedent for the systems-graph work in this portfolio.",
+      "Live demo demonstrating performant 3D rendering on the web, serving as the direct precedent for the systems-graph work in this portfolio.",
     stack: ["Next.js", "React", "JavaScript"],
     liveUrl: "https://virtual-3d-garden.vercel.app/",
     githubUrl: "https://github.com/meleo2125/3D-virtual-herbal-garden",
@@ -53,12 +53,11 @@ export const projects: Project[] = [
     tagline: "Mobile app teaching Intellectual Property Rights through play",
     problem: "IPR education is dry and low-retention through traditional formats.",
     decision:
-      "Gamify it — interactive chapters, role-play, mini-games, and an AI-personalized path.",
+      "Gamified learning: interactive chapters, role-play, mini-games, and an AI-personalized learning path.",
     build:
       "React Native, Node.js / Express, MongoDB, JWT auth, Gemini API for recommendations, AWS S3 for media storage.",
     outcome:
       "80% of users scored perfectly; average quiz score 17.87 / 20 vs. 6.53 / 20 with traditional learning; 4.28 / 5 user rating.",
-    headline: "80% of users scored perfectly",
     stack: [
       "React Native",
       "Node.js",
@@ -81,7 +80,6 @@ export const projects: Project[] = [
     build:
       "Next.js, Python, Flask, TensorFlow, Gemini API; EEG and X-ray analysis pipelines with explainable-AI outputs.",
     outcome: "90%+ prediction accuracy across the detection models.",
-    headline: "90%+ prediction accuracy",
     stack: ["Next.js", "Python", "TensorFlow", "Gemini API"],
     githubUrl: "https://github.com/SM-Sclass/502lostserver_ALGORITHM_9.0",
     status: "SHIPPED",
@@ -91,12 +89,12 @@ export const projects: Project[] = [
     title: "Next.js Firebase Auth Starter Kit",
     tagline: "Reusable production-ready auth template",
     problem:
-      "Developers rebuild the same auth boilerplate — OTP, password reset, protected routes — on every new Next.js project.",
+      "Developers frequently rebuild the same authentication boilerplate (OTP, password reset, protected routes) for every new Next.js project.",
     decision: "Build it once, properly, and make it reusable.",
     build:
       "Next.js, Firebase Auth (email/password + Google), Firestore, Nodemailer / Gmail SMTP for OTP verification.",
     outcome:
-      "A genuinely reusable open-source template — signals 'builds tools, not just apps.'",
+      "A genuinely reusable open-source template that highlights a focus on building systems and tools, not just applications.",
     stack: ["Next.js", "Firebase", "JavaScript"],
     githubUrl: "https://github.com/meleo2125/next-firebase-auth",
     status: "OPEN-SOURCE",

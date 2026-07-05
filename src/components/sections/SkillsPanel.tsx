@@ -8,7 +8,7 @@ import { projects } from "@/lib/data/projects";
 import { useCrossLink } from "@/lib/animation/useCrossLink";
 
 export function SkillsPanel() {
-  const { hoveredSkill, setHoveredSkill } = useCrossLink();
+  const { hoveredSkill, setHoveredSkill, selectedSkill, setSelectedSkill } = useCrossLink();
 
   // For each skill name, which projects use it
   const skillToProjects = useMemo(() => {
@@ -22,6 +22,18 @@ export function SkillsPanel() {
     return map;
   }, []);
 
+  const handleSkillClick = (s: string) => {
+    if (selectedSkill === s) {
+      setSelectedSkill(null);
+    } else {
+      setSelectedSkill(s);
+      const el = document.getElementById("projects");
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
   return (
     <section
       id="skills"
@@ -31,7 +43,7 @@ export function SkillsPanel() {
       <SectionHeader
         code="MOD-02 · DIAGNOSTICS"
         title="Skills"
-        description="Grouped by module — hover any skill to light up every project below that uses it. Depth is proven by output, not by a 1–10 self-rating."
+        description="Grouped by module. Hover any skill to highlight every project below that uses it."
       />
 
       <div className="grid gap-4 md:grid-cols-2">
@@ -55,6 +67,8 @@ export function SkillsPanel() {
             <ul className="flex flex-wrap gap-2">
               {group.items.map((s) => {
                 const isHovered = hoveredSkill === s;
+                const isSelected = selectedSkill === s;
+                const isActive = isHovered || isSelected;
                 const projectsUsing = skillToProjects[s]?.length ?? 0;
                 return (
                   <li key={s}>
@@ -64,8 +78,9 @@ export function SkillsPanel() {
                       onMouseLeave={() => setHoveredSkill(null)}
                       onFocus={() => setHoveredSkill(s)}
                       onBlur={() => setHoveredSkill(null)}
+                      onClick={() => handleSkillClick(s)}
                       className={`group relative rounded-sm border px-3 py-1.5 font-mono text-xs transition-all ${
-                        isHovered
+                        isActive
                           ? "border-amber bg-amber/10 text-amber"
                           : "border-white/10 bg-panel-raised text-text-muted hover:border-white/25 hover:text-text"
                       }`}
@@ -80,14 +95,14 @@ export function SkillsPanel() {
                       <span className="flex items-center gap-2">
                         <span
                           className={`h-1 w-1 rounded-full transition-colors ${
-                            isHovered ? "bg-amber" : "bg-cyan/60"
+                            isActive ? "bg-amber" : "bg-cyan/60"
                           }`}
                         />
                         {s}
                         {projectsUsing > 0 && (
                           <span
                             className={`ml-1 text-[10px] ${
-                              isHovered ? "text-amber" : "text-text-muted/60"
+                              isActive ? "text-amber" : "text-text-muted/60"
                             }`}
                           >
                             ×{projectsUsing}
@@ -103,14 +118,16 @@ export function SkillsPanel() {
         ))}
       </div>
 
-      {hoveredSkill && (
+      {(hoveredSkill || selectedSkill) && (
         <div
           role="status"
           aria-live="polite"
           className="pointer-events-none fixed bottom-6 left-1/2 z-30 -translate-x-1/2 rounded-sm border border-amber/40 bg-panel-raised/95 px-4 py-2 font-mono text-xs text-amber backdrop-blur hidden md:block"
         >
-          <span className="text-text-muted">{">"} highlighting projects using</span>{" "}
-          {hoveredSkill}
+          <span className="text-text-muted">
+            {hoveredSkill ? "> highlighting projects using" : "> selected skill filter:"}
+          </span>{" "}
+          {hoveredSkill || selectedSkill}
         </div>
       )}
     </section>

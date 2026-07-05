@@ -20,7 +20,7 @@ export type EarlierRole = {
 
 export const primaryRole: PrimaryRole = {
   id: "bristlecone-sap-analytics",
-  title: "Associate — SAP Analytics",
+  title: "Associate - SAP Analytics",
   company: "Bristlecone",
   location: "Mumbai (Hybrid)",
   dates: "Jul 2025 – Present",
@@ -50,7 +50,7 @@ export const earlierRoles: EarlierRole[] = [
     company: "GeeksforGeeks",
     dates: "Apr – Sep 2024 · Remote",
     summary:
-      "8 published articles on Ruby on Rails and statistics — 33,000+ total views.",
+      "8 published articles on Ruby on Rails and statistics, 33,000+ total views.",
   },
   {
     id: "goodgamenation",
@@ -64,7 +64,7 @@ export const earlierRoles: EarlierRole[] = [
     id: "ypp",
     title: "Project Intern",
     company: "YPP Technologies",
-    dates: "Dec 2022 – Jan 2023",
+    dates: "Dec 2022 – Jan 2023 · Onsite",
     summary: "Figma and web design.",
   },
   {
@@ -85,9 +85,9 @@ export const education = {
 };
 
 export const achievements = [
-  "1st Prize, Data Science using AI — Techblitz 2024 (NSDC-VCET)",
-  "Finalist, LLM using AI — Techblitz 2025 (NSDC-VCET)",
-  "Finalist — HackScript 6.0 (A.P. Shah Institute of Technology)",
+  "1st Prize, Data Science using AI | Techblitz 2024 (NSDC-VCET)",
+  "Finalist, LLM using AI | Techblitz 2025 (NSDC-VCET)",
+  "Finalist | HackScript 6.0 (A.P. Shah Institute of Technology)",
 ];
 
 export const certifications = [
@@ -103,5 +103,4 @@ export const contact = {
   email: "mukeshprajapat3093@gmail.com",
   github: "https://github.com/meleo2125",
   linkedin: "https://www.linkedin.com/in/mukesh-prajapat-/",
-  instagram: "https://instagram.com/",
 };

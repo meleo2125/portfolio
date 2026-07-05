@@ -14,7 +14,7 @@ export function ProjectGrid() {
       <SectionHeader
         code="MOD-04 · PROJECTS"
         title="Projects"
-        description="Five flagship builds. Each card follows the same four-beat structure — Problem, Decision, Build, Outcome — so you can pattern-match across them without re-learning a format."
+        description="Five flagship builds. Each card follows the same four-beat structure: Problem, Decision, Build, and Outcome."
       />
 
       <div className="flex flex-col gap-4">

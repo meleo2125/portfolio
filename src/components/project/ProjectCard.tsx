@@ -26,10 +26,12 @@ export function ProjectCard({
   index: number;
 }) {
   const [open, setOpen] = useState(false);
-  const { hoveredSkill } = useCrossLink();
+  const { hoveredSkill, selectedSkill } = useCrossLink();
 
   const highlighted = hoveredSkill
     ? project.stack.includes(hoveredSkill)
+    : selectedSkill
+    ? project.stack.includes(selectedSkill)
     : false;
 
   return (
@@ -116,7 +118,7 @@ export function ProjectCard({
                     <span
                       key={s}
                       className={`rounded-sm border px-2 py-1 font-mono text-[11px] transition-colors ${
-                        hoveredSkill === s
+                        hoveredSkill === s || selectedSkill === s
                           ? "border-amber bg-amber/10 text-amber"
                           : "border-white/10 bg-panel-raised text-text-muted"
                       }`}

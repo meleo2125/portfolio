@@ -23,7 +23,6 @@ export function ExperienceLog() {
       <SectionHeader
         code="MOD-03 · DEPLOYMENT LOG"
         title="Experience"
-        description="Most-recent-first, styled as system log entries. The primary role gets the full readout; earlier deployments are collapsed to keep the log scannable."
       />
 
       {/* Primary role */}
