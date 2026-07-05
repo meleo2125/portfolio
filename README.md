@@ -40,6 +40,9 @@ src/
   components/
     layout/              # Layout structural elements (NavRail, Footer)
     hero/                # Hero layout, canvas node graph, telemetry widgets
+    loader/              # First-visit boot experience and session-aware loading gate
+      BootGate.tsx       # Shows the loader once per browser session using sessionStorage
+      BootLoader.tsx     # Telemetry-style loading animation with animated progress and status messages
     sections/            # Modular sections (About, Skills, Experience, Projects, Credentials, Contact)
     project/             # Project cards with expandable summaries
     shared/              # Shared design components (Headers, readouts, indicators)
@@ -56,6 +59,11 @@ src/
 - **Skill Filtering & Highlights:** Hovering or clicking a skill highlights matching projects and auto-scrolls to the Projects section.
 - **In-Place Details:** Project cards expand within the grid to preserve browsing context.
 - **Keyboard Navigation:** Shortcuts (e.g. `g` followed by a section initial) provide high accessibility.
+
+## Loader Experience
+
+- **BootGate:** Guards the initial boot sequence so returning visitors skip the loader and the page transitions smoothly.
+- **BootLoader:** Renders a custom systems-style loading screen with telemetry-inspired messaging, progress feedback, and a cinematic reveal.
 
 ## Accessibility Features
 
