@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Base */
+  --color-bg: #0B0E13;
+  --color-panel: #141922;
+  --color-panel-raised: #1B212C;
+  --color-text: #EDEAE3;
+  --color-text-muted: #9BA3AF;
+
+  /* Accents */
+  --color-accent-amber: #E8A33D;
+  --color-accent-cyan: #3F8FA6;
+  --color-grid-line: #5A6472;
+
+  /* Typography */
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* Type scale (1.25 ratio) */
+  --text-xs: 0.75rem;
+  --text-sm: 0.9rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.563rem;
+  --text-2xl: 1.953rem;
+  --text-3xl: 2.441rem;
+  --text-4xl: 3.052rem;
+
+  /* Spacing (8px base) */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+  --space-12: 6rem;
+
+  /* Radius */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+
+  /* Motion */
+  --ease-panel: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 600ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Focus rings — visible & accessible */
+:focus-visible {
+  outline: 2px solid var(--color-accent-amber);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Scrollbar (WebKit) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #232a37;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2f3847;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-accent-amber);
+  color: var(--color-bg);
+}
+
+/* Skip-to-content link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  background: var(--color-accent-amber);
+  color: var(--color-bg);
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  z-index: 100;
+  border-radius: var(--radius-sm);
+  transition: top var(--duration-fast) var(--ease-panel);
+}
+.skip-link:focus {
+  top: 8px;
+}
+
+/* Ambient grid backdrop */
+.grid-backdrop {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.06;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+}
+
+/* Scanline overlay */
+.scanlines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(255, 255, 255, 0.015) 2px,
+    rgba(255, 255, 255, 0.015) 3px
+  );
+  opacity: 0.4;
+  z-index: 1;
+}
+
+/* Panel — the core surface treatment */
+.panel {
+  background: var(--color-panel);
+  border: 1px solid rgba(90, 100, 114, 0.25);
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.panel-raised {
+  background: var(--color-panel-raised);
+  border: 1px solid rgba(90, 100, 114, 0.35);
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+/* Corner marks on panels (control-room aesthetic) */
+.panel-corners::before,
+.panel-corners::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--color-accent-cyan);
+  border-style: solid;
+  opacity: 0.6;
+}
+.panel-corners::before {
+  top: -1px;
+  left: -1px;
+  border-width: 1px 0 0 1px;
+}
+.panel-corners::after {
+  bottom: -1px;
+  right: -1px;
+  border-width: 0 1px 1px 0;
+}
+
+/* Signal-line pulse */
+@keyframes signal-pulse {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+
+/* Boot flicker */
+@keyframes boot-flicker {
+  0% { opacity: 0; }
+  10% { opacity: 0.4; }
+  15% { opacity: 0.1; }
+  30% { opacity: 0.8; }
+  40% { opacity: 0.3; }
+  55% { opacity: 1; }
+  70% { opacity: 0.6; }
+  100% { opacity: 1; }
+}
+
+.boot-flicker {
+  animation: boot-flicker 700ms var(--ease-panel) both;
+}
+
+/* Caret blink for terminal prompt */
+@keyframes caret-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.caret {
+  display: inline-block;
+  width: 0.6ch;
+  background: var(--color-accent-amber);
+  height: 1em;
+  vertical-align: -0.15em;
+  margin-left: 2px;
+  animation: caret-blink 1s steps(1) infinite;
+}
+
+/* Utility: mono label */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* Highlighted skill cross-linking pulse */
+@keyframes cross-highlight {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(232, 163, 61, 0);
+    border-color: rgba(232, 163, 61, 0.9);
+  }
+  50% {
+    box-shadow: 0 0 0 4px rgba(232, 163, 61, 0.15);
+    border-color: rgba(232, 163, 61, 1);
+  }
+}
+.cross-highlight {
+  animation: cross-highlight 1.4s ease-in-out infinite;
+}
+
+/* Reduced-motion respect */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
