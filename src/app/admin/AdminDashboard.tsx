@@ -256,6 +256,21 @@ export function AdminDashboard({ initialProjects, initialSiteContent }: AdminDas
       desc: "Grades readout value.",
       type: "input",
     },
+    hero_stat_reduction: {
+      title: "Hero Stat: Effort Reduction",
+      desc: "Effort reduction percentage (e.g. 60–90%).",
+      type: "input",
+    },
+    hero_stat_cgpi: {
+      title: "Hero Stat: CGPI",
+      desc: "CGPI score displayed in Hero and Education logs (e.g. 9.32 or 9.3).",
+      type: "input",
+    },
+    hero_stat_shipped: {
+      title: "Hero Stat: Shipped Apps",
+      desc: "Number of shipped production apps (e.g. 5+).",
+      type: "input",
+    },
   };
 
   return (

@@ -22,10 +22,10 @@ export default async function Home() {
       <KeyboardHintOverlay />
 
       <main id="main" className="relative">
-        <Hero />
+        <Hero content={siteContent} />
         <About />
         <SkillsPanel projects={projects} />
-        <ExperienceLog />
+        <ExperienceLog content={siteContent} />
         <ProjectGrid projects={projects} />
         <Credentials />
         <ContactPrompt />

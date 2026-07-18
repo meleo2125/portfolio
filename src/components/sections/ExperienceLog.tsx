@@ -10,7 +10,7 @@ import {
   education,
 } from "@/lib/data/experience";
 
-export function ExperienceLog() {
+export function ExperienceLog({ content = {} }: { content?: Record<string, string> }) {
   const [primaryOpen, setPrimaryOpen] = useState(true);
   const [earlierOpen, setEarlierOpen] = useState(false);
 
@@ -201,7 +201,7 @@ export function ExperienceLog() {
           </div>
           <p className="mt-1 text-sm text-text-muted">
             {education.institution} · CGPI{" "}
-            <span className="text-amber">{education.cgpi}</span>
+            <span className="text-amber">{content.hero_stat_cgpi || education.cgpi}</span>
           </p>
         </div>
       </motion.div>

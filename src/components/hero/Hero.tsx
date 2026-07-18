@@ -6,7 +6,7 @@ import { ArrowRight, FileText } from "lucide-react";
 import { TelemetryField } from "./TelemetryField";
 import { NodeGraph } from "./NodeGraph";
 
-export function Hero() {
+export function Hero({ content = {} }: { content?: Record<string, string> }) {
   const [booted, setBooted] = useState(false);
 
   useEffect(() => {
@@ -105,9 +105,9 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="mt-14 grid grid-cols-3 gap-4 border-t border-white/5 pt-6 md:max-w-lg"
           >
-            <StatBlock label="Reduction" value="60–90%" caption="manual effort" />
-            <StatBlock label="CGPI" value="9.32" caption="B.E. CSE + DS" />
-            <StatBlock label="Shipped" value="5+" caption="production apps" />
+            <StatBlock label="Reduction" value={content.hero_stat_reduction || "60–90%"} caption="manual effort" />
+            <StatBlock label="CGPI" value={content.hero_stat_cgpi || "9.32"} caption="B.E. CSE + DS" />
+            <StatBlock label="Shipped" value={content.hero_stat_shipped || "5+"} caption="production apps" />
           </motion.div>
         </div>
 

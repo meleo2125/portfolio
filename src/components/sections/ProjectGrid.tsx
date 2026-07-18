@@ -14,7 +14,7 @@ export function ProjectGrid({ projects }: { projects: Project[] }) {
       <SectionHeader
         code="MOD-04 · PROJECTS"
         title="Projects"
-        description="Five flagship builds. Each card follows the same four-beat structure: Problem, Decision, Build, and Outcome."
+        description={`${projects.length} flagship build${projects.length !== 1 ? "s" : ""}. Each card follows the same four-beat structure: Problem, Decision, Build, and Outcome.`}
       />
 
       <div className="flex flex-col gap-4">
