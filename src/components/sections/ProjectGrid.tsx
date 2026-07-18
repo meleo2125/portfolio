@@ -1,10 +1,10 @@
 "use client";
 
 import { SectionHeader } from "@/components/shared/SectionHeader";
-import { projects } from "@/lib/data/projects";
 import { ProjectCard } from "@/components/project/ProjectCard";
+import type { Project } from "@/lib/data";
 
-export function ProjectGrid() {
+export function ProjectGrid({ projects }: { projects: Project[] }) {
   return (
     <section
       id="projects"

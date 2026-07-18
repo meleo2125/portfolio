@@ -4,10 +4,10 @@ import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { skills } from "@/lib/data/skills";
-import { projects } from "@/lib/data/projects";
 import { useCrossLink } from "@/lib/animation/useCrossLink";
+import type { Project } from "@/lib/data";
 
-export function SkillsPanel() {
+export function SkillsPanel({ projects }: { projects: Project[] }) {
   const { hoveredSkill, setHoveredSkill, selectedSkill, setSelectedSkill } = useCrossLink();
 
   // For each skill name, which projects use it
@@ -20,7 +20,7 @@ export function SkillsPanel() {
       });
     });
     return map;
-  }, []);
+  }, [projects]);
 
   const handleSkillClick = (s: string) => {
     if (selectedSkill === s) {

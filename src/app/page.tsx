@@ -9,8 +9,12 @@ import { Credentials } from "@/components/sections/Credentials";
 import { ContactPrompt } from "@/components/sections/ContactPrompt";
 import { SignalLine } from "@/components/shared/SignalLine";
 import { KeyboardHintOverlay } from "@/components/shared/KeyboardHintOverlay";
+import { getProjects, getSiteContent } from "@/lib/data";
 
-export default function Home() {
+export default async function Home() {
+  const projects = await getProjects();
+  const siteContent = await getSiteContent();
+
   return (
     <>
       <NavRail />
@@ -20,9 +24,9 @@ export default function Home() {
       <main id="main" className="relative">
         <Hero />
         <About />
-        <SkillsPanel />
+        <SkillsPanel projects={projects} />
         <ExperienceLog />
-        <ProjectGrid />
+        <ProjectGrid projects={projects} />
         <Credentials />
         <ContactPrompt />
       </main>

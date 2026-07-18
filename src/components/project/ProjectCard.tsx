@@ -8,7 +8,7 @@ import {
   Github,
   Activity,
 } from "lucide-react";
-import type { Project } from "@/lib/data/projects";
+import type { Project } from "@/lib/data";
 import { useCrossLink } from "@/lib/animation/useCrossLink";
 
 const statusColor: Record<Project["status"], string> = {

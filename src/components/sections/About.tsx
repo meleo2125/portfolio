@@ -1,10 +1,27 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/shared/SectionHeader";
 import { StatusReadout } from "@/components/shared/StatusReadout";
+import { getSiteContent } from "@/lib/data";
+import { AboutIntroClient } from "./AboutIntroClient";
 
-export function About() {
+export async function About() {
+  const content = await getSiteContent();
+
+  const p1 = content.about_p1 || "";
+  const p2 = content.about_p2 || "";
+  const p3 = content.about_p3 || "";
+  const p4 = content.about_p4 || "";
+
+  const fields = [
+    { label: "ROLE", value: content.status_role || "" },
+    { label: "BASED IN", value: content.status_based_in || "" },
+    { label: "EDUCATION", value: content.status_education || "" },
+    {
+      label: "FOCUS",
+      value: content.status_focus || "",
+    },
+    { label: "CGPI", value: content.status_cgpi || "" },
+  ];
+
   return (
     <section
       id="about"
@@ -14,54 +31,17 @@ export function About() {
       <SectionHeader code="MOD-01 · ABOUT" title="About" />
 
       <div className="grid gap-8 md:grid-cols-12 md:gap-10">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="md:col-span-7"
-        >
+        <AboutIntroClient>
           <div className="space-y-5 text-[15px] leading-relaxed text-text-muted md:text-base">
-            <p>
-              I thrive on solving real-world problems through technology. My
-              background combines a computer science foundation with hands-on
-              experience in AI, machine learning, and modern web development.
-            </p>
-            <p>
-              Currently an{" "}
-              <span className="text-text">Associate in SAP Analytics at Bristlecone</span>,
-              where I build automation that has cut manual migration effort by{" "}
-              <span className="text-amber">60–90%</span> across projects.
-              Outside of that, I build my own things.
-            </p>
-            <p>
-              <span className="text-text">
-                B.E. in Computer Science Engineering &amp; Data Science
-              </span>{" "}
-              (Honours in AIML), Vidyavardhini&rsquo;s College of Engineering and
-              Technology — CGPI <span className="text-amber">9.32</span>.
-            </p>
-            <p className="text-sm text-text-muted/80">
-              Range beyond engineering: Students&rsquo; Council Creative Head · E-Cell
-              Treasurer · CSI Joint Secretary · DataCite Newsletter Creative
-              Director.
-            </p>
+            <p dangerouslySetInnerHTML={{ __html: p1 }} />
+            <p dangerouslySetInnerHTML={{ __html: p2 }} />
+            <p dangerouslySetInnerHTML={{ __html: p3 }} />
+            <p className="text-sm text-text-muted/80" dangerouslySetInnerHTML={{ __html: p4 }} />
           </div>
-        </motion.div>
+        </AboutIntroClient>
 
         <div className="md:col-span-5">
-          <StatusReadout
-            fields={[
-              { label: "ROLE", value: "Associate, SAP Analytics @ Bristlecone" },
-              { label: "BASED IN", value: "Mumbai, India" },
-              { label: "EDUCATION", value: "B.E. CSE + DS · Hons. AIML" },
-              {
-                label: "FOCUS",
-                value: "AI automation + independent product builds",
-              },
-              { label: "CGPI", value: "9.32 / 10" },
-            ]}
-          />
+          <StatusReadout fields={fields} />
         </div>
       </div>
     </section>
