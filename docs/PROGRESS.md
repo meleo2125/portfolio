@@ -27,8 +27,12 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] 11 raw concepts with originality / risk / readability notes → docs/DESIGN_DIRECTIONS.md
 - [x] Scoring; 8 discarded with reasons
 - [x] Top 3 mocks: docs/design/concepts/a-mapping.html, b-strata.html, c-lineage.html (light + dark, 375/768/1440 checked)
-- [x] Recommendation (A. The Mapping) + main risk of each
+- [x] Recommendation (v1: A. The Mapping) + main risk of each
+- [x] Owner feedback on v1 (too SAP-heavy up front, too plain) → docs/DESIGN_REFERENCES.md (what the best sites do well)
+- [x] v2 mocks: a-migration.html, b-patchbay.html, c-strata.html (light + dark, 375/768/1440 checked); recommendation B
+- [x] Owner replaced the IPR project with Kharcha (CONTENT.md); resume-update prompt written for the owner
 - [ ] Owner picks a direction
+- [ ] Owner approves the plain-language glosses (DESIGN_DIRECTIONS.md §5) and supplies Kharcha demo screenshots
 - [ ] docs/DESIGN.md filled; tokens in code; /design-system preview page
 
 ## Phase 3 — IA and copy · not started

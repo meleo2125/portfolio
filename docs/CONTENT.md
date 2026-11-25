@@ -47,11 +47,15 @@ Ruby on Rails is allowed ONLY here, as the topic of these articles (owner decisi
 - Live demo: https://thelystapp.vercel.app
 - GitHub: https://github.com/meleo2125/thelystapp
 
-### Gamified IPR Learning Platform
-- Stack: React Native, Node.js, Express.js, MongoDB, JWT, Gemini API, AWS S3
-- Built a cross-platform mobile app teaching Intellectual Property Rights through gamified chapters and mini-games, integrating the Gemini API to personalize learning paths from user progress data.
-- Drove an average quiz score of 17.87/20 vs. 6.53/20 for traditional learning (80% of users scoring perfectly) and a 4.28/5 user rating, backed by JWT auth and AWS S3-based media storage.
-- GitHub: https://github.com/meleo2125/ipr-app
+### Kharcha: Private Money Tracking and Bill-Splitting App (Android)
+Added 2026-11-25 (owner decision), replacing the Gamified IPR Learning Platform on the site and the resume. Wording drafted from the public repo's docs and code; the resume uses the same lines.
+- Stack: Kotlin, Jetpack Compose, Room, SQLCipher, Hilt, WorkManager
+- Built a local-first Android app that combines personal money tracking with group bill splitting, turning bank and UPI SMS alerts into reviewable transactions through a unit-tested parser and background capture with WorkManager, deduplicated by UPI reference and message hash.
+- Implemented full group splitting (any payer; equal, exact, percentage and share splits; simplified debts and settle-up) on a SQLCipher-encrypted Room database, with AES-GCM encrypted backups and CSV/JSON import and export.
+- Plain-language line for the site: An Android app for money tracking and bill splitting in one place. Bank and UPI SMS alerts become transactions, any of them can be split with a group, and nothing leaves the phone.
+- Status: in active development, installed by sideloading (not on the Play Store). No live demo.
+- GitHub: https://github.com/meleo2125/kharcha
+- Images: none yet. The owner's phone holds real bank data, so screens must come from demo data only. Needed from the owner.
 
 ## Education
 Bachelor of Engineering, Computer Science Engineering and Data Science (Honours in AI/ML)
@@ -82,6 +86,7 @@ Vidyavardhini's College of Engineering and Technology, Mumbai, India · December
 - DaisyUI
 - Three.js
 - The Virtual Herbal Garden project
+- The Gamified IPR Learning Platform project (owner decision 2026-11-25; replaced by Kharcha)
 - Any "60-90%" figure (the earlier Associate period is left off the site entirely)
 - Any phone number
 

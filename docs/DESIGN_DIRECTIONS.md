@@ -196,3 +196,40 @@ Mock: `docs/design/concepts/c-lineage.html` (hero with claims + Work at Bristlec
 One addition worth considering, which doesn't change the direction: borrow C's claim-to-source links (no lines) for the hero numbers in A, so "up to 70%" links to the Bristlecone line it comes from.
 
 Waiting for the owner's choice. After the choice: docs/DESIGN.md, tokens in code, and the /design-system page (Phase 2 step 3 of the original brief).
+
+---
+
+## 5. Rework after owner feedback (v2, 2026-11-25)
+Owner feedback on v1: too much SAP up front ("below my name, in experience"), which people outside SAP will not understand; and the three directions looked plain and dull next to the sites surveyed. What the best of those sites do well is in DESIGN_REFERENCES.md. The v1 mocks stay in the repo as history. On the same day the owner replaced the Gamified IPR Learning Platform with Kharcha (CONTENT.md).
+
+### Copy framing (applies to every direction)
+- The hero says what he builds in plain words: "Software engineer building AI and automation tools for enterprise data platforms." No SAP product names in the hero.
+- SAP names appear first in the work section, each with a short plain gloss: SAP BW "a data warehouse", SAP Datasphere "a cloud data platform", SAP BusinessObjects "enterprise reporting", plus "the systems many large companies run their data and reporting on". **These glosses are not in CONTENT.md. They need the owner's approval in Phase 3.**
+- Mock B's hero uses general names for the systems ("Data warehouse", "Cloud data platform", "Business reporting") and the gloss "moves it to a new platform". Same approval applies.
+- Each mock shows real project imagery: TheLyst (captured from its public live demo). Kharcha has a placeholder until the owner supplies screens made with demo data (his phone holds real bank data).
+
+### A. Migration (docs/design/concepts/a-migration.html)
+- **Huge thing:** the name, full width, which widens once on load from condensed to wide (Archivo's width axis): data moving from source to target.
+- **Colour:** an ultramarine field for the whole first screen; night background for projects.
+- **Signature:** source → target mapping rows, used for the 70% claim in the hero and for the three tools in the work section.
+- **Type:** Archivo (wdth 62–125). **Contrast:** white on field 7.7:1, ink on paper 16.8:1.
+- **Main risk:** a giant name on a colour field is a known move among the strongest sites. The colour and the width animation make it ours, but it is the least surprising of the three.
+
+### B. Patch bay (docs/design/concepts/b-patchbay.html)
+- **Huge thing:** three thick cables that plug "where company data lives" into "what I built for it". They cross because the pairs are real (warehouse → migration tool, cloud data platform → AI assistant, reporting → landscape platform).
+- **Colour:** a yellow field for the work section. Cable colours carry through: each tool title in the work section is plugged by the cable that ends at it in the hero.
+- **Motion:** the cables plug in once on load. Hovering a system or tool lights its cable and dims the others. No motion with reduced motion.
+- **Type:** Anybody (width axis, condensed heavy for headings) + Hanken Grotesk. **Contrast:** ink on paper 15.7:1, ink on yellow 10.4:1. Cables are decorative and never carry text.
+- **Phone:** each pair stacks with a short cable that drops from the system to its tool.
+- **Without JavaScript:** the bay is a plain list of pairs; the cables are drawn by a small script.
+- **Main risk:** the cables must stay accurate. They show only the three pairs from the resume line and nothing about how the tools work inside. "Patch bay" may read as audio gear to some people; nothing on the page names the metaphor.
+
+### C. Strata (docs/design/concepts/c-strata.html)
+- **Huge thing:** the first screen is a cross-section of five coloured layers. The top layer holds the name. The four below are the navigation (Work, Projects, Skills, Background), each with a one-line preview. Every section below is one of those layers, from summary at the top to detail at the bottom.
+- **Colour:** sunset layers #FFD84D, #FFA62B, #F25C3B, #8E2C48, #2E1531 with uneven sediment edges. Dark mode uses the same layers at dusk, with a yellow name.
+- **Motion:** the layers settle into place once on load.
+- **Type:** Familjen Grotesk + Atkinson Hyperlegible Next. **Contrast:** dark ink on the three warm layers 12.6 / 8.9 / 5.3:1, light text on the two deep ones 7.3 / 15.0:1.
+- **Main risk:** sunset stripes can read as a 1970s retro poster. The red layer is the weakest for contrast (5.3:1, dark text only). The layer idea is the least explained of the three; it looks good without saying anything about the work.
+
+### Recommendation (v2)
+**B. Patch bay.** It is the only one whose signature says what he does, in plain words, before anyone reads a paragraph: these systems, plugged into these tools. It meets every principle in DESIGN_REFERENCES.md: one huge thing, a committed colour field, real imagery, one motion moment, a hard colour switch, plain words. A is the safest to build. C is the most striking first screen but says the least.

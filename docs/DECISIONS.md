@@ -4,6 +4,12 @@ Newest first. Each entry: what, why, status. "Pending" entries need the owner.
 
 ## 2026-11-25 — Phase 2
 
+**D-014 · Kharcha replaces the IPR project — done (owner)**
+Owner decision 2026-11-25: remove the Gamified IPR Learning Platform from the site and the resume; add Kharcha (github.com/meleo2125/kharcha). Wording drafted from that public repo's docs and code and checked against the code (split methods, debt simplification, WorkManager capture, AES-GCM backups); no metrics, because it has none. The owner's phone holds real bank data, so Kharcha imagery must come from demo data. Old-site code (NodeGraph, migrate-projects) still mentions IPR and is replaced in Phase 4.
+
+**D-013 · Design directions reworked (v2) — pending (owner)**
+Owner feedback: v1 put too much SAP below the name and looked plain. Studied what the strongest surveyed sites do well (DESIGN_REFERENCES.md) and rebuilt three bolder directions with a plain-language hero: A. Migration, B. Patch bay (recommended), C. Strata. New fonts, all checked on Google Fonts: Anybody (wdth 50–150), Hanken Grotesk. TheLyst images captured from its public demo into docs/design/concepts/img/. Supersedes the v1 recommendation in D-012.
+
 **D-012 · Design directions proposed — pending (owner)**
 Survey of 76 live portfolios (method in DESIGN_CLICHES.md). 11 concepts drawn from SAP data work, scored on originality, truth, 10-second readability, perf/a11y cost and build ease; anything with ≤2 on originality or readability discarded. Top 3 mocked as static HTML with real CONTENT.md text only: A. The Mapping (recommended), B. Strata, C. Lineage. All typefaces confirmed available on Google Fonts with the axes used (Archivo wdth 62–125; Familjen Grotesk; Atkinson Hyperlegible Next; Funnel Display/Sans), so next/font can self-host them. Mocks load fonts from the Google Fonts CDN for preview only. Other people's sites were screenshotted for the survey but are not committed.
 

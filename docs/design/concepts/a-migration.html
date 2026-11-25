@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept A: Migration. Mukesh Prajapat</title>
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#2633E8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  /* Concept A (v2): Migration.
+     One huge thing: the name, which migrates from condensed to full width once on load.
+     One committed colour: an ultramarine field. Signature: source -> target mapping rows. */
+  :root {
+    --field: #2633E8;  --on-field: #FFFFFF; --on-field-soft: #DADDFF;   /* 7.7 / 5.8 :1 */
+    --paper: #F3F4FF;  --ink: #0E1033;      --muted: #4A4E6E;           /* 16.8 / 7.4 :1 */
+    --link: #2633E8;   --night: #0E1033;    --on-night: #E8EAFF;       /* link 7.1:1 */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --field: #1B24A8; --paper: #0C0F2E; --ink: #E8EAFF; --muted: #A9ADD6; --link: #9AA3FF;
+            --night: #06081C; --on-night: #E8EAFF; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink);
+         font-family: "Archivo", system-ui, sans-serif; font-variation-settings: "wdth" 100;
+         font-size: 1.0625rem; line-height: 1.55; font-variant-numeric: tabular-nums; }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--field); color: #fff; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .pad { padding-inline: clamp(1.25rem, 4.5vw, 4.5rem); }
+
+  /* ---------- Hero: the colour field ---------- */
+  .hero { background: var(--field); color: var(--on-field); min-height: 100svh; display: grid;
+          grid-template-rows: auto 1fr auto auto; padding-bottom: clamp(2rem, 6vh, 4rem); overflow: hidden; }
+  .top { display: flex; justify-content: space-between; align-items: center; padding-block: 1.25rem; font-weight: 560; }
+  .top ul { display: flex; gap: clamp(1rem, 3vw, 2.25rem); list-style: none; margin: 0; padding: 0; }
+  .top a { text-decoration: none; } .top a:hover { text-decoration: underline; }
+
+  .name { align-self: end; margin: 0; font-weight: 820; line-height: 0.8; letter-spacing: -0.04em;
+          font-size: clamp(3.4rem, 15.5vw, 17rem); font-variation-settings: "wdth" 125; }
+  .name span { display: block; white-space: nowrap; }
+  .name span + span { padding-left: 0.42em; }          /* second line steps right: the "target" side */
+
+  @media (prefers-reduced-motion: no-preference) {
+    .name span { animation: migrate 1300ms cubic-bezier(0.16, 1, 0.3, 1) 120ms both; }
+    .name span + span { animation-delay: 260ms; }
+    @keyframes migrate {
+      from { font-variation-settings: "wdth" 62; letter-spacing: -0.02em; }
+      to   { font-variation-settings: "wdth" 125; letter-spacing: -0.04em; }
+    }
+  }
+
+  .claim { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1.5rem clamp(2rem, 6vw, 6rem);
+           margin-top: clamp(2rem, 5vh, 3.5rem); align-items: end; }
+  .claim .what { margin: 0; font-size: clamp(1.45rem, 2.7vw, 2.35rem); line-height: 1.18; font-weight: 520;
+                 font-variation-settings: "wdth" 104; max-width: 26ch; letter-spacing: -0.01em; }
+  .claim .side { color: var(--on-field-soft); }
+  .claim .side p { margin: 0 0 1rem; }
+  .contact { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.35rem; color: var(--on-field); font-weight: 600; font-size: 1.125rem; }
+
+  /* Mapping row, the signature device */
+  .map { display: grid; grid-template-columns: minmax(0, 1fr) clamp(4rem, 12vw, 11rem) minmax(0, 1fr); align-items: center; column-gap: 1.25rem; }
+  .src { justify-self: end; text-align: right; font-variation-settings: "wdth" 62; font-weight: 600; word-spacing: 0.14em; }
+  .tgt { font-variation-settings: "wdth" 120; font-weight: 640; }
+  .src small, .tgt small { display: block; font-size: 0.5em; font-weight: 450; font-variation-settings: "wdth" 100; letter-spacing: 0; word-spacing: normal; margin-top: 0.35em; opacity: 0.85; }
+  .conn { position: relative; height: 3px; background: currentColor; transform-origin: left center; }
+  .conn::after { content: ""; position: absolute; left: 50%; top: 50%; width: 0.9rem; height: 0.9rem; border: 3px solid currentColor;
+                 background: var(--bg, var(--paper)); transform: translate(-50%, -50%) rotate(45deg); }
+  .conn::before { content: ""; position: absolute; right: -2px; top: 50%; width: 9px; height: 9px; border-radius: 50%; background: currentColor; transform: translateY(-50%); }
+
+  .hero .map { --bg: var(--field); margin-top: clamp(2.25rem, 5vh, 3.5rem); padding-top: clamp(1.5rem, 4vh, 2.25rem);
+               border-top: 1px solid rgba(255,255,255,0.35); font-size: clamp(1.35rem, 2.6vw, 2.25rem); line-height: 1.1; }
+  @media (prefers-reduced-motion: no-preference) {
+    .hero .conn { animation: draw 800ms cubic-bezier(0.16, 1, 0.3, 1) 1100ms both; }
+    .hero .conn::after, .hero .conn::before { animation: fade 300ms ease-out 1700ms both; }
+    @keyframes draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+  }
+
+  /* ---------- Work ---------- */
+  .work { padding-block: clamp(4rem, 12vh, 8rem); }
+  .work h2, .projects h2 { font-size: clamp(2.25rem, 6vw, 5rem); line-height: 0.95; letter-spacing: -0.035em; font-weight: 780;
+                           font-variation-settings: "wdth" 118; margin: 0 0 1.25rem; }
+  .intro { max-width: 60ch; font-size: 1.1875rem; color: var(--muted); margin: 0 0 clamp(2.5rem, 7vh, 4.5rem); }
+  .intro strong { color: var(--ink); font-weight: 600; }
+  .rows { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(2rem, 6vh, 3.25rem); color: var(--ink); }
+  .rows .map { font-size: clamp(1.5rem, 3.6vw, 3rem); line-height: 1.02; }
+  .rows .conn { color: var(--link); }
+  .rows .tgt small, .rows .src small { color: var(--muted); opacity: 1; }
+  .effect { margin: clamp(3rem, 8vh, 5rem) 0 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1.5rem 3rem; max-width: 72rem; }
+  .effect h3 { font-size: 1rem; margin: 0 0 0.3rem; font-weight: 680; }
+  .effect p { margin: 0; color: var(--muted); }
+
+  /* ---------- Projects: hard switch to night, big imagery ---------- */
+  .projects { background: var(--night); color: var(--on-night); padding-block: clamp(4rem, 12vh, 8rem); }
+  .project { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; margin-top: clamp(2.5rem, 6vh, 4rem); }
+  .project + .project { margin-top: clamp(6rem, 14vh, 9rem); }
+  .shot { position: relative; margin: 0; }
+  .shot img { display: block; width: 100%; height: auto; border-radius: 10px; box-shadow: 0 30px 60px -20px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08); }
+  .shot .phone { position: absolute; width: 24%; right: -4%; bottom: -12%; border-radius: 18px; box-shadow: 0 24px 48px -12px rgba(0,0,0,0.7), 0 0 0 6px #1a1d3a; }
+  .project h3 { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 0.9; margin: 0 0 1rem; font-weight: 800; letter-spacing: -0.04em; font-variation-settings: "wdth" 112; }
+  .project p { margin: 0 0 1rem; color: #C3C6EA; }
+  .project .stack { font-variation-settings: "wdth" 75; font-weight: 560; color: var(--on-night); }
+  .project .links { display: flex; gap: 1.5rem; font-weight: 600; }
+  .placeholder { aspect-ratio: 16 / 10; border: 2px dashed rgba(232,234,255,0.35); border-radius: 10px; display: grid; place-items: center; color: #A9ADD6; text-align: center; padding: 1rem; }
+
+  /* ---------- Phone ---------- */
+  @media (max-width: 760px) {
+    .claim { grid-template-columns: 1fr; }
+    .map { grid-template-columns: 1fr; row-gap: 0.5rem; }
+    .src { justify-self: start; text-align: left; }
+    .conn { width: 3px; height: 2rem; margin-left: 0.7rem; transform-origin: center top; }
+    .conn::before { right: auto; left: 50%; top: auto; bottom: -2px; transform: translateX(-50%); }
+    @media (prefers-reduced-motion: no-preference) { @keyframes draw { from { transform: scaleY(0); } to { transform: scaleY(1); } } }
+    .project { grid-template-columns: 1fr; }
+    .shot .phone { width: 30%; right: 2%; bottom: -10%; }
+    .top ul { gap: 0.9rem; font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+<header class="hero pad">
+  <nav class="top" aria-label="Sections">
+    <ul><li><a href="#work">Work</a></li><li><a href="#projects">Projects</a></li><li><a href="#">Skills</a></li><li><a href="#contact">Contact</a></li></ul>
+    <a href="/resume.pdf">Resume</a>
+  </nav>
+
+  <h1 class="name"><span>Mukesh</span><span>Prajapat</span></h1>
+
+  <div class="claim">
+    <p class="what">Software engineer building AI and automation tools for enterprise data platforms.</p>
+    <div class="side" id="contact">
+      <p>Associate Consultant at Bristlecone, Mumbai. Also builds full-stack web and mobile apps.</p>
+      <ul class="contact">
+        <li><a href="mailto:mukeshprajapat3093@gmail.com">mukeshprajapat3093@gmail.com</a></li>
+        <li><a href="https://github.com/meleo2125" target="_blank" rel="noopener noreferrer">GitHub</a>&nbsp;&nbsp;&nbsp;<a href="https://www.linkedin.com/in/mukesh-prajapat-" target="_blank" rel="noopener noreferrer">LinkedIn</a>&nbsp;&nbsp;&nbsp;<a href="/resume.pdf">Resume (PDF)</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="map">
+    <span class="src">Manual migration and development work</span>
+    <span class="conn" aria-hidden="true"></span><span class="sr">: </span>
+    <span class="tgt">Up to 70% less effort</span>
+  </p>
+</header>
+
+<main>
+  <section class="work pad" id="work" aria-labelledby="work-h">
+    <h2 id="work-h">What I build at work</h2>
+    <p class="intro">At <strong>Bristlecone</strong> (Associate Consultant, SAP Analytics, since July 2025) I build AI and automation accelerators for SAP data platforms, the systems many large companies run their data and reporting on.</p>
+    <ul class="rows">
+      <li class="map"><span class="src">SAP BW<small>a data warehouse</small></span><span class="conn" aria-hidden="true"></span><span class="sr">, to </span><span class="tgt">SAP Datasphere or Snowflake<small>Migration tool</small></span></li>
+      <li class="map"><span class="src">SAP Datasphere<small>a cloud data platform</small></span><span class="conn" aria-hidden="true"></span><span class="sr">, with </span><span class="tgt">AI assistant<small>Built on MCP (Model Context Protocol)</small></span></li>
+      <li class="map"><span class="src">SAP BusinessObjects<small>enterprise reporting</small></span><span class="conn" aria-hidden="true"></span><span class="sr">, with </span><span class="tgt">Landscape platform<small>Used at a customer site</small></span></li>
+    </ul>
+    <div class="effect">
+      <div><h3>Result</h3><p>Up to 70% less manual effort in migration and development activities.</p></div>
+      <div><h3>Recognition</h3><p>Brilliant Beginner Award and SPOT Award, for contributions to AI and automation initiatives.</p></div>
+      <div><h3>Training</h3><p>SAC, Datasphere, BusinessObjects, BW Modeling, HANA Modeling, CPI-DS.</p></div>
+    </div>
+  </section>
+
+  <section class="projects pad" id="projects" aria-labelledby="projects-h">
+    <h2 id="projects-h">Things I've built</h2>
+    <article class="project" aria-labelledby="p1">
+      <figure class="shot">
+        <img src="img/thelyst-desktop.webp" width="1440" height="900" alt="TheLyst home page: 'Track what you watch. Curate your obsession.' with Start Tracking and Sign In buttons">
+        <img class="phone" src="img/thelyst-mobile.webp" width="780" height="1688" alt="" loading="lazy">
+      </figure>
+      <div>
+        <h3 id="p1">TheLyst</h3>
+        <p>One watchlist for movies, TV and anime, with real-time search across thousands of titles and custom lists you can rank, clone and share.</p>
+        <p class="stack">Next.js, Tailwind CSS, Firebase Authentication, Firestore, TMDB API, Jikan API</p>
+        <p class="links"><a href="https://thelystapp.vercel.app" target="_blank" rel="noopener noreferrer">Live demo</a><a href="https://github.com/meleo2125/thelystapp" target="_blank" rel="noopener noreferrer">Source</a></p>
+      </div>
+    </article>
+    <article class="project" aria-labelledby="p3">
+      <div class="placeholder">Kharcha screens go here.<br>Needs demo-data screenshots.</div>
+      <div>
+        <h3 id="p3">Kharcha</h3>
+        <p>A private Android app for money tracking and bill splitting in one place. Bank and UPI SMS alerts become transactions, any of them can be split with a group, and nothing leaves the phone.</p>
+        <p class="stack">Kotlin, Jetpack Compose, Room, SQLCipher, Hilt, WorkManager</p>
+        <p class="links"><a href="https://github.com/meleo2125/kharcha" target="_blank" rel="noopener noreferrer">Source</a></p>
+      </div>
+    </article>
+  </section>
+</main>
+</body>
+</html>
