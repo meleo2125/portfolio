@@ -14,7 +14,9 @@ If a section seems to need a fact that is missing here, ask the owner. Do not in
 - GitHub: https://github.com/meleo2125  (note: "meleo2025" is WRONG)
 - LinkedIn: https://www.linkedin.com/in/mukesh-prajapat-
 - Phone: none. Never show a phone number.
-- Resume: /resume.pdf (current file in public/ is OLD and must be replaced by the owner; see DECISIONS.md)
+- Portfolio: https://mukeshprajapat.vercel.app
+- Resume: /resume.pdf (owner's resume of 2026-11-25; source: ~/Documents/Mukesh_Prajapat_Resume_SAP.pdf)
+- Resume headline: Software Engineer | AI & Automation for SAP Data Platforms
 
 ## Summary
 Software engineer with 1+ year of experience building AI and automation accelerators for SAP data platforms (BW, Datasphere, BusinessObjects) using Python, FastAPI and Next.js. Cut manual migration and development effort by up to 70% across tools. B.E. in Computer Science and Data Science (Honours in AI/ML), CGPA 9.32/10.
@@ -24,59 +26,63 @@ Software engineer with 1+ year of experience building AI and automation accelera
 ### Bristlecone — Associate Consultant, SAP Analytics
 July 2025 to Present · Mumbai, hybrid
 - Developed AI and automation accelerators for SAP data platforms, including a BW-to-Datasphere/Snowflake migration tool, an MCP-based AI assistant for Datasphere and a BusinessObjects landscape platform used at a customer site, reducing manual effort in migration and development activities by up to 70%.
-- Earlier in the role (as Associate, Jul 2025 to Jun 2026): smaller AI automation tools and utilities for SAP migration activities, reducing manual effort and execution time by 60-90%.
-- Technical training in SAC, Datasphere, BusinessObjects, BW Modeling, HANA Modeling, CPI-DS.
-- Brilliant Beginner Award and SPOT Award (internal quarterly awards for performance and impact).
+- Completed technical training across SAC, Datasphere, BusinessObjects, BW Modeling, HANA Modeling, and CPI-DS.
+- Awarded the Brilliant Beginner Award and SPOT Award for contributions to AI and automation initiatives. (Both are internal quarterly awards for performance and impact.)
 
-Rule: the 60-90% figure belongs ONLY to the earlier Associate period. It must never be attached to the Associate Consultant title or shown as a headline number.
+Not shown on the site (owner decision 2026-11-25, matches the resume): the earlier Associate period (Jul 2025 to Jun 2026, smaller AI automation tools, 60-90%). No 60-90% figure anywhere on the site.
 
 ### GeeksforGeeks — Technical Writer Intern
-April to September 2024
-- 8 technical articles, 33,000+ views.
+April 2024 to September 2024 · Remote
+- Authored 8 technical articles on Ruby on Rails and statistics that generated 33,000+ total views by simplifying complex concepts for a beginner audience.
+- Improved article usability by embedding 5–10 FAQs per piece and revising code samples based on editorial and peer review feedback.
+
+Ruby on Rails is allowed ONLY here, as the topic of these articles (owner decision 2026-11-25). It is never a skill.
 
 ## Projects
 
-### TheLyst
-Movie/TV/anime tracking platform.
-- Stack: Next.js, Tailwind, Firebase Auth, Firestore, TMDB and Jikan APIs
+### TheLyst: Movie, TV & Anime Tracking Platform
+- Stack: Next.js, Tailwind CSS, Firebase Authentication, Firestore, TMDB API, Jikan API
+- Built a full-stack media-tracking platform unifying movies, TV, and anime into one watchlist system, with real-time search and metadata across thousands of titles via the TMDB and Jikan APIs.
+- Engineered a custom list ("Lyst") system supporting creation, ranking, cloning, and public/private sharing, backed by Firestore for real-time data sync and Firebase Authentication for secure login.
 - Live demo: https://thelystapp.vercel.app
 - GitHub: https://github.com/meleo2125/thelystapp
 
 ### Gamified IPR Learning Platform
-- Stack: React Native, Node.js, Express, MongoDB, JWT, Gemini API, AWS S3
-- Results: average quiz score 17.87/20 vs 6.53/20 with traditional learning; 4.28/5 user rating
+- Stack: React Native, Node.js, Express.js, MongoDB, JWT, Gemini API, AWS S3
+- Built a cross-platform mobile app teaching Intellectual Property Rights through gamified chapters and mini-games, integrating the Gemini API to personalize learning paths from user progress data.
+- Drove an average quiz score of 17.87/20 vs. 6.53/20 for traditional learning (80% of users scoring perfectly) and a 4.28/5 user rating, backed by JWT auth and AWS S3-based media storage.
 - GitHub: https://github.com/meleo2125/ipr-app
 
 ## Education
-B.E., Computer Science Engineering and Data Science (Honours in AI/ML)
-Vidyavardhini's College of Engineering and Technology, Mumbai · Dec 2021 to Jun 2025 · CGPA 9.32/10
+Bachelor of Engineering, Computer Science Engineering and Data Science (Honours in AI/ML)
+Vidyavardhini's College of Engineering and Technology, Mumbai, India · December 2021 to June 2025 · CGPA 9.32/10
 
 ## Achievements
 - 1st Prize, Data Science using AI, Techblitz 2024 (NSDC-VCET)
-- Finalist, LLM using AI, Techblitz 2025
-- Finalist, HackScript 6.0
+- Finalist, LLM using AI, Techblitz 2025 (NSDC-VCET)
+- Finalist, HackScript 6.0 (A.P. Shah Institute of Technology)
 
 ## Certifications
-- Java (Basic)
-- SQL (Intermediate)
-- GitHub Copilot (GH-300T00-A)
-- Data Science Foundations Level 1
+- Java (Basic) Skills Certification
+- SQL (Intermediate) Skills Certification
+- GitHub Copilot (Course GH-300T00-A)
+- Data Science Foundations – Level 1
 
-## Skills
+## Skills (resume "Languages & Technologies")
 - Languages: Python, JavaScript, Java, SQL
-- Backend: FastAPI, Node.js, Express, REST APIs, MCP
-- Frontend: Next.js, React, React Native, Tailwind CSS
-- Data: SQLite, MongoDB, Firestore
-- Tooling and cloud: Git, GitHub, GitHub Actions, Vercel, AWS S3, Firebase Auth
-- SAP: SAP BW, Datasphere, BusinessObjects (WebI), SAC, HANA, CPI-DS
-- AI: Claude Code and LLM integration
+- SAP: SAP BW, SAP Datasphere, SAP BusinessObjects (WebI), SAP Analytics Cloud, SAP HANA, SAP CPI-DS
+- Backend & APIs: FastAPI, Node.js, Express.js, REST APIs, Model Context Protocol (MCP)
+- AI: LLM integration (Gemini API), AI chatbots, AI-assisted development (Claude Code)
+- Frontend & Mobile: Next.js, React, React Native, Tailwind CSS
+- Databases: SQLite, MongoDB, Firestore
+- Cloud & Tools: Git, GitHub, GitHub Actions (CI), Vercel, AWS S3, Firebase Authentication, JWT
 
 ## Removed on purpose — must NOT appear anywhere (site, metadata, alt text, code comments shipped to the client)
-- Ruby, Ruby on Rails
+- Ruby and Ruby on Rails as a skill or technology (exception: the GeeksforGeeks article topic above)
 - DaisyUI
 - Three.js
 - The Virtual Herbal Garden project
-- Any "60-90%" claim on the Associate Consultant role
+- Any "60-90%" figure (the earlier Associate period is left off the site entirely)
 - Any phone number
 
 ## Also not in this file (found on the current site; excluded unless the owner adds them here)
@@ -85,9 +91,9 @@ Listed so nobody re-adds them from the old code or database by accident:
 - Roles: GoodGameNation, YPP Technologies, Techniche IIT Guwahati
 - Award: "Knowledge Ninja"
 - Certifications: "AI for India 2.0", "The Web Developer Bootcamp"
-- Skills: TypeScript, TensorFlow, Gemini API as a standalone skill (it appears only inside the IPR project stack)
+- Skills: TypeScript, TensorFlow
 - Extracurriculars: Students' Council, E-Cell, CSI, DataCite roles
-- Stats: "5+ shipped production apps", "80% of users scored perfectly"
+- Stats: "5+ shipped production apps"
 - Taglines: "Data systems engineer. Independent builder."
 
 ## Confidentiality (summary; full rules in CLAUDE.md)
