@@ -2,6 +2,11 @@
 
 Newest first. Each entry: what, why, status. "Pending" entries need the owner.
 
+## 2026-11-25 — Phase 1
+
+**D-011 · Audit tooling — done**
+Lighthouse 13.6.0 (GoogleChrome, published 2026-10-27) run through `npx` against Playwright's Chromium; NOT added to package.json. PageSpeed Insights was the first choice (no install) but its anonymous daily quota was exhausted. Scores are lab data from this 4-thread machine with simulated throttling; Phase 5 must use the same version and flags for a fair before/after. Added scripts/audit-capture.mjs (Playwright only, no new dependency) for repeatable screenshots, first-visit timing, no-JS, keyboard and link checks.
+
 ## 2026-11-25 — Phase 0
 
 **D-010 · Resume conflicts resolved by owner — done**
