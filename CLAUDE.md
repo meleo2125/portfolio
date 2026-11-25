@@ -33,6 +33,13 @@ npm run screenshot -- <url> [outDir] [label]   # full-page PNGs at 375/768/1440 
 ```
 No test runner yet. Playwright (@playwright/test, Chromium headless shell) is installed for screenshots and later QA.
 
+## Project skills (.claude/skills/, provenance in its README.md)
+- frontend-design — design direction and self-critique (Phase 2+)
+- web-design-guidelines — UI/a11y review in file:line format (Phase 4–5)
+- react-best-practices — React/Next performance rules (Phase 4–5)
+- impeccable — design critique/audit/polish, TEXT ONLY: never run its launcher, hooks, live or generate commands
+The owner's briefs and docs/ override any skill.
+
 ## Machine limits
 4-thread CPU box. Run heavy jobs with `nice`, one at a time (build, Lighthouse, Playwright).
 
@@ -57,4 +64,4 @@ The owner's SAP work belongs to his employer and its customers.
 - This repository is PUBLIC on GitHub. Everything committed (including docs/) is public.
 
 ## Never include anywhere
-Ruby, Ruby on Rails, DaisyUI, Three.js, the Virtual Herbal Garden project, any "60-90%" claim on the Associate Consultant role, any phone number. Full exclusion list: docs/CONTENT.md.
+Ruby or Ruby on Rails as a skill (only exception: the GeeksforGeeks article topic), DaisyUI, Three.js, the Virtual Herbal Garden project, any "60-90%" figure, any phone number. Full exclusion list: docs/CONTENT.md.
