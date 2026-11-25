@@ -9,7 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,400..900&family=Hanken+Grotesk:ital,wght@0,400..700;1,400&display=swap" rel="stylesheet">
 <style>
-  /* Concept B (v2): Patch bay.
+  /* Concept B (v2): Patch bay. Revised 2026-11-25 (D-015): the workplace tools are described in sentences only;
+     the earlier showcase is archived in docs/archive/accelerators-showcase/.
      One huge thing: three thick cables that plug company data systems into the tools he built.
      The cables cross because the pairs are real (warehouse -> migration tool, etc.), not decoration.
      One committed colour: a yellow field for the work section. Motion: the cables plug in once on load. */
@@ -89,6 +90,8 @@
   .tool h3 { padding-left: 0; }
   .tool p { margin: 0.35rem 0 0; font-size: 1.125rem; color: var(--on-field-soft); max-width: 46ch; }
   .tool p b { color: var(--on-field); font-weight: 650; }
+  .lines { max-width: 62ch; font-size: clamp(1.25rem, 1.9vw, 1.55rem); line-height: 1.45; }
+  .lines p { margin: 0 0 1em; }
   .effect { margin: clamp(3rem, 8vh, 5rem) 0 0; padding-top: 1.5rem; border-top: 2px solid var(--on-field);
             display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.5rem 3rem; }
   .effect h3 { margin: 0 0 0.3rem; font-size: 1rem; font-family: "Hanken Grotesk", sans-serif; font-weight: 700; }
@@ -149,42 +152,38 @@
   </div>
 
   <div class="bay" id="bay">
-    <p class="head l" aria-hidden="true">Where company data lives</p>
-    <p class="head r" aria-hidden="true">What I built for it</p>
-    <ol class="pairs" aria-label="What I built for each kind of system">
+    <p class="head l" aria-hidden="true">Where I build</p>
+    <p class="head r" aria-hidden="true">What I've built</p>
+    <ol class="pairs" aria-label="What I've built, by platform">
     <li>
-      <p class="port src p1" data-pair="1"><span>Data warehouse</span><span class="jack" aria-hidden="true"></span></p>
+      <p class="port src p1" data-pair="1"><span>Enterprise data platforms</span><span class="jack" aria-hidden="true"></span></p>
       <span class="sr">: </span>
-      <p class="port tgt p1" data-pair="1"><span class="jack" aria-hidden="true"></span><span>Migration tool<small>moves it to a new platform</small></span></p>
+      <p class="port tgt p1" data-pair="1"><span class="jack" aria-hidden="true"></span><span>AI and automation tools<small>at Bristlecone</small></span></p>
     </li>
     <li>
-      <p class="port src p2" data-pair="2"><span>Cloud data platform</span><span class="jack" aria-hidden="true"></span></p>
+      <p class="port src p2" data-pair="2"><span>The web</span><span class="jack" aria-hidden="true"></span></p>
       <span class="sr">: </span>
-      <p class="port tgt p2" data-pair="2"><span class="jack" aria-hidden="true"></span><span>AI assistant</span></p>
+      <p class="port tgt p2" data-pair="2"><span class="jack" aria-hidden="true"></span><span>TheLyst<small>one watchlist for movies, TV and anime</small></span></p>
     </li>
     <li>
-      <p class="port src p3" data-pair="3"><span>Business reporting</span><span class="jack" aria-hidden="true"></span></p>
+      <p class="port src p3" data-pair="3"><span>Android</span><span class="jack" aria-hidden="true"></span></p>
       <span class="sr">: </span>
-      <p class="port tgt p3" data-pair="3"><span class="jack" aria-hidden="true"></span><span>Landscape platform<small>used at a customer site</small></span></p>
+      <p class="port tgt p3" data-pair="3"><span class="jack" aria-hidden="true"></span><span>Kharcha<small>money tracking and bill splitting</small></span></p>
     </li>
     </ol>
     <svg id="cables" aria-hidden="true"></svg>
   </div>
-
-  <p class="result">Up to 70% less manual effort.<span>Across migration and development work.</span></p>
 </header>
 
 <main>
   <section class="work pad" id="work" aria-labelledby="work-h">
-    <h2 id="work-h">What I build at work</h2>
-    <p class="lede">At <strong>Bristlecone</strong> (Associate Consultant, SAP Analytics, since July 2025) I build AI and automation accelerators for SAP data platforms, the systems many large companies run their data and reporting on.</p>
-    <ul class="tools">
-      <li class="tool" style="--c: var(--c1)"><h3>Migration tool</h3><p>Moves <b>SAP BW</b>, a data warehouse, to <b>SAP Datasphere</b> or <b>Snowflake</b>.</p></li>
-      <li class="tool" style="--c: var(--c2)"><h3>AI assistant</h3><p>An assistant for <b>SAP Datasphere</b>, a cloud data platform, built on MCP (Model Context Protocol).</p></li>
-      <li class="tool" style="--c: var(--c3)"><h3>Landscape platform</h3><p>For <b>SAP BusinessObjects</b>, enterprise reporting. Used at a customer site.</p></li>
-    </ul>
+    <h2 id="work-h">At work</h2>
+    <p class="lede">Associate Consultant, SAP Analytics at <strong>Bristlecone</strong>. July 2025 to present, Mumbai (hybrid).</p>
+    <div class="lines">
+      <p>I build AI and automation accelerators for SAP data platforms, the systems many large companies run their data and reporting on.</p>
+      <p>They include a tool that migrates SAP BW (a data warehouse) to SAP Datasphere or Snowflake, an AI assistant for SAP Datasphere built on MCP (Model Context Protocol), and a landscape platform for SAP BusinessObjects used at a customer site. Together they have cut manual effort in migration and development work by up to 70%.</p>
+    </div>
     <div class="effect">
-      <div><h3>Result</h3><p>Up to 70% less manual effort in migration and development activities.</p></div>
       <div><h3>Recognition</h3><p>Brilliant Beginner Award and SPOT Award, for contributions to AI and automation initiatives.</p></div>
       <div><h3>Training</h3><p>SAC, Datasphere, BusinessObjects, BW Modeling, HANA Modeling, CPI-DS.</p></div>
     </div>

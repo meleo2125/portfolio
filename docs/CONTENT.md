@@ -31,6 +31,11 @@ July 2025 to Present · Mumbai, hybrid
 
 Not shown on the site (owner decision 2026-11-25, matches the resume): the earlier Associate period (Jul 2025 to Jun 2026, smaller AI automation tools, 60-90%). No 60-90% figure anywhere on the site.
 
+Site wording for now (owner decision 2026-11-25, D-015): the three accelerators are described in running sentences only, never as headline items, cards, hero pairs or a showcase. Draft (glosses still need owner approval):
+> I build AI and automation accelerators for SAP data platforms, the systems many large companies run their data and reporting on.
+> They include a tool that migrates SAP BW (a data warehouse) to SAP Datasphere or Snowflake, an AI assistant for SAP Datasphere built on MCP (Model Context Protocol), and a landscape platform for SAP BusinessObjects used at a customer site. Together they have cut manual effort in migration and development work by up to 70%.
+The earlier showcase is archived in docs/archive/accelerators-showcase/ until the owner says the tools are live.
+
 ### GeeksforGeeks — Technical Writer Intern
 April 2024 to September 2024 · Remote
 - Authored 8 technical articles on Ruby on Rails and statistics that generated 33,000+ total views by simplifying complex concepts for a beginner audience.

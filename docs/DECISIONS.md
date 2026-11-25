@@ -4,10 +4,16 @@ Newest first. Each entry: what, why, status. "Pending" entries need the owner.
 
 ## 2026-11-25 — Phase 2
 
+**D-016 · New design lives in its own root layout — done**
+The old site moved unchanged into `src/app/(legacy)/` (its layout, page, globals.css and /admin); the redesign has its own root layout in `src/app/(site)/` with its own CSS (site.css) and fonts (Anybody with the wdth axis, Hanken Grotesk, via next/font). Route groups with separate root layouts are documented in node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/route-groups.md; the only cost is a full page load when moving between the two, which ends in Phase 4 when (legacy) is deleted. /design-system is `noindex` and not linked. No new dependencies.
+
+**D-015 · Workplace accelerators described in sentences only — done (owner)**
+Owner decision 2026-11-25: do not feature the three Bristlecone accelerators (no hero cables, titles, cards or showcase) until they are live; explain them in lines. The showcase version is archived in docs/archive/accelerators-showcase/. Hero cables now pair public things: enterprise data platforms → AI and automation tools, the web → TheLyst, Android → Kharcha (proposal, awaiting owner approval). The hero's "Up to 70%" line moved into the work sentences.
+
 **D-014 · Kharcha replaces the IPR project — done (owner)**
 Owner decision 2026-11-25: remove the Gamified IPR Learning Platform from the site and the resume; add Kharcha (github.com/meleo2125/kharcha). Wording drafted from that public repo's docs and code and checked against the code (split methods, debt simplification, WorkManager capture, AES-GCM backups); no metrics, because it has none. The owner's phone holds real bank data, so Kharcha imagery must come from demo data. Old-site code (NodeGraph, migrate-projects) still mentions IPR and is replaced in Phase 4.
 
-**D-013 · Design directions reworked (v2) — pending (owner)**
+**D-013 · Design directions reworked (v2) — done: owner chose B. Patch bay (2026-11-25)**
 Owner feedback: v1 put too much SAP below the name and looked plain. Studied what the strongest surveyed sites do well (DESIGN_REFERENCES.md) and rebuilt three bolder directions with a plain-language hero: A. Migration, B. Patch bay (recommended), C. Strata. New fonts, all checked on Google Fonts: Anybody (wdth 50–150), Hanken Grotesk. TheLyst images captured from its public demo into docs/design/concepts/img/. Supersedes the v1 recommendation in D-012.
 
 **D-012 · Design directions proposed — pending (owner)**
