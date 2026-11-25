@@ -2,6 +2,11 @@
 
 Newest first. Each entry: what, why, status. "Pending" entries need the owner.
 
+## 2026-11-25 — Phase 2
+
+**D-012 · Design directions proposed — pending (owner)**
+Survey of 76 live portfolios (method in DESIGN_CLICHES.md). 11 concepts drawn from SAP data work, scored on originality, truth, 10-second readability, perf/a11y cost and build ease; anything with ≤2 on originality or readability discarded. Top 3 mocked as static HTML with real CONTENT.md text only: A. The Mapping (recommended), B. Strata, C. Lineage. All typefaces confirmed available on Google Fonts with the axes used (Archivo wdth 62–125; Familjen Grotesk; Atkinson Hyperlegible Next; Funnel Display/Sans), so next/font can self-host them. Mocks load fonts from the Google Fonts CDN for preview only. Other people's sites were screenshotted for the survey but are not committed.
+
 ## 2026-11-25 — Phase 1
 
 **D-011 · Audit tooling — done**

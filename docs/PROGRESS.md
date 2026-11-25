@@ -16,18 +16,19 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] Playwright + screenshot script, verified against the live site
 - [x] Branch `redesign` created
 
-## Phase 1 — Audit current site · awaiting approval
+## Phase 1 — Audit current site · approved 2026-11-25
 - [x] Screenshots of every page at 375/768/1440 (/, /admin/login, 404) + first visit, reduced motion, no-JS — screenshots/phase1-before/ (gitignored)
 - [x] Lighthouse 13.6.0 mobile ×3 + desktop ×2 (local; PSI quota exhausted)
 - [x] Content check vs CONTENT.md, keyboard, links, contrast
 - [x] docs/AUDIT.md
 
-## Phase 2 — Design direction · not started (brief: docs/briefs/phase-2-design-direction.md)
-- [ ] Survey portfolios → docs/DESIGN_CLICHES.md
-- [ ] 8+ raw concepts with originality / risk / readability notes
-- [ ] Scoring; discard low originality or readability, with reasons
-- [ ] Top 3: static HTML mock (hero + one content section), palette, type pairing, mobile + reduced-motion notes
-- [ ] Recommendation + main risk of each → owner picks
+## Phase 2 — Design direction · awaiting owner's choice (brief: docs/briefs/phase-2-design-direction.md)
+- [x] Survey of 76 portfolios (39 random developer, 37 curated developer/designer) → docs/DESIGN_CLICHES.md
+- [x] 11 raw concepts with originality / risk / readability notes → docs/DESIGN_DIRECTIONS.md
+- [x] Scoring; 8 discarded with reasons
+- [x] Top 3 mocks: docs/design/concepts/a-mapping.html, b-strata.html, c-lineage.html (light + dark, 375/768/1440 checked)
+- [x] Recommendation (A. The Mapping) + main risk of each
+- [ ] Owner picks a direction
 - [ ] docs/DESIGN.md filled; tokens in code; /design-system preview page
 
 ## Phase 3 — IA and copy · not started

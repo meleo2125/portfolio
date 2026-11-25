@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept A: The Mapping. Mukesh Prajapat</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  /* Concept A: The Mapping. Static mock: hero + work section. */
+  :root {
+    --field: #EEF0EC;      /* page */
+    --ink: #161B18;        /* text, 15.2:1 */
+    --graphite: #4B544F;   /* secondary text, 6.8:1 */
+    --mapped: #0D6A4B;     /* connectors, links, 5.8:1 */
+    --rule: #C3C9C3;       /* dividers only (non-text) */
+    --select: #CFE5DA;
+    --measure: 68ch;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --field: #121614; --ink: #E6EAE6; --graphite: #A2ABA5;
+      --mapped: #57C597; --rule: #333B36; --select: #1F4A38;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; scrollbar-color: var(--graphite) var(--field); }
+  body {
+    margin: 0; background: var(--field); color: var(--ink);
+    font-family: "Archivo", system-ui, sans-serif; font-variation-settings: "wdth" 100;
+    font-size: 1.0625rem; line-height: 1.55; font-variant-numeric: tabular-nums;
+  }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--select); color: var(--ink); }
+  a { color: var(--mapped); text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--mapped); outline-offset: 3px; border-radius: 2px; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  .wrap { max-width: 76rem; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 3rem); }
+
+  /* Header: plain, predictable */
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding-block: 1.25rem; }
+  .top .who { font-weight: 600; font-variation-settings: "wdth" 75; text-decoration: none; color: var(--ink); }
+  .top nav ul { display: flex; gap: clamp(0.75rem, 2.5vw, 1.75rem); list-style: none; margin: 0; padding: 0; }
+  .top nav a { color: var(--ink); text-decoration: none; }
+  .top nav a:hover { text-decoration: underline; color: var(--mapped); }
+
+  /* The one memorable device: a mapping row (source, connector, target). */
+  .map {
+    display: grid; grid-template-columns: minmax(0, 4fr) minmax(4rem, 1.4fr) minmax(0, 6fr);
+    align-items: center; column-gap: 1.25rem;
+  }
+  .src { justify-self: end; text-align: right; font-variation-settings: "wdth" 62; font-weight: 560; letter-spacing: 0.005em; word-spacing: 0.14em; }
+  .tgt { font-variation-settings: "wdth" 118; font-weight: 520; }
+  .conn { position: relative; height: 2px; background: var(--mapped); transform-origin: left center; }
+  .conn::after { /* the transform node */
+    content: ""; position: absolute; left: 50%; top: 50%; width: 0.7rem; height: 0.7rem;
+    border: 2px solid var(--mapped); background: var(--field); transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .conn::before { /* target end cap */
+    content: ""; position: absolute; right: -1px; top: 50%; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--mapped); transform: translateY(-50%);
+  }
+
+  /* Hero */
+  .hero { padding-block: clamp(3rem, 10vh, 7rem) clamp(3rem, 8vh, 5rem); }
+  .hero h1 {
+    margin: 0 0 clamp(2rem, 5vh, 3.25rem);
+    font-size: clamp(2.75rem, 8.5vw, 6rem); line-height: 0.95; letter-spacing: -0.025em;
+    font-weight: 720; font-variation-settings: "wdth" 112; text-wrap: balance;
+  }
+  .hero .map { font-size: clamp(1.25rem, 2.6vw, 2rem); line-height: 1.15; }
+  .hero .src { color: var(--graphite); }
+  .lede { max-width: var(--measure); margin: clamp(2rem, 5vh, 3rem) 0 1.5rem; font-size: 1.1875rem; }
+  .role { color: var(--graphite); margin: 0; max-width: var(--measure); }
+  .contact { display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; list-style: none; padding: 0; margin: 2rem 0 0; font-weight: 560; }
+
+  /* Hero load moment: connectors draw once, left to right. */
+  @media (prefers-reduced-motion: no-preference) {
+    .hero .conn { animation: draw 700ms cubic-bezier(0.16, 1, 0.3, 1) 150ms both; }
+    .hero .conn::after, .hero .conn::before { animation: appear 300ms ease-out 650ms both; }
+    @keyframes draw { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+    @keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+  }
+
+  /* Work section */
+  .work { border-top: 1px solid var(--rule); padding-block: clamp(3rem, 8vh, 5rem); }
+  .work h2 { font-size: clamp(1.75rem, 3.4vw, 2.5rem); line-height: 1.1; margin: 0 0 0.5rem; font-weight: 680; font-variation-settings: "wdth" 108; letter-spacing: -0.015em; }
+  .meta { margin: 0 0 clamp(2rem, 5vh, 3rem); color: var(--graphite); display: flex; flex-wrap: wrap; gap: 0.15rem 1.5rem; }
+  .rows { list-style: none; margin: 0; padding: 0; display: grid; gap: clamp(1.5rem, 4vh, 2.25rem); }
+  .rows .map { font-size: clamp(1.125rem, 1.9vw, 1.5rem); line-height: 1.2; }
+  .rows .tgt small { display: block; font-size: 0.95rem; font-variation-settings: "wdth" 100; font-weight: 400; color: var(--graphite); margin-top: 0.3rem; }
+  .effect { margin: clamp(2.25rem, 6vh, 3.5rem) 0 0; max-width: var(--measure); font-size: 1.1875rem; }
+  .effect strong { font-weight: 680; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.5rem 3rem; margin-top: 2.5rem; max-width: 60rem; }
+  .facts h3 { font-size: 1rem; margin: 0 0 0.35rem; font-weight: 650; }
+  .facts p { margin: 0; color: var(--graphite); }
+
+  /* Phone: rows stack, the connector turns vertical. */
+  @media (max-width: 720px) {
+    .map { grid-template-columns: 1fr; row-gap: 0.4rem; }
+    .src { justify-self: start; text-align: left; }
+    .conn { width: 2px; height: 1.75rem; margin-left: 0.6rem; transform-origin: center top; }
+    .conn::before { right: auto; left: 50%; top: auto; bottom: -1px; transform: translateX(-50%); }
+    .tgt { font-variation-settings: "wdth" 108; }
+    @media (prefers-reduced-motion: no-preference) {
+      @keyframes draw { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+    }
+    .top { flex-direction: column; gap: 0.5rem; }
+  }
+</style>
+</head>
+<body>
+<header class="wrap top">
+  <a class="who" href="#">Mukesh Prajapat</a>
+  <nav aria-label="Sections">
+    <ul><li><a href="#work">Work</a></li><li><a href="#">Projects</a></li><li><a href="#">Skills</a></li><li><a href="#">Contact</a></li></ul>
+  </nav>
+</header>
+
+<main>
+  <section class="wrap hero" aria-labelledby="name">
+    <h1 id="name">Mukesh Prajapat</h1>
+    <p class="map">
+      <span class="src">SAP BW, Datasphere, BusinessObjects</span>
+      <span class="conn" aria-hidden="true"></span>
+      <span class="sr">, mapped to </span>
+      <span class="tgt">AI and automation software</span>
+    </p>
+    <p class="lede">Software engineer with 1+ year of experience building AI and automation accelerators for SAP data platforms using Python, FastAPI and Next.js. Cut manual migration and development effort by up to 70% across tools.</p>
+    <p class="role">Associate Consultant, SAP Analytics at Bristlecone. Mumbai, India.</p>
+    <ul class="contact">
+      <li><a href="mailto:mukeshprajapat3093@gmail.com">mukeshprajapat3093@gmail.com</a></li>
+      <li><a href="https://github.com/meleo2125" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/mukesh-prajapat-" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="/resume.pdf">Resume (PDF)</a></li>
+    </ul>
+  </section>
+
+  <section class="wrap work" id="work" aria-labelledby="work-h">
+    <h2 id="work-h">Work at Bristlecone</h2>
+    <p class="meta"><span>Associate Consultant, SAP Analytics</span><span>July 2025 to present</span><span>Mumbai, hybrid</span></p>
+    <ul class="rows">
+      <li class="map">
+        <span class="src">SAP BW</span><span class="conn" aria-hidden="true"></span><span class="sr">, to </span>
+        <span class="tgt">SAP Datasphere or Snowflake<small>Migration tool</small></span>
+      </li>
+      <li class="map">
+        <span class="src">SAP Datasphere</span><span class="conn" aria-hidden="true"></span><span class="sr">, with </span>
+        <span class="tgt">MCP-based AI assistant<small>AI assistant for Datasphere</small></span>
+      </li>
+      <li class="map">
+        <span class="src">BusinessObjects landscape</span><span class="conn" aria-hidden="true"></span><span class="sr">, to </span>
+        <span class="tgt">Landscape platform<small>Used at a customer site</small></span>
+      </li>
+    </ul>
+    <p class="effect">These accelerators reduced manual effort in migration and development activities by <strong>up to 70%</strong>.</p>
+    <div class="facts">
+      <div><h3>Training</h3><p>SAC, Datasphere, BusinessObjects, BW Modeling, HANA Modeling, CPI-DS</p></div>
+      <div><h3>Recognition</h3><p>Brilliant Beginner Award and SPOT Award, for contributions to AI and automation initiatives</p></div>
+    </div>
+  </section>
+</main>
+</body>
+</html>

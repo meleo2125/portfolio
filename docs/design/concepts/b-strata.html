@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept B: Strata. Mukesh Prajapat</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600&family=Familjen+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Concept B: Strata. Static mock: summary layer + projects layer + top of skills layer.
+     The page is a cross-section: each band is one layer, one tone deeper than the last. */
+  :root {
+    /* Layer tones, top (refined) to bottom (raw detail) */
+    --l1: #F6F6F4; --l2: #E7E3DA; --l3: #CDC2B0; --l4: #4E4032; --l5: #2A221B;
+    --ink: #1E1A16;          /* on l1-l3: 16.0 / 13.5 / 9.8 :1 */
+    --muted: #504A43;        /* on l1-l3: >= 6.2:1 */
+    --link: #1B5683;         /* on l1-l3: >= 5.3:1 */
+    --ink-deep: #F3EEE7;     /* on l4-l5: 8.7 / 13.6 :1 */
+    --muted-deep: #D6CBBD;   /* on l4-l5: >= 6.2:1 */
+    --link-deep: #A9D1F0;    /* on l4-l5: >= 6.2:1 */
+    --seam: rgba(255,255,255,0.55);
+  }
+  @media (prefers-color-scheme: dark) {
+    /* Dark: the same section is read lower in the earth; tones shift down one step, order kept. */
+    :root { --l1: #3A3029; --l2: #332A23; --l3: #2D251F; --l4: #251E19; --l5: #1D1713;
+            --ink: #F3EEE7; --muted: #D2C6B7; --link: #A9D1F0; --seam: rgba(255,255,255,0.08); }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--l1); color: var(--ink);
+         font: 400 1.0625rem/1.6 "Atkinson Hyperlegible Next", system-ui, sans-serif; }
+  p { text-wrap: pretty; }
+  ::selection { background: #1B5683; color: #fff; }
+  a { color: var(--link); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid currentColor; outline-offset: 3px; }
+  h1, h2, h3 { font-family: "Familjen Grotesk", system-ui, sans-serif; letter-spacing: -0.01em; }
+
+  /* Layout: core-sample nav in a left rail, layers to the right. */
+  .page { display: grid; grid-template-columns: 11.5rem 1fr; }
+  .core { position: sticky; top: 0; height: 100vh; padding: 2rem 0 2rem 1.5rem; }
+  .core ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  .core a { display: grid; grid-template-columns: 1.1rem 1fr; gap: 0.75rem; align-items: stretch;
+            color: var(--ink); text-decoration: none; font-size: 0.95rem; }
+  .core .swatch { border: 1px solid rgba(0,0,0,0.25); border-bottom: 0; min-height: 3.25rem; }
+  .core li:last-child .swatch { border-bottom: 1px solid rgba(0,0,0,0.25); }
+  .core .label { padding-top: 0.15rem; }
+  .core a[aria-current] .label { font-weight: 600; text-decoration: underline; text-underline-offset: 0.25em; }
+  .core a:hover .label { text-decoration: underline; }
+  .core .owner { font-family: "Familjen Grotesk", sans-serif; font-weight: 600; margin: 0 0 1.5rem; font-size: 1rem; }
+
+  .layer { padding: clamp(3rem, 9vh, 6rem) clamp(1.25rem, 5vw, 5rem); border-top: 1px solid var(--seam); }
+  .layer > * { max-width: 46rem; }
+  .l1 { background: var(--l1); } .l2 { background: var(--l2); } .l3 { background: var(--l3); }
+  .l4 { background: var(--l4); color: var(--ink-deep); } .l4 a { color: var(--link-deep); }
+  .l4 .muted { color: var(--muted-deep); }
+  .muted { color: var(--muted); }
+  .layer h2 { font-size: clamp(1.6rem, 3vw, 2.25rem); line-height: 1.15; margin: 0 0 1.75rem; font-weight: 600; }
+
+  /* Summary layer (the hero) */
+  .l1 h1 { font-size: clamp(2.6rem, 7vw, 5.25rem); line-height: 1; margin: 0 0 1rem; font-weight: 700; letter-spacing: -0.03em; }
+  .headline { font-family: "Familjen Grotesk", sans-serif; font-size: clamp(1.3rem, 2.4vw, 1.75rem); line-height: 1.3; margin: 0 0 1.75rem; font-weight: 500; max-width: 34ch; }
+  .l1 .summary { font-size: 1.125rem; max-width: 62ch; margin: 0 0 1.5rem; }
+  .contact { display: flex; flex-wrap: wrap; gap: 0.6rem 1.75rem; list-style: none; padding: 0; margin: 0; font-weight: 600; }
+
+  /* Projects layer */
+  .project + .project { margin-top: 3rem; padding-top: 3rem; border-top: 1px solid rgba(30,26,22,0.25); }
+  .project h3 { font-size: 1.45rem; margin: 0 0 0.25rem; font-weight: 600; }
+  .project .stack { margin: 0 0 1rem; }
+  .project ul.points { margin: 0 0 1rem; padding-left: 1.1rem; }
+  .project ul.points li + li { margin-top: 0.4rem; }
+  .project .links { display: flex; gap: 1.5rem; margin: 0; font-weight: 600; }
+  .num { font-variant-numeric: tabular-nums; font-weight: 600; }
+
+  .skills-peek ul { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; list-style: none; padding: 0; margin: 0.5rem 0 0; }
+
+  /* Phone: core sample becomes a short strip at the top; layer headings stick as you scroll. */
+  @media (max-width: 900px) {
+    .page { display: block; }
+    .core { position: static; height: auto; padding: 1rem 1.25rem 0.5rem; background: var(--l1); }
+    .core .owner { margin-bottom: 0.75rem; }
+    .core ol { grid-template-columns: repeat(5, 1fr); }
+    .core a { grid-template-columns: 1fr; gap: 0.35rem; font-size: 0.8125rem; }
+    .core .swatch { min-height: 0.6rem; border: 1px solid rgba(0,0,0,0.25); border-right: 0; }
+    .core li:last-child .swatch { border-right: 1px solid rgba(0,0,0,0.25); }
+    .layer h2 { position: sticky; top: 0; margin-inline: calc(-1 * clamp(1.25rem, 5vw, 5rem)); padding: 0.75rem clamp(1.25rem, 5vw, 5rem); background: inherit; z-index: 1; }
+    .l3 h2 { background: var(--l3); } .l4 h2 { background: var(--l4); }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <nav class="core" aria-label="Sections, from summary to detail">
+    <p class="owner">Mukesh Prajapat</p>
+    <ol>
+      <li><a href="#summary" aria-current="true"><span class="swatch" style="background:var(--l1)"></span><span class="label">Summary</span></a></li>
+      <li><a href="#work"><span class="swatch" style="background:var(--l2)"></span><span class="label">Work</span></a></li>
+      <li><a href="#projects"><span class="swatch" style="background:var(--l3)"></span><span class="label">Projects</span></a></li>
+      <li><a href="#skills"><span class="swatch" style="background:var(--l4)"></span><span class="label">Skills</span></a></li>
+      <li><a href="#background"><span class="swatch" style="background:var(--l5)"></span><span class="label">Background</span></a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <section class="layer l1" id="summary" aria-labelledby="name">
+      <h1 id="name">Mukesh Prajapat</h1>
+      <p class="headline">Software engineer building AI and automation for SAP data platforms</p>
+      <p class="summary">1+ year of experience building AI and automation accelerators for SAP BW, Datasphere and BusinessObjects using Python, FastAPI and Next.js. Cut manual migration and development effort by up to 70% across tools. Currently Associate Consultant, SAP Analytics at Bristlecone, Mumbai.</p>
+      <ul class="contact">
+        <li><a href="mailto:mukeshprajapat3093@gmail.com">mukeshprajapat3093@gmail.com</a></li>
+        <li><a href="https://github.com/meleo2125" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/mukesh-prajapat-" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        <li><a href="/resume.pdf">Resume (PDF)</a></li>
+      </ul>
+    </section>
+
+    <!-- Work layer (l2) is omitted from this mock; concepts A and C show it. -->
+
+    <section class="layer l3" id="projects" aria-labelledby="projects-h">
+      <h2 id="projects-h">Projects</h2>
+      <article class="project" aria-labelledby="p1">
+        <h3 id="p1">TheLyst</h3>
+        <p class="stack muted">Next.js, Tailwind CSS, Firebase Authentication, Firestore, TMDB API, Jikan API</p>
+        <ul class="points">
+          <li>A media-tracking platform that unifies movies, TV and anime into one watchlist, with real-time search and metadata across thousands of titles via the TMDB and Jikan APIs.</li>
+          <li>A custom list (“Lyst”) system for creating, ranking, cloning and sharing lists publicly or privately, backed by Firestore for real-time sync and Firebase Authentication for login.</li>
+        </ul>
+        <p class="links"><a href="https://thelystapp.vercel.app" target="_blank" rel="noopener noreferrer">Live demo</a><a href="https://github.com/meleo2125/thelystapp" target="_blank" rel="noopener noreferrer">Source on GitHub</a></p>
+      </article>
+      <article class="project" aria-labelledby="p2">
+        <h3 id="p2">Gamified IPR Learning Platform</h3>
+        <p class="stack muted">React Native, Node.js, Express.js, MongoDB, JWT, Gemini API, AWS S3</p>
+        <ul class="points">
+          <li>A cross-platform mobile app that teaches Intellectual Property Rights through gamified chapters and mini-games, using the Gemini API to personalise learning paths from progress data.</li>
+          <li>Average quiz score <span class="num">17.87/20</span> against <span class="num">6.53/20</span> with traditional learning, with 80% of users scoring perfectly, and a <span class="num">4.28/5</span> user rating.</li>
+        </ul>
+        <p class="links"><a href="https://github.com/meleo2125/ipr-app" target="_blank" rel="noopener noreferrer">Source on GitHub</a></p>
+      </article>
+    </section>
+
+    <section class="layer l4 skills-peek" id="skills" aria-labelledby="skills-h">
+      <h2 id="skills-h">Skills</h2>
+      <h3>SAP</h3>
+      <ul><li>SAP BW</li><li>SAP Datasphere</li><li>SAP BusinessObjects (WebI)</li><li>SAP Analytics Cloud</li><li>SAP HANA</li><li>SAP CPI-DS</li></ul>
+      <p class="muted" style="margin-top:2rem">Mock ends here. Below: Background (education, achievements, certifications, writing) in the deepest layer.</p>
+    </section>
+  </main>
+</div>
+</body>
+</html>
