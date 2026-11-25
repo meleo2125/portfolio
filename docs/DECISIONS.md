@@ -4,8 +4,15 @@ Newest first. Each entry: what, why, status. "Pending" entries need the owner.
 
 ## 2026-11-25 — Phase 0
 
-**D-008 · Resume PDF must be replaced by the owner — pending (owner)**
+**D-010 · Resume conflicts resolved by owner — done**
+(1) Ruby on Rails stays in the GeeksforGeeks experience line (article topic) but never as a skill. (2) Resume-only details added to CONTENT.md (TheLyst/IPR descriptions, "80% of users scoring perfectly", GfG FAQs line, award reason, event organisers, resume skill groups incl. Gemini API, AI chatbots, JWT). (3) The earlier Associate period and its 60–90% figure are left off the site entirely. New PDF copied to public/resume.pdf; its links (GitHub meleo2125, LinkedIn, portfolio, TheLyst, IPR) and metadata checked.
+
+**D-009 · Project skills installed (owner approved: frontend-design, web-design-guidelines, react-best-practices, impeccable) — done**
+Vendored into .claude/skills/ at pinned commits after reading every SKILL.md in full and scanning all 129 bundled markdown files for hidden characters and agent-directed instructions (none found). No scripts installed. impeccable is text-only: its launcher downloads and runs a binary from GitHub releases and can install edit hooks, which conflicts with the "no executing downloaded files" rule; the skill has a documented fallback without it. Rejected after review: ui-ux-pro-max (its style catalog is built from the banned clichés), taste-skill (pushes stock photos, shaders, 3D globe), karpathy-guidelines (duplicates CLAUDE.md rules), Matt Pocock's skills (workflow, not design; git-guardrails optional). Provenance: .claude/skills/README.md. Project skills load at session start, so they may need a new session to appear.
+
+**D-008 · Resume PDF must be replaced by the owner — resolved by D-010**
 public/resume.pdf (Jul 2025) contradicts CONTENT.md: says "Associate", "60–90%", lists Ruby, Ruby on Rails, DaisyUI, Three.js, Virtual Herbal Garden, "Web Developer Bootcamp". The site will link /resume.pdf; the owner supplies the current PDF. Claude will not generate one.
+Update 2026-11-25: owner supplied ~/Documents/Mukesh_Prajapat_Resume_SAP.pdf (created 2026-11-25). Not copied into public/ yet. It differs from CONTENT.md: GfG bullet names "Ruby on Rails" (banned list); extra lines not in CONTENT.md (GfG "5–10 FAQs per piece", IPR "80% of users scoring perfectly", fuller TheLyst/IPR descriptions, award reason "for contributions to AI and automation initiatives", organisers for Techblitz 2025 and HackScript 6.0, "AI chatbots", "Gemini API", "JWT" in skills); it omits the earlier-Associate 60–90% bullet. Owner to decide which wins.
 
 **D-007 · Old Postgres/admin stack: keep or drop? — pending (owner)**
 Projects and bio text live in a Vercel Postgres DB edited through /admin. That DB holds the outdated text (60–90%, Associate, Herbal Garden). @vercel/postgres is deprecated. The build fails locally without POSTGRES_URL. Proposal: rebuild serves static content from typed files generated from CONTENT.md; remove /admin, middleware, API route, DB scripts and @vercel/postgres. Faster, simpler, no secret needed to build. Also: the current middleware treats a missing ADMIN_PASSWORD as a match for a missing cookie (undefined === undefined), and the cookie stores the password itself. Dropping the admin removes both problems.

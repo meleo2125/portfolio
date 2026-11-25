@@ -6,7 +6,8 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] Repo inspected (findings in DECISIONS.md D-002, D-006, D-007)
 - [x] Skills/plugins/MCP inventory; Claude Code docs checked for install method
 - [x] Candidate skills/plugins listed for approval (chat report, 2026-11-25)
-- [ ] Install approved skills (after reading each SKILL.md and scripts in full)
+- [x] Install approved skills: frontend-design, web-design-guidelines, react-best-practices, impeccable (text only) — D-009
+- [x] New resume in public/resume.pdf; CONTENT.md updated from owner answers — D-010
 - [x] Docs created: CLAUDE.md, AGENTS.md, docs/CONTENT.md, DESIGN.md (skeleton), DECISIONS.md, PROGRESS.md, reference/, briefs/
 - [x] Dependencies installed (npm ci)
 - [x] Lint runs (ESLint 9 CLI) — 15 errors / 4 warnings in old code, left for the rebuild
