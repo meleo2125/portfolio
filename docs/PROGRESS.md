@@ -2,7 +2,7 @@
 
 Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 
-## Phase 0 — Set up · awaiting approval
+## Phase 0 — Set up · approved 2026-11-25
 - [x] Repo inspected (findings in DECISIONS.md D-002, D-006, D-007)
 - [x] Skills/plugins/MCP inventory; Claude Code docs checked for install method
 - [x] Candidate skills/plugins listed for approval (chat report, 2026-11-25)
@@ -16,10 +16,11 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] Playwright + screenshot script, verified against the live site
 - [x] Branch `redesign` created
 
-## Phase 1 — Audit current site · not started
-- [ ] Screenshots of every page at 375/768/1440
-- [ ] Lighthouse (perf, a11y, SEO, best practices), mobile + desktop
-- [ ] docs/AUDIT.md: wrong/outdated, weak structure, worth keeping
+## Phase 1 — Audit current site · awaiting approval
+- [x] Screenshots of every page at 375/768/1440 (/, /admin/login, 404) + first visit, reduced motion, no-JS — screenshots/phase1-before/ (gitignored)
+- [x] Lighthouse 13.6.0 mobile ×3 + desktop ×2 (local; PSI quota exhausted)
+- [x] Content check vs CONTENT.md, keyboard, links, contrast
+- [x] docs/AUDIT.md
 
 ## Phase 2 — Design direction · not started (brief: docs/briefs/phase-2-design-direction.md)
 - [ ] Survey portfolios → docs/DESIGN_CLICHES.md
