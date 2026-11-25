@@ -11,3 +11,10 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# QA artifacts
+screenshots/
+test-results/
+playwright-report/
+lighthouse/
+*.tsbuildinfo
