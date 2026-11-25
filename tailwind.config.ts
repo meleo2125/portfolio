@@ -15,11 +15,23 @@ const config: Config = {
         amber: "var(--color-accent-amber)",
         cyan: "var(--color-accent-cyan)",
         grid: "var(--color-grid-line)",
+        /* Patch bay tokens (docs/DESIGN.md); defined in src/app/(site)/site.css */
+        paper: "rgb(var(--paper) / <alpha-value>)",
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        muted: "rgb(var(--muted) / <alpha-value>)",
+        field: "rgb(var(--field) / <alpha-value>)",
+        "on-field": "rgb(var(--on-field) / <alpha-value>)",
+        "on-field-soft": "rgb(var(--on-field-soft) / <alpha-value>)",
+        "cable-1": "rgb(var(--cable-1) / <alpha-value>)",
+        "cable-2": "rgb(var(--cable-2) / <alpha-value>)",
+        "cable-3": "rgb(var(--cable-3) / <alpha-value>)",
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],
         body: ["var(--font-body)", "sans-serif"],
         mono: ["var(--font-mono)", "monospace"],
+        anybody: ["var(--font-anybody)", "system-ui", "sans-serif"],
+        hanken: ["var(--font-hanken)", "system-ui", "sans-serif"],
       },
       borderRadius: {
         sm: "2px",
@@ -27,6 +39,9 @@ const config: Config = {
       },
       maxWidth: {
         content: "1200px",
+      },
+      screens: {
+        bay: "820px", /* the Patch bay layout breakpoint */
       },
     },
   },
