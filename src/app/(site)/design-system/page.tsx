@@ -39,6 +39,13 @@ const pairs: PatchPair[] = [
   { source: "Android", target: "Kharcha", gloss: "money tracking and bill splitting" },
 ];
 
+/* Captured on an emulator with fictional demo data (handoff README: ~/Documents/portfolio-handoff/kharcha). */
+const kharchaScreens = [
+  { file: "home", alt: "Kharcha home: a bank alert from Cafe Bloom for ₹480 waiting to be saved, and this month's spending against the budget" },
+  { file: "split-bill", alt: "Kharcha splitting a ₹2,800 bill equally between four people, with options to split by exact amounts, percent or shares" },
+  { file: "insights", alt: "Kharcha insights: November spending by category in a donut chart, led by rent, groceries and food" },
+];
+
 function Label({ children }: { children: React.ReactNode }) {
   return <p className="mb-6 mt-0 max-w-[60ch] text-muted">{children}</p>;
 }
@@ -201,9 +208,34 @@ export default function DesignSystemPage() {
               <a href="https://github.com/meleo2125/kharcha" target="_blank" rel="noopener noreferrer">Source</a>
             </p>
           </div>
-          <div className="mr-[calc(-1*var(--gutter))] grid aspect-video place-items-center rounded-l-xl border-[3px] border-r-0 border-dashed border-muted p-4 text-center text-muted">
-            Placeholder: Kharcha screens made with demo data, from the owner.
-          </div>
+          <figure className="m-0 grid grid-cols-3 items-start gap-3 bay:gap-6">
+            {kharchaScreens.map((s, i) => (
+              <div
+                key={s.file}
+                className={`overflow-hidden rounded-2xl outline outline-[3px] -outline-offset-1 outline-ink ${
+                  i === 1 ? "-translate-y-6 shadow-[10px_10px_0_rgb(var(--cable-3))] bay:-translate-y-10" : ""
+                }`}
+              >
+                <Image
+                  src={`/images/projects/kharcha/${s.file}-light.webp`}
+                  width={1080}
+                  height={2400}
+                  sizes="(min-width: 820px) 18vw, 30vw"
+                  alt={s.alt}
+                  className="block h-auto w-full dark:hidden"
+                />
+                <Image
+                  src={`/images/projects/kharcha/${s.file}-dark.webp`}
+                  width={1080}
+                  height={2400}
+                  sizes="(min-width: 820px) 18vw, 30vw"
+                  alt={s.alt}
+                  className="hidden h-auto w-full dark:block"
+                />
+              </div>
+            ))}
+            <figcaption className="col-span-3 mt-2 text-[0.95rem] text-muted">Screens from a demo install. All data shown is made up.</figcaption>
+          </figure>
         </article>
       </section>
 
