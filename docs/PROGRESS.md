@@ -54,7 +54,7 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] docs/UPDATING.md: how to update content without /admin; Vercel clean-up steps
 - [x] Playwright Chromium reinstalled (owner OK, 2026-11-26; ~700 MB on disk). Full-page screenshots at 375/768/1440, light and dark: screenshots/phase4/ (gitignored)
 - [x] Lighthouse 13.6.0, production build, same flags as Phase 1. Accessibility, best practices, SEO: 100 on every run. Desktop performance 100 (TBT 30 ms). Mobile performance over 5 runs: 80, 91, 92, 86, 89 (median 89; LCP 0.8–1.2 s, CLS 0, TBT 340–860 ms). The first run after each server start is consistently the lowest. Old site: median 81 mobile.
-- [x] Skills panel reworked to cut hydration: the 38 skills are server-rendered; only the five switches are client code
+- [x] Skills panel reworked to cut hydration: the 34 skills are server-rendered; only the five switches are client code
 - [ ] Mobile performance is not reliably ≥ 90 in this machine's lab runs. Recheck with PageSpeed Insights on the Vercel preview (Phase 5/6), which runs on consistent hardware
 - [x] New resume PDF without the Kharcha repo link → public/resume.pdf (2026-11-26)
 ## Phase 5 — QA · done, awaiting owner (report: docs/QA.md)
