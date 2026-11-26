@@ -76,7 +76,7 @@ export function Hero() {
     <section aria-labelledby="name" className="gutter grid min-h-[calc(100svh-4.5rem)] grid-rows-[auto_1fr] pb-12">
       <div className="grid items-end gap-6 pt-4 bay:grid-cols-[1.3fr_1fr] bay:gap-x-24 bay:pt-12">
         <h1 id="name" className="t-name m-0">
-          Mukesh
+          Mukesh{" "}
           <br />
           Prajapat
         </h1>

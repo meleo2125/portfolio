@@ -114,7 +114,7 @@ export default function DesignSystemPage() {
           </nav>
           <div className="grid items-end gap-6 pt-4 bay:grid-cols-[1.3fr_1fr] bay:gap-x-24 bay:pt-12">
             <p className="t-name m-0 font-anybody">
-              Mukesh
+              Mukesh{" "}
               <br />
               Prajapat
             </p>

@@ -106,6 +106,9 @@ Work · Projects · Skills · Contact · Resume
 - Line: Mumbai, India.
 - Links: mukeshprajapat3093@gmail.com, GitHub, LinkedIn, Resume (PDF)
 
+### Interface labels
+- Skip link: "Skip to content"
+
 ### Footer
 - © 2026 Mukesh Prajapat
 
