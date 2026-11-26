@@ -39,7 +39,9 @@ Vendored into .claude/skills/ at pinned commits after reading every SKILL.md in 
 public/resume.pdf (Jul 2025) contradicts CONTENT.md: says "Associate", "60–90%", lists Ruby, Ruby on Rails, DaisyUI, Three.js, Virtual Herbal Garden, "Web Developer Bootcamp". The site will link /resume.pdf; the owner supplies the current PDF. Claude will not generate one.
 Update 2026-11-25: owner supplied ~/Documents/Mukesh_Prajapat_Resume_SAP.pdf (created 2026-11-25). Not copied into public/ yet. It differs from CONTENT.md: GfG bullet names "Ruby on Rails" (banned list); extra lines not in CONTENT.md (GfG "5–10 FAQs per piece", IPR "80% of users scoring perfectly", fuller TheLyst/IPR descriptions, award reason "for contributions to AI and automation initiatives", organisers for Techblitz 2025 and HackScript 6.0, "AI chatbots", "Gemini API", "JWT" in skills); it omits the earlier-Associate 60–90% bullet. Owner to decide which wins.
 
-**D-007 · Old Postgres/admin stack: keep or drop? — pending (owner)**
+**D-007 · Old Postgres/admin stack: keep or drop? — done: dropped (owner, 2026-11-26)**
+Outcome: the redesign has no database, no /admin, no /api/admin-login and no middleware; @vercel/postgres, docx (unused), framer-motion and lucide-react removed. The Vercel Postgres database itself and its env vars still exist in the owner's Vercel account; deleting them is the owner's call.
+
 Projects and bio text live in a Vercel Postgres DB edited through /admin. That DB holds the outdated text (60–90%, Associate, Herbal Garden). @vercel/postgres is deprecated. The build fails locally without POSTGRES_URL. Proposal: rebuild serves static content from typed files generated from CONTENT.md; remove /admin, middleware, API route, DB scripts and @vercel/postgres. Faster, simpler, no secret needed to build. Also: the current middleware treats a missing ADMIN_PASSWORD as a match for a missing cookie (undefined === undefined), and the cookie stores the password itself. Dropping the admin removes both problems.
 
 **D-006 · Framework versions — pending (Phase 2/4)**

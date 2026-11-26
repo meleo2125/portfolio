@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import { PatchBay, type PatchPair } from "@/components/site/PatchBay";
 
 /* Living preview of docs/DESIGN.md. Not linked from the site and not indexed.
@@ -51,6 +52,8 @@ function Label({ children }: { children: React.ReactNode }) {
 }
 
 export default function DesignSystemPage() {
+  /* Owner preview only: not part of the production site (decided 2026-11-26). */
+  if (process.env.NODE_ENV === "production") notFound();
   return (
     <main>
       <header className="gutter section pb-8">
@@ -231,7 +234,6 @@ export default function DesignSystemPage() {
                 />
               </div>
             ))}
-            <figcaption className="col-span-3 mt-2 text-[0.95rem] text-muted">Screens from a demo install. All data shown is made up.</figcaption>
           </figure>
         </article>
       </section>
