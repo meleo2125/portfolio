@@ -15,7 +15,7 @@ If a section seems to need a fact that is missing here, ask the owner. Do not in
 - LinkedIn: https://www.linkedin.com/in/mukesh-prajapat-
 - Phone: none. Never show a phone number.
 - Portfolio: https://mukeshprajapat.vercel.app
-- Resume: /resume.pdf (source: ~/Documents/Mukesh_Prajapat_Resume_SAP.pdf; the Kharcha version, read 2026-11-26)
+- Resume: /resume.pdf (source: ~/Documents/Mukesh_Prajapat_Resume_SAP.pdf of 2026-11-26 23:19: Kharcha instead of IPR, no Kharcha repo link; published 2026-11-26)
 - Resume headline: Software Engineer | AI & Automation for SAP Data Platforms
 
 ## Summary
