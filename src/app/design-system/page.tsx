@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { PatchBay, type PatchPair } from "@/components/site/PatchBay";
+import { SkillsPanel } from "@/components/site/SkillsPanel";
+import { skillsPanel } from "@/content/site";
 
 /* Living preview of docs/DESIGN.md. Not linked from the site and not indexed.
    Text is from docs/CONTENT.md; items marked "proposal" still need the owner's approval. */
@@ -236,6 +238,16 @@ export default function DesignSystemPage() {
             ))}
           </figure>
         </article>
+      </section>
+
+      <section className="gutter section border-t-2 border-ink" aria-labelledby="skills-panel-h">
+        <div className="grid gap-6 bay:grid-cols-[4fr_8fr] bay:gap-x-16">
+          <div>
+            <h2 id="skills-panel-h" className="t-project m-0 mb-4">Skills</h2>
+            <Label>Proposal: skills as a patch panel. A cable hangs from each skill for every place on the page that used it. The switches light one source.</Label>
+          </div>
+          <SkillsPanel groups={skillsPanel} />
+        </div>
       </section>
 
       <section className="gutter section border-t-2 border-ink" aria-labelledby="links-h">

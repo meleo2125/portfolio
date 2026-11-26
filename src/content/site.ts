@@ -2,6 +2,7 @@
    To update the site, edit this file (and CONTENT.md), commit and push. See docs/UPDATING.md. */
 
 import type { PatchPair } from "@/components/site/PatchBay";
+import type { PanelGroup } from "@/components/site/SkillsPanel";
 
 export const site = {
   url: "https://mukeshprajapat.vercel.app",
@@ -152,3 +153,38 @@ export const notFound = {
   text: "There's nothing at this address.",
   link: "Go to the home page",
 };
+
+/* Skills as a patch panel: where each skill was used, strictly from CONTENT.md.
+   work = Bristlecone summary and accelerator line; training = the Bristlecone training line;
+   thelyst / kharcha = their stack lines. Two inferences for the owner to confirm:
+   React (TheLyst and work use Next.js, which is built on React) and SQLite (Kharcha's Room/SQLCipher database is SQLite). */
+export const skillsPanel: PanelGroup[] = [
+  { name: "Languages", skills: [
+    { name: "Python", used: ["work"] }, { name: "JavaScript", used: [] }, { name: "Java", used: [] },
+    { name: "Kotlin", used: ["kharcha"] }, { name: "SQL", used: [] },
+  ] },
+  { name: "SAP data platforms", skills: [
+    { name: "SAP BW", used: ["work", "training"] }, { name: "SAP Datasphere", used: ["work", "training"] },
+    { name: "SAP BusinessObjects (WebI)", used: ["work", "training"] }, { name: "SAP Analytics Cloud", used: ["training"] },
+    { name: "SAP HANA", used: ["training"] }, { name: "SAP CPI-DS", used: ["training"] },
+  ] },
+  { name: "Backend and APIs", skills: [
+    { name: "FastAPI", used: ["work"] }, { name: "Node.js", used: [] }, { name: "Express.js", used: [] },
+    { name: "REST APIs", used: [] }, { name: "Model Context Protocol (MCP)", used: ["work"] },
+  ] },
+  { name: "AI", skills: [
+    { name: "LLM integration (Gemini API)", used: [] }, { name: "AI chatbots", used: [] },
+    { name: "AI-assisted development (Claude Code)", used: [] },
+  ] },
+  { name: "Frontend and mobile", skills: [
+    { name: "Next.js", used: ["work", "thelyst"] }, { name: "React", used: ["work", "thelyst"] }, { name: "React Native", used: [] },
+    { name: "Tailwind CSS", used: ["thelyst"] }, { name: "Jetpack Compose", used: ["kharcha"] },
+  ] },
+  { name: "Databases", skills: [
+    { name: "SQLite", used: ["kharcha"] }, { name: "MongoDB", used: [] }, { name: "Firestore", used: ["thelyst"] },
+  ] },
+  { name: "Cloud and tools", skills: [
+    { name: "Git", used: [] }, { name: "GitHub", used: [] }, { name: "GitHub Actions (CI)", used: [] }, { name: "Vercel", used: [] },
+    { name: "AWS S3", used: [] }, { name: "Firebase Authentication", used: ["thelyst"] }, { name: "JWT", used: [] },
+  ] },
+];

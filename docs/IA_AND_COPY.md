@@ -142,3 +142,24 @@ Left out on purpose:
 2. **Resume PDF.** `public/resume.pdf` is the old version that still lists IPR (now banned). The new one in ~/Documents has Kharcha, but it links to the Kharcha repo, which is going private. Remove that link (the resume agent can do it), then I'll publish the PDF.
 3. **D-007: drop the old database and /admin.** Every word on the new site comes from CONTENT.md, so the Postgres tables and the admin panel have nothing left to do. This also fixes the local build. Confirm, and I'll remove them in Phase 4 (along with @vercel/postgres and the middleware).
 4. **/design-system on production:** remove it from the production build (my suggestion) or keep it hidden and unindexed.
+
+## 6. Skills as a patch panel (proposal, 2026-11-26)
+New wording on the panel, for approval:
+- Switches: All, At work, TheLyst, Kharcha, Training. Group label (screen readers): "Show the skills used in".
+- Spoken after each used skill: "used at work", "used in TheLyst", "used in Kharcha", "training at Bristlecone".
+- Note under the panel: "A hanging cable means the skill was used somewhere on this page. Empty jacks are skills from my resume that no project here shows."
+
+Where each plug comes from (CONTENT.md only):
+| Skill | Plugs | Source line |
+|---|---|---|
+| Python, FastAPI, Next.js | work | Summary: "using Python, FastAPI and Next.js" |
+| MCP | work | Accelerator line: "MCP-based AI assistant" |
+| SAP BW, SAP Datasphere, SAP BusinessObjects (WebI) | work, training | Accelerator line; training line |
+| SAP Analytics Cloud, SAP HANA, SAP CPI-DS | training | Training line (SAC, HANA Modeling, CPI-DS) |
+| Next.js, Tailwind CSS, Firestore, Firebase Authentication | TheLyst | TheLyst stack |
+| Kotlin, Jetpack Compose | Kharcha | Kharcha stack |
+| **React** (inference) | work, TheLyst | Next.js is built on React |
+| **SQLite** (inference) | Kharcha | Room and SQLCipher are SQLite |
+| Everything else | none | No project on the page names it |
+
+Open question: TheLyst is written in TypeScript (per its public GitHub repo), but TypeScript is on CONTENT.md's excluded list, so JavaScript and TypeScript get no plug.
