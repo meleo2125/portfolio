@@ -68,7 +68,7 @@ Same version (13.6.0), same flags, same machine. Before: the live old site, Phas
   - no internals, architecture or screenshots of the accelerators.
 - **Kharcha images:** made-up demo data only.
 - **Found and fixed:** CONTENT.md named the owner's bank, in the note on which screenshots were skipped. It's removed from all tracked files.
-- **Open, owner decision:**
+- **Owner decision (2026-11-26): keep both as they are.** No screenshot swap and no history rewrite. For the record:
   1. The Kharcha home screenshot shows the SMS sender code "KOTAKD" under the demo alert, which identifies the bank the app was built for. The data around it is fictional.
   2. The bank name is still in one local commit (`6665532`, not pushed). Removing it from history needs a rewrite of unpushed local commits before Phase 6.
 
