@@ -33,7 +33,8 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] Owner replaced the IPR project with Kharcha (CONTENT.md); resume-update prompt written for the owner
 - [x] Owner picked B. Patch bay (D-013)
 - [x] Workplace accelerators toned down to sentences; showcase archived (D-015)
-- [ ] Owner approves the plain-language glosses (DESIGN_DIRECTIONS.md §5) and supplies Kharcha demo screenshots
+- [x] Kharcha demo-data screenshots received, checked for real data, three added (light + dark)
+- [ ] Owner approves the plain-language glosses (DESIGN_DIRECTIONS.md §5) and the hero cable pairs
 - [x] docs/DESIGN.md filled; tokens in src/app/(site)/site.css + tailwind.config.ts; fonts via next/font; PatchBay component; /design-system page (375/768/1440 + dark checked). Old site moved to src/app/(legacy)/ (D-016)
 
 ## Phase 3 — IA and copy · not started
