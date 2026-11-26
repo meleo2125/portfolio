@@ -101,5 +101,10 @@
   .skip-link { position: absolute; left: var(--gutter); top: -4rem; z-index: 10; padding: 0.6rem 1rem;
                background: rgb(var(--ink)); color: rgb(var(--paper)); font-weight: 600; }
   .skip-link:focus { top: 0.75rem; }
+  /* SkillsPanel switches */
+  .skill-switch { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.9rem; border: 2px solid rgb(var(--ink));
+                  border-radius: 9999px; background: rgb(var(--paper)); color: rgb(var(--ink)); font: 600 0.95rem/1.2 var(--font-hanken), system-ui, sans-serif; cursor: pointer; }
+  .skill-switch:hover { background: rgb(var(--ink) / 0.08); }
+  .skill-switch.is-on { background: rgb(var(--ink)); color: rgb(var(--paper)); }
   .sr-joiner { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }

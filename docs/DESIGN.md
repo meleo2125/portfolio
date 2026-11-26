@@ -79,6 +79,13 @@ Never: all-caps labels, one accented word in a headline, monospace for data labe
 - Without JavaScript: a plain list of pairs, each read as "source: target" (visually hidden joiner).
 - The SVG is `aria-hidden`; the words carry the meaning.
 
+**SkillsPanel** (`src/components/site/SkillsPanel.tsx`, client component; proposal on /design-system, 2026-11-26). Skills as a patch panel.
+- Each skill is a jack (28px ring, 3px `ink`). A used skill has a filled centre and a short cable hanging from it for each place it was used: `cable-1` work, `cable-2` TheLyst, `cable-3` Kharcha, `ink` training. An unused skill is an empty jack.
+- Switches (All, At work, TheLyst, Kharcha, Training) are real buttons with `aria-pressed`. The selected source keeps its cables; other cables fade to 15% and unrelated skills to 65% opacity (still 5.3:1 light, 7.0:1 dark).
+- Every skill is spoken with where it was used ("Python, used at work"), so colour never carries meaning alone.
+- Two columns on phones with shorter cables; auto-fill columns from 420px.
+- Mapping lives in `skillsPanel` in src/content/site.ts and may only use facts from CONTENT.md.
+
 **Work sentences** (work section, on the yellow field). Two short paragraphs in large Hanken text that name the accelerators in passing, SAP names glossed in plain words. No titles, cards or cables for them (D-015). The showcase version is archived in docs/archive/accelerators-showcase/.
 
 **Effect grid.** Short blocks (Recognition, Training) under a 2px rule.
