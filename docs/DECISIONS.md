@@ -5,7 +5,7 @@ Newest first. Each entry: what, why, status. "Pending" entries need the owner.
 ## 2026-11-25 — Phase 2
 
 **D-017 · No public link for Kharcha — done (owner)**
-Owner decision 2026-11-26: the Kharcha repo is going private, so the site shows no source or demo link for it. Removed from the design-system page, the mocks and CONTENT.md. The resume PDF in ~/Documents still links to the repo and must lose that link before it replaces public/resume.pdf.
+Owner decision 2026-11-26: the Kharcha repo is going private, so the site shows no source or demo link for it. Removed from the design-system page, the mocks and CONTENT.md. The owner's updated resume (2026-11-26) has no Kharcha link and is now public/resume.pdf.
 
 **D-016 · New design lives in its own root layout — done**
 The old site moved unchanged into `src/app/(legacy)/` (its layout, page, globals.css and /admin); the redesign has its own root layout in `src/app/(site)/` with its own CSS (site.css) and fonts (Anybody with the wdth axis, Hanken Grotesk, via next/font). Route groups with separate root layouts are documented in node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/route-groups.md; the only cost is a full page load when moving between the two, which ends in Phase 4 when (legacy) is deleted. /design-system is `noindex` and not linked. No new dependencies.

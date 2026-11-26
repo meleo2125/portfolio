@@ -42,7 +42,7 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] All site copy from CONTENT.md, plus a table of every rewording vs the resume
 - [x] Kharcha source links removed (repo going private, D-017); CONTENT.md skills synced with the new resume (Kotlin, Jetpack Compose)
 - [x] Owner approved copy and rewordings; later edit: no Kharcha status line or screenshot caption
-- [ ] New resume PDF without the Kharcha repo link → public/resume.pdf
+- [x] New resume PDF without the Kharcha repo link → public/resume.pdf (2026-11-26)
 - [x] D-007 confirmed: Postgres and /admin dropped; /design-system is 404 in production
 ## Phase 4 — Build · done 2026-11-26
 - [x] Old site, database, admin, middleware and 4 dependencies removed (commit c352774)
@@ -56,7 +56,7 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] Lighthouse 13.6.0, production build, same flags as Phase 1. Accessibility, best practices, SEO: 100 on every run. Desktop performance 100 (TBT 30 ms). Mobile performance over 5 runs: 80, 91, 92, 86, 89 (median 89; LCP 0.8–1.2 s, CLS 0, TBT 340–860 ms). The first run after each server start is consistently the lowest. Old site: median 81 mobile.
 - [x] Skills panel reworked to cut hydration: the 38 skills are server-rendered; only the five switches are client code
 - [ ] Mobile performance is not reliably ≥ 90 in this machine's lab runs. Recheck with PageSpeed Insights on the Vercel preview (Phase 5/6), which runs on consistent hardware
-- [ ] New resume PDF without the Kharcha repo link → public/resume.pdf
+- [x] New resume PDF without the Kharcha repo link → public/resume.pdf (2026-11-26)
 ## Phase 5 — QA · done, awaiting owner (report: docs/QA.md)
 - [x] Lint, typecheck, build clean
 - [x] scripts/qa.mjs: routes, links, anchors, images, headings, landmarks, metadata, keyboard, no-JS, reduced motion, axe-core (8 runs, 0 violations)
@@ -64,5 +64,5 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] Site text re-read against CONTENT.md: no unapproved facts
 - [x] Confidentiality: bank name removed from CONTENT.md; built site clean
 - [ ] Owner: KOTAKD on the Kharcha home screenshot; bank name in local commit 6665532
-- [ ] Owner: new resume PDF
+- [x] New resume PDF published to public/resume.pdf (Kharcha, no repo link; text and links checked)
 ## Phase 6 — Preview and ship · not started

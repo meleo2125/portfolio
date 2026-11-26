@@ -40,7 +40,7 @@ Same version (13.6.0), same flags, same machine. Before: the live old site, Phas
 | Route | Status |
 |---|---|
 | `/` | 200 |
-| `/resume.pdf` | 200 (but see "Open" below) |
+| `/resume.pdf` | 200 (the new resume, published after QA) |
 | `/robots.txt`, `/sitemap.xml`, `/opengraph-image`, `/icon.svg` | 200 |
 | `/design-system` | 404 in production (owner preview only) |
 | `/admin`, `/admin/login`, unknown paths | 404 (styled page) |
@@ -73,5 +73,5 @@ Same version (13.6.0), same flags, same machine. Before: the live old site, Phas
   2. The bank name is still in one local commit (`6665532`, not pushed). Removing it from history needs a rewrite of unpushed local commits before Phase 6.
 
 ## Open
-- The resume PDF on the site is still the old one, which lists the IPR project (excluded). The new PDF must lose its Kharcha repo link before it replaces `public/resume.pdf`.
+- Done after QA: the new resume (Kharcha, no repo link) replaced `public/resume.pdf`. Its 5 links are the ones checked above; text matches CONTENT.md.
 - Mobile performance: confirm on the Vercel preview (above).
