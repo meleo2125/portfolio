@@ -58,9 +58,9 @@ Added 2026-11-25 (owner decision), replacing the Gamified IPR Learning Platform 
 - Built a local-first Android app that combines personal money tracking with group bill splitting, turning bank and UPI SMS alerts into reviewable transactions through a unit-tested parser and background capture with WorkManager, deduplicated by UPI reference and message hash.
 - Implemented full group splitting (any payer; equal, exact, percentage and share splits; simplified debts and settle-up) on a SQLCipher-encrypted Room database, with AES-GCM encrypted backups and CSV/JSON import and export.
 - Plain-language line for the site: An Android app for money tracking and bill splitting in one place. Bank and UPI SMS alerts become transactions, any of them can be split with a group, and nothing leaves the phone.
-- Status: in active development, installed by sideloading (not on the Play Store). No live demo.
+- Status (not shown on the site, owner decision 2026-11-26): in active development, installed by sideloading, not on the Play Store. No live demo.
 - Links: none. The owner is making the repo private (2026-11-26), so the site shows no source or demo link for Kharcha.
-- Images (2026-11-26): home, split-bill and insights screens, light and dark, in public/images/projects/kharcha/. Captured on an emulator with fictional demo data (source PNGs and README in ~/Documents/portfolio-handoff/kharcha/, not committed). Checked: no real names, accounts or transactions. Not used: the review-alert and add-edit screens, which show the app's built-in default account name "Kotak 811". Caption on the site: "Screens from a demo install. All data shown is made up."
+- Images (2026-11-26): home, split-bill and insights screens, light and dark, in public/images/projects/kharcha/. Captured on an emulator with fictional demo data (source PNGs and README in ~/Documents/portfolio-handoff/kharcha/, not committed). Checked: no real names, accounts or transactions. Not used: the review-alert and add-edit screens, which show the app's built-in default account name "Kotak 811". No caption and no status line on the site (owner decision 2026-11-26).
 
 ## Education
 Bachelor of Engineering, Computer Science Engineering and Data Science (Honours in AI/ML)

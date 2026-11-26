@@ -1,6 +1,6 @@
 # Phase 3: Structure and copy
 
-Status: draft for the owner's approval (2026-11-26). Nothing here is built yet.
+Status: approved 2026-11-26. Later owner edits: no Kharcha status line, no screenshot caption (2026-11-26).
 Sources: docs/CONTENT.md only. Design: docs/DESIGN.md (Patch bay). Voice: plain, first person in body text, short sentences, no clichés ("passionate", "team player", "results-driven", "innovative", "cutting-edge").
 
 ## 1. Pages
@@ -71,9 +71,7 @@ Work · Projects · Skills · Contact · Resume
 - An Android app for money tracking and bill splitting in one place. Bank and UPI SMS alerts become transactions, any of them can be split with a group, and nothing leaves the phone.
 - Anyone in a group can pay. Bills split equally, by exact amounts, by percent or by shares, with simplified debts and settle-up. The database and backups are encrypted.
 - Stack: Kotlin, Jetpack Compose, Room, SQLCipher, Hilt, WorkManager
-- Status: In development. Not on the Play Store.
 - Links: none (the repo is going private).
-- Caption: Screens from a demo install. All data shown is made up.
 - Image alts:
   - "Kharcha home: a bank alert from Cafe Bloom for ₹480 waiting to be saved, and this month's spending against the budget"
   - "Kharcha splitting a ₹2,800 bill equally between four people, with options to split by exact amounts, percent or shares"
