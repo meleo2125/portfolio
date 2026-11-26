@@ -22,7 +22,7 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] Content check vs CONTENT.md, keyboard, links, contrast
 - [x] docs/AUDIT.md
 
-## Phase 2 — Design direction · done, awaiting owner approval (brief: docs/briefs/phase-2-design-direction.md)
+## Phase 2 — Design direction · approved 2026-11-26 (brief: docs/briefs/phase-2-design-direction.md)
 - [x] Survey of 76 portfolios (39 random developer, 37 curated developer/designer) → docs/DESIGN_CLICHES.md
 - [x] 11 raw concepts with originality / risk / readability notes → docs/DESIGN_DIRECTIONS.md
 - [x] Scoring; 8 discarded with reasons
@@ -34,10 +34,16 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] Owner picked B. Patch bay (D-013)
 - [x] Workplace accelerators toned down to sentences; showcase archived (D-015)
 - [x] Kharcha demo-data screenshots received, checked for real data, three added (light + dark)
-- [ ] Owner approves the plain-language glosses (DESIGN_DIRECTIONS.md §5) and the hero cable pairs
+- [x] Hero cable pairs approved with Phase 2; glosses go to final review in Phase 3 (IA_AND_COPY.md §4)
 - [x] docs/DESIGN.md filled; tokens in src/app/(site)/site.css + tailwind.config.ts; fonts via next/font; PatchBay component; /design-system page (375/768/1440 + dark checked). Old site moved to src/app/(legacy)/ (D-016)
 
-## Phase 3 — IA and copy · not started
+## Phase 3 — IA and copy · awaiting owner approval
+- [x] Pages, section order, nav → docs/IA_AND_COPY.md
+- [x] All site copy from CONTENT.md, plus a table of every rewording vs the resume
+- [x] Kharcha source links removed (repo going private, D-017); CONTENT.md skills synced with the new resume (Kotlin, Jetpack Compose)
+- [ ] Owner approves copy and rewordings
+- [ ] New resume PDF without the Kharcha repo link → public/resume.pdf
+- [ ] Owner confirms D-007 (drop Postgres + /admin) and the /design-system production choice
 ## Phase 4 — Build · not started
 ## Phase 5 — QA · not started
 ## Phase 6 — Preview and ship · not started
