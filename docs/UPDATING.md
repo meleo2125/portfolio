@@ -27,3 +27,7 @@ Keep the database until then. The current live site needs it, and so would an In
 4. The old `/admin` and `/admin/login` URLs will return the site's 404 page. Nothing else needs doing.
 
 Never paste the values of these variables into chat, issues or commits.
+
+## Search engines
+- Google Search Console: URL-prefix property for https://mukeshprajapat.vercel.app/, verified by the HTML tag in `src/app/layout.tsx` (`metadata.verification.google`). Keep that tag; removing it can drop the verification.
+- After verifying: submit `sitemap.xml` and request indexing of the home page. Bing Webmaster Tools can import the property from Search Console.

@@ -33,6 +33,8 @@ export const metadata: Metadata = {
     locale: "en_IN",
   },
   twitter: { card: "summary_large_image", title: site.title, description: site.description },
+  // Google Search Console ownership check (URL-prefix property for site.url). Public by design.
+  verification: { google: "32imi3VM3E7p95mJ-m5DvhQjsI8KvMHgTHA3xEi2Zt4" },
 };
 
 export const viewport: Viewport = {
