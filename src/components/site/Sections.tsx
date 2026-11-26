@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { PatchBay } from "@/components/site/PatchBay";
-import { background, bay, contact, footer, links, nav, projects, site, skills, work, writing } from "@/content/site";
+import { SkillsPanel } from "@/components/site/SkillsPanel";
+import { background, bay, contact, footer, links, nav, projects, site, skills, skillsPanel, work, writing } from "@/content/site";
 
 /* Page sections, in the order set by docs/IA_AND_COPY.md. Server components; text comes from src/content/site.ts. */
 
@@ -36,14 +37,14 @@ function ContactLinks({ resume = false, email = true }: { resume?: boolean; emai
 }
 
 /* Heading on the left, content on the right: the quiet sections after the projects. */
-function QuietSection({ id, heading, children }: { id: string; heading: string; children: React.ReactNode }) {
+function QuietSection({ id, heading, wide = false, children }: { id: string; heading: string; wide?: boolean; children: React.ReactNode }) {
   return (
     <section id={id} aria-labelledby={`${id}-h`} className="gutter border-t-2 border-ink py-[clamp(3rem,9vh,5.5rem)]">
       <div className="grid gap-6 bay:grid-cols-[4fr_8fr] bay:gap-x-16">
         <h2 id={`${id}-h`} className="t-project m-0">
           {heading}
         </h2>
-        <div className="max-w-[62ch]">{children}</div>
+        <div className={wide ? "" : "max-w-[62ch]"}>{children}</div>
       </div>
     </section>
   );
@@ -245,15 +246,8 @@ export function Writing() {
 
 export function Skills() {
   return (
-    <QuietSection id="skills" heading={skills.heading}>
-      <dl className="m-0 grid gap-5">
-        {skills.groups.map((g) => (
-          <div key={g.name}>
-            <dt className="font-semibold">{g.name}</dt>
-            <dd className="m-0 text-muted">{g.items.join(", ")}</dd>
-          </div>
-        ))}
-      </dl>
+    <QuietSection id="skills" heading={skills.heading} wide>
+      <SkillsPanel groups={skillsPanel} />
     </QuietSection>
   );
 }

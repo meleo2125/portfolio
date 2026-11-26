@@ -106,18 +106,8 @@ export const writing = {
   text: "I wrote 8 technical articles on Ruby on Rails and statistics for beginners, with 33,000+ total views. Each one has 5–10 FAQs, and the code samples were revised after editorial and peer review.",
 };
 
-export const skills = {
-  heading: "Skills",
-  groups: [
-    { name: "Languages", items: ["Python", "JavaScript", "Java", "Kotlin", "SQL"] },
-    { name: "SAP data platforms", items: ["SAP BW", "SAP Datasphere", "SAP BusinessObjects (WebI)", "SAP Analytics Cloud", "SAP HANA", "SAP CPI-DS"] },
-    { name: "Backend and APIs", items: ["FastAPI", "Node.js", "Express.js", "REST APIs", "Model Context Protocol (MCP)"] },
-    { name: "AI", items: ["LLM integration (Gemini API)", "AI chatbots", "AI-assisted development (Claude Code)"] },
-    { name: "Frontend and mobile", items: ["Next.js", "React", "React Native", "Tailwind CSS", "Jetpack Compose"] },
-    { name: "Databases", items: ["SQLite", "MongoDB", "Firestore"] },
-    { name: "Cloud and tools", items: ["Git", "GitHub", "GitHub Actions (CI)", "Vercel", "AWS S3", "Firebase Authentication", "JWT"] },
-  ],
-};
+/* The skills themselves are in skillsPanel at the end of this file. */
+export const skills = { heading: "Skills" };
 
 export const background = {
   heading: "Background",
