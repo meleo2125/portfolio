@@ -4,6 +4,9 @@ Newest first. Each entry: what, why, status. "Pending" entries need the owner.
 
 ## 2026-11-25 — Phase 2
 
+**D-018 · Bank traces kept — done (owner)**
+Phase 5 found two traces of the bank the Kharcha app was built for: the SMS sender code on the Kharcha home screenshot, and the bank's name in one local commit (6665532) that will be pushed with the branch. Options offered: swap the screenshot for one without a bank, and rewrite the unpushed commits. Owner decision 2026-11-26: keep both as they are.
+
 **D-017 · No public link for Kharcha — done (owner)**
 Owner decision 2026-11-26: the Kharcha repo is going private, so the site shows no source or demo link for it. Removed from the design-system page, the mocks and CONTENT.md. The owner's updated resume (2026-11-26) has no Kharcha link and is now public/resume.pdf.
 

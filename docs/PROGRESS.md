@@ -63,6 +63,6 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] Lighthouse before/after: accessibility, best practices, SEO 100; desktop 100; mobile median 86 (range 77–92, TBT noise)
 - [x] Site text re-read against CONTENT.md: no unapproved facts
 - [x] Confidentiality: bank name removed from CONTENT.md; built site clean
-- [ ] Owner: KOTAKD on the Kharcha home screenshot; bank name in local commit 6665532
+- [x] Owner decided to keep the KOTAKD screenshot and commit 6665532 as they are (2026-11-26)
 - [x] New resume PDF published to public/resume.pdf (Kharcha, no repo link; text and links checked)
 ## Phase 6 — Preview and ship · not started
