@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept C: Lineage. Mukesh Prajapat</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500;600;700&family=Funnel+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  /* Concept C: Lineage. Static mock: hero (claims) + work section (sources).
+     Every claim links to its source. On wide screens a small script draws the lineage lines;
+     without it (no JS, phones) the links still jump to the source, which highlights via :target. */
+  :root {
+    --bg: #EBEFF3; --ink: #121A22; --muted: #4A5663;
+    --lineage: #3043C9;            /* links + lines, 6.6:1 */
+    --lineage-soft: rgba(48, 67, 201, 0.38);
+    --tint: #DDE3F7;               /* highlighted source background */
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0F141A; --ink: #E4EAF0; --muted: #9AA6B2; --lineage: #93A0FF;
+            --lineage-soft: rgba(147, 160, 255, 0.35); --tint: #1B2340; }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.6 "Funnel Sans", system-ui, sans-serif; font-variant-numeric: tabular-nums; }
+  p { text-wrap: pretty; }
+  ::selection { background: var(--lineage); color: var(--bg); }
+  a { color: var(--lineage); text-underline-offset: 0.2em; text-decoration-thickness: 1px; }
+  :focus-visible { outline: 2px solid var(--lineage); outline-offset: 3px; border-radius: 3px; }
+  h1, h2, h3 { font-family: "Funnel Display", system-ui, sans-serif; }
+
+  .frame { position: relative; max-width: 78rem; margin: 0 auto; padding: 0 clamp(1.25rem, 4vw, 3rem);
+           display: grid; grid-template-columns: minmax(0, 44rem) minmax(0, 1fr); column-gap: 4rem; }
+  .frame > * { grid-column: 1; }
+  #lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+
+  header.top { padding: 1.5rem 0; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  header.top a { color: var(--ink); text-decoration: none; }
+  header.top a:hover { color: var(--lineage); text-decoration: underline; }
+
+  .hero { padding: clamp(3rem, 10vh, 6.5rem) 0 clamp(3rem, 8vh, 5rem); }
+  .hero h1 { font-size: clamp(2.75rem, 7.5vw, 5.5rem); line-height: 0.98; letter-spacing: -0.03em; margin: 0 0 1.25rem; font-weight: 700; }
+  .hero .headline { font-family: "Funnel Display", sans-serif; font-size: clamp(1.25rem, 2.3vw, 1.7rem); line-height: 1.3; font-weight: 500; margin: 0 0 2rem; max-width: 32ch; }
+  .hero .statement { font-size: 1.1875rem; line-height: 1.75; margin: 0 0 2rem; }
+
+  /* A claim: a link to its source, marked with a small open ring. */
+  a.claim { color: inherit; text-decoration: underline dotted var(--lineage); text-decoration-thickness: 2px; text-underline-offset: 0.28em; }
+  a.claim::after { content: ""; display: inline-block; width: 0.55em; height: 0.55em; margin-left: 0.25em; border: 2px solid var(--lineage); border-radius: 50%; vertical-align: 0.1em; }
+  a.claim:hover, a.claim.on { text-decoration-style: solid; color: var(--lineage); }
+  .contact { display: flex; flex-wrap: wrap; gap: 0.6rem 1.75rem; list-style: none; padding: 0; margin: 0; font-weight: 600; }
+
+  .work { padding: clamp(3rem, 8vh, 5rem) 0 6rem; border-top: 1px solid var(--lineage-soft); }
+  .work h2 { font-size: clamp(1.75rem, 3.2vw, 2.4rem); margin: 0 0 0.35rem; font-weight: 600; letter-spacing: -0.015em; }
+  .work .meta { color: var(--muted); margin: 0 0 2.25rem; display: flex; flex-wrap: wrap; gap: 0.15rem 1.5rem; }
+  .sources { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.25rem; }
+  /* A source: filled ring where lineage lands. */
+  .source { position: relative; padding: 1rem 1.25rem; border-radius: 6px; transition: background-color 200ms ease-out; }
+  .source::before { content: ""; position: absolute; left: -0.35rem; top: 1.45rem; width: 0.6rem; height: 0.6rem; border-radius: 50%; background: var(--lineage); }
+  .source:target, .source.on { background: var(--tint); }
+  .source h3 { font-family: "Funnel Sans", sans-serif; font-size: 0.95rem; font-weight: 600; color: var(--muted); margin: 0 0 0.25rem; }
+  .source p { margin: 0; }
+  .used-by { margin-top: 0.5rem !important; font-size: 0.9375rem; color: var(--muted); }
+
+  @media (max-width: 1099px) {
+    .frame { display: block; }
+    #lines { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .source { transition: none; } }
+</style>
+</head>
+<body>
+<div class="frame" id="frame">
+  <svg id="lines" aria-hidden="true"></svg>
+
+  <header class="top">
+    <nav aria-label="Sections"><a href="#work">Work</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Projects</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Skills</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Contact</a></nav>
+  </header>
+
+  <section class="hero" aria-labelledby="name">
+    <h1 id="name">Mukesh Prajapat</h1>
+    <p class="headline">Software engineer building AI and automation for SAP data platforms</p>
+    <p class="statement">
+      Associate Consultant, SAP Analytics at Bristlecone, Mumbai. I build
+      <a class="claim" href="#s1" data-src="s1">AI and automation accelerators for SAP BW, Datasphere and BusinessObjects</a>
+      using Python, FastAPI and Next.js, which have cut
+      <a class="claim" href="#s1" data-src="s1">manual migration and development effort by up to 70%</a>.
+      Recognised with the
+      <a class="claim" href="#s3" data-src="s3">Brilliant Beginner Award and SPOT Award</a>.
+    </p>
+    <ul class="contact">
+      <li><a href="mailto:mukeshprajapat3093@gmail.com">mukeshprajapat3093@gmail.com</a></li>
+      <li><a href="https://github.com/meleo2125" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/mukesh-prajapat-" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+      <li><a href="/resume.pdf">Resume (PDF)</a></li>
+    </ul>
+  </section>
+
+  <section class="work" id="work" aria-labelledby="work-h">
+    <h2 id="work-h">Work at Bristlecone</h2>
+    <p class="meta"><span>Associate Consultant, SAP Analytics</span><span>July 2025 to present</span><span>Mumbai, hybrid</span></p>
+    <ol class="sources">
+      <li class="source" id="s1">
+        <h3>Accelerators</h3>
+        <p>Developed AI and automation accelerators for SAP data platforms, including a BW-to-Datasphere/Snowflake migration tool, an MCP-based AI assistant for Datasphere and a BusinessObjects landscape platform used at a customer site, reducing manual effort in migration and development activities by up to 70%.</p>
+      </li>
+      <li class="source" id="s2">
+        <h3>Training</h3>
+        <p>Completed technical training across SAC, Datasphere, BusinessObjects, BW Modeling, HANA Modeling and CPI-DS.</p>
+      </li>
+      <li class="source" id="s3">
+        <h3>Recognition</h3>
+        <p>Brilliant Beginner Award and SPOT Award, for contributions to AI and automation initiatives.</p>
+      </li>
+    </ol>
+  </section>
+</div>
+
+<script>
+/* Draws lineage lines from each claim to its source in the right-hand gutter.
+   Progressive enhancement only: content and links work without it. */
+(() => {
+  const frame = document.getElementById("frame");
+  const svg = document.getElementById("lines");
+  const claims = [...document.querySelectorAll("a.claim")];
+  const wide = matchMedia("(min-width: 1100px)");
+  const still = matchMedia("(prefers-reduced-motion: reduce)");
+  const NS = "http://www.w3.org/2000/svg";
+  let drawnOnce = false;
+
+  function draw() {
+    svg.replaceChildren();
+    if (!wide.matches) return;
+    const f = frame.getBoundingClientRect();
+    const colRight = document.querySelector(".hero .statement").getBoundingClientRect().right - f.left;
+    claims.forEach((c, i) => {
+      const src = document.getElementById(c.dataset.src);
+      const rects = c.getClientRects(); const last = rects[rects.length - 1];
+      const s = src.getBoundingClientRect();
+      const y1 = last.top + last.height / 2 - f.top;
+      const x1 = colRight + 14;                          /* lines live only in the gutter, never over text */
+      const lane = colRight + 56 + i * 22;               /* one lane per claim */
+      const xs = s.right - f.left + 14, y2 = s.top - f.top + 1.45 * 16 + 5;
+      const r = 10;
+      const d = `M ${x1} ${y1} H ${lane - r} Q ${lane} ${y1} ${lane} ${y1 + r} V ${y2 - r} Q ${lane} ${y2} ${lane - r} ${y2} H ${xs}`;
+      const p = document.createElementNS(NS, "path");
+      p.setAttribute("d", d); p.setAttribute("fill", "none");
+      p.setAttribute("stroke", "var(--lineage-soft)"); p.setAttribute("stroke-width", "1.5");
+      const port = (cx, cy, filled) => { const k = document.createElementNS(NS, "circle");
+        k.setAttribute("cx", cx); k.setAttribute("cy", cy); k.setAttribute("r", 4);
+        k.setAttribute("fill", filled ? "var(--lineage)" : "var(--bg)"); k.setAttribute("stroke", "var(--lineage)"); k.setAttribute("stroke-width", 2);
+        svg.append(k); };
+      p.dataset.i = i; svg.append(p); port(x1, y1, false); port(xs, y2, true);
+      if (!drawnOnce && !still.matches) {            /* the one load moment: lines trace once */
+        const len = p.getTotalLength();
+        p.style.strokeDasharray = len; p.style.strokeDashoffset = len;
+        p.animate([{ strokeDashoffset: len }, { strokeDashoffset: 0 }],
+          { duration: 900, delay: 200 + i * 120, easing: "cubic-bezier(0.16, 1, 0.3, 1)", fill: "forwards" });
+      }
+    });
+    drawnOnce = true;
+  }
+  function highlight(i, on) {
+    const c = claims[i]; const src = document.getElementById(c.dataset.src);
+    const p = svg.querySelector(`path[data-i="${i}"]`);
+    c.classList.toggle("on", on); src.classList.toggle("on", on);
+    if (p) { p.setAttribute("stroke", on ? "var(--lineage)" : "var(--lineage-soft)"); p.setAttribute("stroke-width", on ? "2.5" : "1.5"); }
+  }
+  claims.forEach((c, i) => {
+    c.addEventListener("pointerenter", () => highlight(i, true));
+    c.addEventListener("pointerleave", () => highlight(i, false));
+    c.addEventListener("focus", () => highlight(i, true));
+    c.addEventListener("blur", () => highlight(i, false));
+  });
+  new ResizeObserver(draw).observe(frame);
+  wide.addEventListener("change", draw);
+  document.fonts.ready.then(draw);
+})();
+</script>
+</body>
+</html>

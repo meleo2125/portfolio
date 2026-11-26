@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Concept C: Strata. Mukesh Prajapat</title>
+<meta name="color-scheme" content="light dark">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&family=Familjen+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* Concept C (v2): Strata.
+     One huge thing: the first screen is a cross-section of five coloured layers, and the layers ARE the
+     navigation. Each section below is one layer, read from summary (top) to detail (bottom), the way data
+     is refined in layers before it reaches a report. Motion: the layers settle into place once on load. */
+  :root {
+    --s1: #FFD84D; --s2: #FFA62B; --s3: #F25C3B; --s4: #8E2C48; --s5: #2E1531;
+    --ink: #2B1220;                    /* on s1/s2/s3: 12.6 / 8.9 / 5.3 :1 */
+    --light: #FFF1E6;                  /* on s4/s5: 7.3 / 15.0 :1 */
+    --light-soft: #FFC9B5;             /* on s4: 5.5:1 */
+    --name: #2B1220;
+  }
+  @media (prefers-color-scheme: dark) {
+    /* Dusk: the same layers after sunset. Light text on every layer. */
+    :root { --s1: #2E1531; --s2: #47193A; --s3: #62203D; --s4: #7E2A44; --s5: #1C0C1E;
+            --ink: #FFF1E6; --name: #FFD84D; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--s5); color: var(--ink);
+         font: 400 1.0625rem/1.6 "Atkinson Hyperlegible Next", system-ui, sans-serif; }
+  p { text-wrap: pretty; }
+  a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 0.22em; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid currentColor; outline-offset: 4px; }
+  h1, h2, h3, .band-label { font-family: "Familjen Grotesk", system-ui, sans-serif; }
+  .pad { padding-inline: clamp(1.25rem, 5vw, 5rem); }
+
+  /* A layer: solid colour with an uneven top edge, like sediment. */
+  .layer { position: relative; }
+  .layer::before { content: ""; position: absolute; left: 0; right: 0; bottom: calc(100% - 1px); height: var(--edge, 22px);
+    background: var(--bg);
+    -webkit-mask: var(--wave) repeat-x 0 100% / var(--wl, 520px) 100%; mask: var(--wave) repeat-x 0 100% / var(--wl, 520px) 100%; }
+  .layer { --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 520 22' preserveAspectRatio='none'%3E%3Cpath d='M0 22V14C60 6 110 4 170 9S290 20 350 13 460 2 520 14V22Z'/%3E%3C/svg%3E"); }
+  .w2 { --wl: 760px; --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 760 22' preserveAspectRatio='none'%3E%3Cpath d='M0 22V10C90 16 170 3 290 7S470 18 560 12 700 4 760 10V22Z'/%3E%3C/svg%3E"); }
+  .w3 { --wl: 640px; --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 22' preserveAspectRatio='none'%3E%3Cpath d='M0 22V15C70 15 120 5 210 6S360 16 440 15 570 6 640 15V22Z'/%3E%3C/svg%3E"); }
+
+  /* ---------- First screen: the whole cross-section ---------- */
+  .section-stack { min-height: 100svh; display: grid; grid-template-rows: 1fr auto; overflow: hidden; }
+  .top-layer { --bg: var(--s1); background: var(--s1); display: grid; grid-template-rows: auto 1fr auto; padding-bottom: clamp(2rem, 6vh, 3.5rem); }
+  .top { display: flex; justify-content: space-between; padding-block: 1.25rem; font-weight: 600; }
+  .name { margin: 0; align-self: end; color: var(--name); font-weight: 700; letter-spacing: -0.045em; line-height: 0.84;
+          font-size: clamp(3.75rem, 14.5vw, 15.5rem); }
+  .lead { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 1.25rem clamp(2rem, 6vw, 6rem); margin-top: clamp(1.25rem, 3vh, 2rem); align-items: start; }
+  .lead .what { margin: 0; font-family: "Familjen Grotesk", sans-serif; font-weight: 600; font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.2; max-width: 26ch; }
+  .lead .side p { margin: 0 0 0.75rem; }
+  .contact { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.35rem 1.4rem; font-weight: 700; }
+
+  /* The lower layers on the first screen are the navigation. */
+  .bands { list-style: none; margin: 0; padding: 0; }
+  .bands li { --edge: 18px; }
+  .bands a { display: grid; grid-template-columns: minmax(8rem, 14rem) 1fr auto; align-items: baseline; gap: 0.25rem 2rem;
+             padding-block: clamp(0.8rem, 2.2vh, 1.35rem); text-decoration: none; }
+  .bands a:hover .band-label, .bands a:focus-visible .band-label { text-decoration: underline; text-underline-offset: 0.18em; text-decoration-thickness: 3px; }
+  .band-label { font-size: clamp(1.35rem, 2.6vw, 2.1rem); font-weight: 700; letter-spacing: -0.02em; }
+  .band-note { font-size: 1rem; }
+  .band-depth { font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+  .b2 { --bg: var(--s2); background: var(--s2); } .b3 { --bg: var(--s3); background: var(--s3); }
+  .b4 { --bg: var(--s4); background: var(--s4); color: var(--light); } .b5 { --bg: var(--s5); background: var(--s5); color: var(--light); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .bands li { animation: settle 900ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+    .bands li:nth-child(1) { animation-delay: 120ms; } .bands li:nth-child(2) { animation-delay: 220ms; }
+    .bands li:nth-child(3) { animation-delay: 320ms; } .bands li:nth-child(4) { animation-delay: 420ms; }
+    @keyframes settle { from { transform: translateY(120%); } to { transform: none; } }
+  }
+
+  /* ---------- Sections: one layer each ---------- */
+  .sec { padding-block: clamp(4.5rem, 12vh, 8rem); --edge: 26px; }
+  .sec h2 { margin: 0 0 1.25rem; font-size: clamp(2.6rem, 7.5vw, 6.75rem); line-height: 0.9; font-weight: 700; letter-spacing: -0.04em; }
+  .sec .lede { max-width: 58ch; font-size: 1.1875rem; margin: 0 0 clamp(2.5rem, 7vh, 4rem); }
+
+  .work { --bg: var(--s2); background: var(--s2); }
+  .tools { list-style: none; margin: 0; padding: 0; border-top: 3px solid currentColor; }
+  .tools li { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 0.5rem clamp(2rem, 5vw, 5rem);
+              padding-block: clamp(1.25rem, 3.5vh, 2rem); border-bottom: 3px solid currentColor; align-items: baseline; }
+  .tools h3 { margin: 0; font-size: clamp(1.75rem, 4vw, 3.25rem); line-height: 1; font-weight: 700; letter-spacing: -0.03em; }
+  .tools p { margin: 0; font-size: 1.125rem; max-width: 46ch; }
+  .effect { margin-top: clamp(2.5rem, 7vh, 4rem); display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.5rem 3rem; }
+  .effect h3 { margin: 0 0 0.3rem; font-size: 1.1rem; }
+  .effect p { margin: 0; }
+
+  .projects { --bg: var(--s3); background: var(--s3); }
+  .projects h2 { margin-bottom: clamp(2.5rem, 7vh, 4rem); }
+  .project { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 2rem clamp(2rem, 5vw, 5rem); align-items: center; }
+  .project + .project { margin-top: clamp(4.5rem, 12vh, 7rem); }
+  .project h3 { margin: 0 0 0.9rem; font-size: clamp(2.25rem, 5vw, 4.5rem); line-height: 0.92; font-weight: 700; letter-spacing: -0.04em; }
+  .project p { margin: 0 0 1rem; }
+  .project .stack { font-weight: 700; font-size: 0.95rem; }
+  .project .links { display: flex; gap: 1.5rem; font-weight: 700; }
+  .shot { position: relative; margin: 0; }
+  .shot img { display: block; width: 100%; height: auto; border-radius: 8px; border: 3px solid var(--s5); }
+  .shot .phone { position: absolute; width: 25%; right: -5%; bottom: -10%; border-radius: 14px; border-width: 4px; }
+  .placeholder { aspect-ratio: 16 / 10; border: 3px dashed currentColor; border-radius: 8px; display: grid; place-items: center; text-align: center; padding: 1rem; }
+
+  .skills { --bg: var(--s4); background: var(--s4); color: var(--light); }
+  .skills ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem 1.75rem; font-size: 1.25rem; }
+  .skills .note { color: var(--light-soft); margin-top: 2rem; }
+
+  @media (max-width: 760px) {
+    .lead { grid-template-columns: 1fr; }
+    .bands a { grid-template-columns: 1fr auto; }
+    .band-note { grid-column: 1 / -1; grid-row: 2; }
+    .tools li, .project { grid-template-columns: 1fr; }
+    .shot .phone { right: 3%; }
+  }
+</style>
+</head>
+<body>
+<header class="section-stack">
+  <div class="top-layer pad">
+    <nav class="top" aria-label="Site"><span>Mukesh Prajapat</span><a href="/resume.pdf">Resume (PDF)</a></nav>
+    <h1 class="name">Mukesh<br>Prajapat</h1>
+    <div class="lead">
+      <p class="what">Software engineer building AI and automation tools for enterprise data platforms.</p>
+      <div class="side" id="contact">
+        <p>Associate Consultant at Bristlecone, Mumbai. Also builds full-stack web and mobile apps.</p>
+        <ul class="contact">
+          <li><a href="mailto:mukeshprajapat3093@gmail.com">mukeshprajapat3093@gmail.com</a></li>
+          <li><a href="https://github.com/meleo2125" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/mukesh-prajapat-" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <nav aria-label="Sections">
+    <ol class="bands">
+      <li class="layer b2"><a class="pad" href="#work"><span class="band-label">Work</span><span class="band-note">AI and automation tools at Bristlecone, since July 2025</span><span class="band-depth" aria-hidden="true">1</span></a></li>
+      <li class="layer b3 w2"><a class="pad" href="#projects"><span class="band-label">Projects</span><span class="band-note">TheLyst and Kharcha</span><span class="band-depth" aria-hidden="true">2</span></a></li>
+      <li class="layer b4 w3"><a class="pad" href="#skills"><span class="band-label">Skills</span><span class="band-note">Python, JavaScript, FastAPI, Next.js and SAP data platforms</span><span class="band-depth" aria-hidden="true">3</span></a></li>
+      <li class="layer b5"><a class="pad" href="#"><span class="band-label">Background</span><span class="band-note">B.E. in Computer Science and Data Science, CGPA 9.32/10</span><span class="band-depth" aria-hidden="true">4</span></a></li>
+    </ol>
+  </nav>
+</header>
+
+<main>
+  <section class="layer sec work pad w2" id="work" aria-labelledby="work-h">
+    <h2 id="work-h">What I build at work</h2>
+    <p class="lede">At <strong>Bristlecone</strong> (Associate Consultant, SAP Analytics, since July 2025) I build AI and automation accelerators for SAP data platforms, the systems many large companies run their data and reporting on.</p>
+    <ul class="tools">
+      <li><h3>Migration tool</h3><p>Moves <strong>SAP BW</strong>, a data warehouse, to <strong>SAP Datasphere</strong> or <strong>Snowflake</strong>.</p></li>
+      <li><h3>AI assistant</h3><p>An assistant for <strong>SAP Datasphere</strong>, a cloud data platform, built on MCP (Model Context Protocol).</p></li>
+      <li><h3>Landscape platform</h3><p>For <strong>SAP BusinessObjects</strong>, enterprise reporting. Used at a customer site.</p></li>
+    </ul>
+    <div class="effect">
+      <div><h3>Result</h3><p>Up to 70% less manual effort in migration and development activities.</p></div>
+      <div><h3>Recognition</h3><p>Brilliant Beginner Award and SPOT Award, for contributions to AI and automation initiatives.</p></div>
+      <div><h3>Training</h3><p>SAC, Datasphere, BusinessObjects, BW Modeling, HANA Modeling, CPI-DS.</p></div>
+    </div>
+  </section>
+
+  <section class="layer sec projects pad w3" id="projects" aria-labelledby="projects-h">
+    <h2 id="projects-h">Things I've built</h2>
+    <article class="project" aria-labelledby="p1">
+      <figure class="shot">
+        <img src="img/thelyst-desktop.webp" width="1440" height="900" alt="TheLyst home page: 'Track what you watch. Curate your obsession.' with Start Tracking and Sign In buttons">
+        <img class="phone" src="img/thelyst-mobile.webp" width="780" height="1688" alt="" loading="lazy">
+      </figure>
+      <div>
+        <h3 id="p1">TheLyst</h3>
+        <p>One watchlist for movies, TV and anime, with real-time search across thousands of titles and custom lists you can rank, clone and share.</p>
+        <p class="stack">Next.js, Tailwind CSS, Firebase Authentication, Firestore, TMDB API, Jikan API</p>
+        <p class="links"><a href="https://thelystapp.vercel.app" target="_blank" rel="noopener noreferrer">Live demo</a><a href="https://github.com/meleo2125/thelystapp" target="_blank" rel="noopener noreferrer">Source</a></p>
+      </div>
+    </article>
+    <article class="project" aria-labelledby="p3">
+      <div class="placeholder">Kharcha screens go here.<br>Needs demo-data screenshots.</div>
+      <div>
+        <h3 id="p3">Kharcha</h3>
+        <p>A private Android app for money tracking and bill splitting in one place. Bank and UPI SMS alerts become transactions, any of them can be split with a group, and nothing leaves the phone.</p>
+        <p class="stack">Kotlin, Jetpack Compose, Room, SQLCipher, Hilt, WorkManager</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="layer sec skills pad" id="skills" aria-labelledby="skills-h">
+    <h2 id="skills-h">Skills</h2>
+    <ul><li>Python</li><li>JavaScript</li><li>Java</li><li>SQL</li><li>FastAPI</li><li>Node.js</li><li>Next.js</li><li>React</li><li>React Native</li></ul>
+    <p class="note">Mock ends here. The Background layer (education, achievements, certifications, writing) sits below.</p>
+  </section>
+</main>
+</body>
+</html>

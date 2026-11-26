@@ -1,54 +1,55 @@
-import type { Metadata } from "next";
-import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
-import "./globals.css";
-import { BootGate } from "@/components/loader/BootGate";
+import type { Metadata, Viewport } from "next";
+import { Anybody, Hanken_Grotesk } from "next/font/google";
+import { site } from "@/content/site";
+import "./site.css";
 
-const spaceGrotesk = Space_Grotesk({
+/* Root layout. Design: docs/DESIGN.md (Patch bay). */
+
+const anybody = Anybody({
   subsets: ["latin"],
-  variable: "--font-display",
+  axes: ["wdth"],
+  variable: "--font-anybody",
   display: "swap",
 });
 
-const inter = Inter({
+const hanken = Hanken_Grotesk({
   subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-hanken",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Mukesh Prajapat — Data systems engineer. Independent builder.",
-  description:
-    "Portfolio of Mukesh Prajapat — SAP Analytics automation by trade, full-stack product builds by choice.",
-  metadataBase: new URL("https://mukesh.portfolio"),
+  metadataBase: new URL(site.url),
+  title: site.title,
+  description: site.description,
+  alternates: { canonical: "/" },
+  authors: [{ name: site.name }],
   openGraph: {
-    title: "Mukesh Prajapat — Portfolio",
-    description:
-      "Data systems engineer. Independent builder. SAP automation + AI + full-stack.",
     type: "website",
+    url: "/",
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
+    locale: "en_IN",
   },
+  twitter: { card: "summary_large_image", title: site.title, description: site.description },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F0F0EC" },
+    { media: "(prefers-color-scheme: dark)", color: "#151517" },
+  ],
+};
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable}`}
-    >
+    <html lang="en" className={`${anybody.variable} ${hanken.variable}`}>
       <body>
         <a href="#main" className="skip-link">
           Skip to content
         </a>
-        <BootGate>{children}</BootGate>
+        {children}
       </body>
     </html>
   );
