@@ -90,12 +90,12 @@ try {
   result.axe = [];
   for (const scheme of ["light", "dark"]) {
     for (const width of [375, 1440]) {
-      for (const state of ["all", "thelyst"]) {
+      for (const state of ["all", "projects"]) {
         const ctx = await browser.newContext({ viewport: { width, height: 900 }, colorScheme: scheme });
         const pg = await ctx.newPage();
         await pg.goto(base + "/", { waitUntil: "networkidle" });
         await pg.waitForTimeout(2000);
-        if (state !== "all") await pg.locator(".skill-switch", { hasText: "TheLyst" }).click();
+        if (state !== "all") await pg.locator(".skill-switch", { hasText: "Projects" }).click();
         await pg.waitForTimeout(400);
         await pg.addScriptTag({ path: axePath });
         const r = await pg.evaluate(async () =>

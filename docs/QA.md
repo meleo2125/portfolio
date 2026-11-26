@@ -75,3 +75,4 @@ Same version (13.6.0), same flags, same machine. Before: the live old site, Phas
 ## Open
 - Done after QA: the new resume (Kharcha, no repo link) replaced `public/resume.pdf`. Its 5 links are the ones checked above; text matches CONTENT.md.
 - Mobile performance: confirm on the Vercel preview (above).
+- Re-run after D-019 (skills panel: one Projects switch): routes, links and images unchanged; 38 tab stops, all with a visible outline; axe: no violations in 8 runs.

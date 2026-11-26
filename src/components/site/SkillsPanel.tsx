@@ -56,10 +56,6 @@ export function SkillsPanel({ groups }: { groups: PanelGroup[] }) {
           </div>
         ))}
       </div>
-      <p className="m-0 mt-7 text-[0.95rem] text-muted">
-        A hanging cable means the skill was used somewhere on this page. Empty jacks are skills from my resume that no project here
-        shows.
-      </p>
     </div>
   );
 }

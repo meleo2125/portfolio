@@ -144,14 +144,14 @@ export const notFound = {
   link: "Go to the home page",
 };
 
-/* Skills as a patch panel: where each skill was used, strictly from CONTENT.md.
-   work = Bristlecone summary and accelerator line; training = the Bristlecone training line;
-   thelyst / kharcha = their stack lines. Two inferences for the owner to confirm:
-   React (TheLyst and work use Next.js, which is built on React) and SQLite (Kharcha's Room/SQLCipher database is SQLite). */
+/* Skills as a patch panel: where each skill was used. Sources: work = Bristlecone; projects = TheLyst and Kharcha
+   (shown as one source); training = the Bristlecone training line. From CONTENT.md and the owner (2026-11-26):
+   JavaScript, REST APIs and the three AI skills at work; Vercel, AWS S3 and JWT in projects; Git, GitHub and
+   GitHub Actions in both. Two inferences: React (Next.js is built on React) and SQLite (Kharcha's Room/SQLCipher database). */
 export const skillsPanel: PanelGroup[] = [
   { name: "Languages", skills: [
-    { name: "Python", used: ["work"] }, { name: "JavaScript", used: [] }, { name: "Java", used: [] },
-    { name: "Kotlin", used: ["kharcha"] }, { name: "SQL", used: [] },
+    { name: "Python", used: ["work"] }, { name: "JavaScript", used: ["work"] }, { name: "Java", used: [] },
+    { name: "Kotlin", used: ["projects"] }, { name: "SQL", used: [] },
   ] },
   { name: "SAP data platforms", skills: [
     { name: "SAP BW", used: ["work", "training"] }, { name: "SAP Datasphere", used: ["work", "training"] },
@@ -160,21 +160,22 @@ export const skillsPanel: PanelGroup[] = [
   ] },
   { name: "Backend and APIs", skills: [
     { name: "FastAPI", used: ["work"] }, { name: "Node.js", used: [] }, { name: "Express.js", used: [] },
-    { name: "REST APIs", used: [] }, { name: "Model Context Protocol (MCP)", used: ["work"] },
+    { name: "REST APIs", used: ["work"] }, { name: "Model Context Protocol (MCP)", used: ["work"] },
   ] },
   { name: "AI", skills: [
-    { name: "LLM integration (Gemini API)", used: [] }, { name: "AI chatbots", used: [] },
-    { name: "AI-assisted development (Claude Code)", used: [] },
+    { name: "LLM integration (Gemini API)", used: ["work"] }, { name: "AI chatbots", used: ["work"] },
+    { name: "AI-assisted development (Claude Code)", used: ["work"] },
   ] },
   { name: "Frontend and mobile", skills: [
-    { name: "Next.js", used: ["work", "thelyst"] }, { name: "React", used: ["work", "thelyst"] }, { name: "React Native", used: [] },
-    { name: "Tailwind CSS", used: ["thelyst"] }, { name: "Jetpack Compose", used: ["kharcha"] },
+    { name: "Next.js", used: ["work", "projects"] }, { name: "React", used: ["work", "projects"] }, { name: "React Native", used: [] },
+    { name: "Tailwind CSS", used: ["projects"] }, { name: "Jetpack Compose", used: ["projects"] },
   ] },
   { name: "Databases", skills: [
-    { name: "SQLite", used: ["kharcha"] }, { name: "MongoDB", used: [] }, { name: "Firestore", used: ["thelyst"] },
+    { name: "SQLite", used: ["projects"] }, { name: "MongoDB", used: [] }, { name: "Firestore", used: ["projects"] },
   ] },
   { name: "Cloud and tools", skills: [
-    { name: "Git", used: [] }, { name: "GitHub", used: [] }, { name: "GitHub Actions (CI)", used: [] }, { name: "Vercel", used: [] },
-    { name: "AWS S3", used: [] }, { name: "Firebase Authentication", used: ["thelyst"] }, { name: "JWT", used: [] },
+    { name: "Git", used: ["work", "projects"] }, { name: "GitHub", used: ["work", "projects"] },
+    { name: "GitHub Actions (CI)", used: ["work", "projects"] }, { name: "Vercel", used: ["projects"] },
+    { name: "AWS S3", used: ["projects"] }, { name: "Firebase Authentication", used: ["projects"] }, { name: "JWT", used: ["projects"] },
   ] },
 ];

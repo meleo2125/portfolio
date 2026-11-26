@@ -112,10 +112,8 @@
   .skill, .skill-stub { transition: opacity 200ms ease-out; }
   .skills-panel[data-active="work"] .skill:not([data-used~="work"]) { opacity: 0.65; }
   .skills-panel[data-active="work"] .skill-stub:not([data-src="work"]) { opacity: 0.15; }
-  .skills-panel[data-active="thelyst"] .skill:not([data-used~="thelyst"]) { opacity: 0.65; }
-  .skills-panel[data-active="thelyst"] .skill-stub:not([data-src="thelyst"]) { opacity: 0.15; }
-  .skills-panel[data-active="kharcha"] .skill:not([data-used~="kharcha"]) { opacity: 0.65; }
-  .skills-panel[data-active="kharcha"] .skill-stub:not([data-src="kharcha"]) { opacity: 0.15; }
+  .skills-panel[data-active="projects"] .skill:not([data-used~="projects"]) { opacity: 0.65; }
+  .skills-panel[data-active="projects"] .skill-stub:not([data-src="projects"]) { opacity: 0.15; }
   .skills-panel[data-active="training"] .skill:not([data-used~="training"]) { opacity: 0.65; }
   .skills-panel[data-active="training"] .skill-stub:not([data-src="training"]) { opacity: 0.15; }
   @media (prefers-reduced-motion: reduce) { .skill, .skill-stub { transition: none; } }
