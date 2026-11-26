@@ -143,8 +143,8 @@ Left out on purpose:
 3. **D-007: drop the old database and /admin.** Every word on the new site comes from CONTENT.md, so the Postgres tables and the admin panel have nothing left to do. This also fixes the local build. Confirm, and I'll remove them in Phase 4 (along with @vercel/postgres and the middleware).
 4. **/design-system on production:** remove it from the production build (my suggestion) or keep it hidden and unindexed.
 
-## 6. Skills as a patch panel (proposal, 2026-11-26)
-New wording on the panel, for approval:
+## 6. Skills as a patch panel (approved for the home page 2026-11-26)
+Wording on the panel, approved with it:
 - Switches: All, At work, TheLyst, Kharcha, Training. Group label (screen readers): "Show the skills used in".
 - Spoken after each used skill: "used at work", "used in TheLyst", "used in Kharcha", "training at Bristlecone".
 - Note under the panel: "A hanging cable means the skill was used somewhere on this page. Empty jacks are skills from my resume that no project here shows."

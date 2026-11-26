@@ -50,6 +50,7 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] 404, icon, Open Graph image, robots.txt, sitemap.xml, canonical, theme colour
 - [x] Lint 0 errors / 0 warnings, typecheck clean, production build passes (all routes static)
 - [x] Checked in the browser pane at 1440, 768, 375 and 320, light and dark; fixed list bullets, duplicate email, nav overflow at 320
+- [x] Skills shown as a patch panel (owner approved 2026-11-26); mapping from CONTENT.md, React and SQLite plugs inferred
 - [x] docs/UPDATING.md: how to update content without /admin; Vercel clean-up steps
 - [ ] Playwright full-page screenshots and Lighthouse (the Playwright browser cache was deleted; reinstall needs the owner's OK)
 - [ ] New resume PDF without the Kharcha repo link → public/resume.pdf
