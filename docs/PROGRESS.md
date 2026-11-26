@@ -37,13 +37,21 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] Hero cable pairs approved with Phase 2; glosses go to final review in Phase 3 (IA_AND_COPY.md §4)
 - [x] docs/DESIGN.md filled; tokens in src/app/(site)/site.css + tailwind.config.ts; fonts via next/font; PatchBay component; /design-system page (375/768/1440 + dark checked). Old site moved to src/app/(legacy)/ (D-016)
 
-## Phase 3 — IA and copy · awaiting owner approval
+## Phase 3 — IA and copy · approved 2026-11-26
 - [x] Pages, section order, nav → docs/IA_AND_COPY.md
 - [x] All site copy from CONTENT.md, plus a table of every rewording vs the resume
 - [x] Kharcha source links removed (repo going private, D-017); CONTENT.md skills synced with the new resume (Kotlin, Jetpack Compose)
-- [ ] Owner approves copy and rewordings
+- [x] Owner approved copy and rewordings; later edit: no Kharcha status line or screenshot caption
 - [ ] New resume PDF without the Kharcha repo link → public/resume.pdf
-- [ ] Owner confirms D-007 (drop Postgres + /admin) and the /design-system production choice
-## Phase 4 — Build · not started
+- [x] D-007 confirmed: Postgres and /admin dropped; /design-system is 404 in production
+## Phase 4 — Build · in progress
+- [x] Old site, database, admin, middleware and 4 dependencies removed (commit c352774)
+- [x] Home page built from src/content/site.ts (one file holds all text)
+- [x] 404, icon, Open Graph image, robots.txt, sitemap.xml, canonical, theme colour
+- [x] Lint 0 errors / 0 warnings, typecheck clean, production build passes (all routes static)
+- [x] Checked in the browser pane at 1440, 768, 375 and 320, light and dark; fixed list bullets, duplicate email, nav overflow at 320
+- [x] docs/UPDATING.md: how to update content without /admin; Vercel clean-up steps
+- [ ] Playwright full-page screenshots and Lighthouse (the Playwright browser cache was deleted; reinstall needs the owner's OK)
+- [ ] New resume PDF without the Kharcha repo link → public/resume.pdf
 ## Phase 5 — QA · not started
 ## Phase 6 — Preview and ship · not started

@@ -85,7 +85,7 @@ Never: all-caps labels, one accented word in a headline, monospace for data labe
 
 **Project.** Text column (title, plain description, stack, links) beside a bleeding screenshot. Optional phone shot overlaps the bottom-left corner with a hard `cable-3` offset shadow (10px 10px, no blur). Images through next/image.
 
-**Phone row** (Android projects). Three phone screens side by side, the middle one raised (-1.5rem, -2.5rem on wide screens) with the hard `cable-3` offset shadow; 16px radius, 3px `ink` outline. Each screen has light and dark versions, swapped with the colour scheme. A one-line caption says the data is made up.
+**Phone row** (Android projects). Three phone screens side by side, the middle one raised (-1.5rem, -2.5rem on wide screens) with the hard `cable-3` offset shadow; 16px radius, 3px `ink` outline. Each screen has light and dark versions, swapped with the colour scheme.
 
 **Placeholder.** Dashed 3px `muted` border, same aspect and bleed as a screenshot, plain text saying what is missing. Never shipped to production.
 
