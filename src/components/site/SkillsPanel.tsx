@@ -17,7 +17,7 @@ export function SkillsPanel({ groups }: { groups: PanelGroup[] }) {
 
       <div className="grid gap-7">
         {groups.map((g) => (
-          <section key={g.name} aria-label={g.name}>
+          <div key={g.name}>
             <h3 className="m-0 mb-3 font-hanken text-base font-bold">{g.name}</h3>
             <ul className="m-0 grid list-none grid-cols-2 gap-x-4 gap-y-3 border-t-2 border-ink p-0 pt-4 min-[420px]:grid-cols-[repeat(auto-fill,minmax(10.5rem,1fr))] bay:gap-x-5 bay:gap-y-4">
               {g.skills.map((skill) => {
@@ -53,7 +53,7 @@ export function SkillsPanel({ groups }: { groups: PanelGroup[] }) {
                 );
               })}
             </ul>
-          </section>
+          </div>
         ))}
       </div>
       <p className="m-0 mt-7 text-[0.95rem] text-muted">

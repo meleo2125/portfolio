@@ -44,7 +44,7 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] Owner approved copy and rewordings; later edit: no Kharcha status line or screenshot caption
 - [ ] New resume PDF without the Kharcha repo link → public/resume.pdf
 - [x] D-007 confirmed: Postgres and /admin dropped; /design-system is 404 in production
-## Phase 4 — Build · in progress
+## Phase 4 — Build · done 2026-11-26
 - [x] Old site, database, admin, middleware and 4 dependencies removed (commit c352774)
 - [x] Home page built from src/content/site.ts (one file holds all text)
 - [x] 404, icon, Open Graph image, robots.txt, sitemap.xml, canonical, theme colour
@@ -57,5 +57,12 @@ Branch: `redesign`. Each phase ends with a summary and waits for owner approval.
 - [x] Skills panel reworked to cut hydration: the 38 skills are server-rendered; only the five switches are client code
 - [ ] Mobile performance is not reliably ≥ 90 in this machine's lab runs. Recheck with PageSpeed Insights on the Vercel preview (Phase 5/6), which runs on consistent hardware
 - [ ] New resume PDF without the Kharcha repo link → public/resume.pdf
-## Phase 5 — QA · not started
+## Phase 5 — QA · done, awaiting owner (report: docs/QA.md)
+- [x] Lint, typecheck, build clean
+- [x] scripts/qa.mjs: routes, links, anchors, images, headings, landmarks, metadata, keyboard, no-JS, reduced motion, axe-core (8 runs, 0 violations)
+- [x] Lighthouse before/after: accessibility, best practices, SEO 100; desktop 100; mobile median 86 (range 77–92, TBT noise)
+- [x] Site text re-read against CONTENT.md: no unapproved facts
+- [x] Confidentiality: bank name removed from CONTENT.md; built site clean
+- [ ] Owner: KOTAKD on the Kharcha home screenshot; bank name in local commit 6665532
+- [ ] Owner: new resume PDF
 ## Phase 6 — Preview and ship · not started
