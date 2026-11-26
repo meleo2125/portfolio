@@ -104,7 +104,7 @@ Work · Projects · Skills · Contact · Resume
 ### Contact
 - Heading: **Contact**
 - Line: Mumbai, India.
-- Links: mukeshprajapat3093@gmail.com, GitHub, LinkedIn, Resume (PDF)
+- Links: mukeshprajapat3093@gmail.com, GitHub, LinkedIn, Resume
 
 ### Interface labels
 - Skip link: "Skip to content"
@@ -148,21 +148,24 @@ Left out on purpose:
 
 ## 6. Skills as a patch panel (approved for the home page 2026-11-26)
 Wording on the panel, approved with it:
-- Switches: All, At work, TheLyst, Kharcha, Training. Group label (screen readers): "Show the skills used in".
-- Spoken after each used skill: "used at work", "used in TheLyst", "used in Kharcha", "training at Bristlecone".
-- Note under the panel: "A hanging cable means the skill was used somewhere on this page. Empty jacks are skills from my resume that no project here shows."
+- Switches: All, At work, Projects, Training. Group label (screen readers): "Show the skills used in". TheLyst and Kharcha are one source, "Projects" (owner, 2026-11-26).
+- Spoken after each used skill: "used at work", "used in my projects", "training at Bristlecone".
+- No note under the panel (removed by the owner, 2026-11-26).
 
-Where each plug comes from (CONTENT.md only):
+Where each plug comes from (CONTENT.md only; "projects" = TheLyst and Kharcha):
 | Skill | Plugs | Source line |
 |---|---|---|
 | Python, FastAPI, Next.js | work | Summary: "using Python, FastAPI and Next.js" |
 | MCP | work | Accelerator line: "MCP-based AI assistant" |
 | SAP BW, SAP Datasphere, SAP BusinessObjects (WebI) | work, training | Accelerator line; training line |
 | SAP Analytics Cloud, SAP HANA, SAP CPI-DS | training | Training line (SAC, HANA Modeling, CPI-DS) |
-| Next.js, Tailwind CSS, Firestore, Firebase Authentication | TheLyst | TheLyst stack |
-| Kotlin, Jetpack Compose | Kharcha | Kharcha stack |
-| **React** (inference) | work, TheLyst | Next.js is built on React |
-| **SQLite** (inference) | Kharcha | Room and SQLCipher are SQLite |
+| Next.js, Tailwind CSS, Firestore, Firebase Authentication | projects | TheLyst stack |
+| Kotlin, Jetpack Compose | projects | Kharcha stack |
+| JavaScript, REST APIs, the three AI skills | work | Owner, 2026-11-26 |
+| Vercel, AWS S3, JWT | projects | Owner, 2026-11-26 |
+| Git, GitHub, GitHub Actions (CI) | work, projects | Owner, 2026-11-26 |
+| **React** (inference) | work, projects | Next.js is built on React |
+| **SQLite** (inference) | projects | Room and SQLCipher are SQLite |
 | Everything else | none | No project on the page names it |
 
 Open question: TheLyst is written in TypeScript (per its public GitHub repo), but TypeScript is on CONTENT.md's excluded list, so JavaScript and TypeScript get no plug.

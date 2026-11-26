@@ -255,7 +255,7 @@ export default function DesignSystemPage() {
         <Label>Links take the text colour with a 1px underline, 2px on hover. Focus is a 3px outline in the current colour, 4px away. Press Tab to see it.</Label>
         <p className="m-0 mb-10 flex flex-wrap gap-6 font-semibold">
           <a href="#links-h">A text link</a>
-          <a href="/resume.pdf">Resume (PDF)</a>
+          <a href="/resume.pdf">Resume</a>
         </p>
         <ul className="m-0 max-w-[60ch] list-disc pl-5 text-muted">
           <li>The one moment: cables plug in once on first load, 1000ms each, 180ms apart.</li>

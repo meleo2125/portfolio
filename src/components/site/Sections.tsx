@@ -29,7 +29,7 @@ function ContactLinks({ resume = false, email = true }: { resume?: boolean; emai
       </li>
       {resume ? (
         <li>
-          <a href={site.resume}>Resume (PDF)</a>
+          <a href={site.resume}>Resume</a>
         </li>
       ) : null}
     </ul>

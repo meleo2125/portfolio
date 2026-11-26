@@ -4,6 +4,9 @@ Newest first. Each entry: what, why, status. "Pending" entries need the owner.
 
 ## 2026-11-25 — Phase 2
 
+**D-019 · Skills panel: one Projects source, more plugs, no note — done (owner)**
+Owner request 2026-11-26: show TheLyst and Kharcha as one source, "Projects", instead of one switch each; mark JavaScript, REST APIs and the three AI skills as used at work, Vercel, AWS S3 and JWT in projects, and Git, GitHub and GitHub Actions in both (recorded in CONTENT.md). The note under the panel and "(PDF)" after the Resume link were removed. Skills used now: 28 of 34.
+
 **D-018 · Bank traces kept — done (owner)**
 Phase 5 found two traces of the bank the Kharcha app was built for: the SMS sender code on the Kharcha home screenshot, and the bank's name in one local commit (6665532) that will be pushed with the branch. Options offered: swap the screenshot for one without a bank, and rewrite the unpushed commits. Owner decision 2026-11-26: keep both as they are.
 

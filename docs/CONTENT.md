@@ -86,6 +86,11 @@ Vidyavardhini's College of Engineering and Technology, Mumbai, India · December
 - Databases: SQLite, MongoDB, Firestore
 - Cloud & Tools: Git, GitHub, GitHub Actions (CI), Vercel, AWS S3, Firebase Authentication, JWT
 
+Where they were used (owner, 2026-11-26, on top of the role and project lines above):
+- At work: JavaScript, REST APIs, LLM integration (Gemini API), AI chatbots, AI-assisted development (Claude Code)
+- In projects: Vercel, AWS S3, JWT
+- At work and in projects: Git, GitHub, GitHub Actions (CI)
+
 ## Removed on purpose — must NOT appear anywhere (site, metadata, alt text, code comments shipped to the client)
 - Ruby and Ruby on Rails as a skill or technology (exception: the GeeksforGeeks article topic above)
 - DaisyUI
