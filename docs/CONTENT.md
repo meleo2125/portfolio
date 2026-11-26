@@ -15,7 +15,7 @@ If a section seems to need a fact that is missing here, ask the owner. Do not in
 - LinkedIn: https://www.linkedin.com/in/mukesh-prajapat-
 - Phone: none. Never show a phone number.
 - Portfolio: https://mukeshprajapat.vercel.app
-- Resume: /resume.pdf (owner's resume of 2026-11-25; source: ~/Documents/Mukesh_Prajapat_Resume_SAP.pdf)
+- Resume: /resume.pdf (source: ~/Documents/Mukesh_Prajapat_Resume_SAP.pdf; the Kharcha version, read 2026-11-26)
 - Resume headline: Software Engineer | AI & Automation for SAP Data Platforms
 
 ## Summary
@@ -53,13 +53,13 @@ Ruby on Rails is allowed ONLY here, as the topic of these articles (owner decisi
 - GitHub: https://github.com/meleo2125/thelystapp
 
 ### Kharcha: Private Money Tracking and Bill-Splitting App (Android)
-Added 2026-11-25 (owner decision), replacing the Gamified IPR Learning Platform on the site and the resume. Wording drafted from the public repo's docs and code; the resume uses the same lines.
+Added 2026-11-25 (owner decision), replacing the Gamified IPR Learning Platform on the site and the resume. Wording drafted from the repo's docs and code; the resume uses the same lines.
 - Stack: Kotlin, Jetpack Compose, Room, SQLCipher, Hilt, WorkManager
 - Built a local-first Android app that combines personal money tracking with group bill splitting, turning bank and UPI SMS alerts into reviewable transactions through a unit-tested parser and background capture with WorkManager, deduplicated by UPI reference and message hash.
 - Implemented full group splitting (any payer; equal, exact, percentage and share splits; simplified debts and settle-up) on a SQLCipher-encrypted Room database, with AES-GCM encrypted backups and CSV/JSON import and export.
 - Plain-language line for the site: An Android app for money tracking and bill splitting in one place. Bank and UPI SMS alerts become transactions, any of them can be split with a group, and nothing leaves the phone.
 - Status: in active development, installed by sideloading (not on the Play Store). No live demo.
-- GitHub: https://github.com/meleo2125/kharcha
+- Links: none. The owner is making the repo private (2026-11-26), so the site shows no source or demo link for Kharcha.
 - Images (2026-11-26): home, split-bill and insights screens, light and dark, in public/images/projects/kharcha/. Captured on an emulator with fictional demo data (source PNGs and README in ~/Documents/portfolio-handoff/kharcha/, not committed). Checked: no real names, accounts or transactions. Not used: the review-alert and add-edit screens, which show the app's built-in default account name "Kotak 811". Caption on the site: "Screens from a demo install. All data shown is made up."
 
 ## Education
@@ -78,11 +78,11 @@ Vidyavardhini's College of Engineering and Technology, Mumbai, India · December
 - Data Science Foundations – Level 1
 
 ## Skills (resume "Languages & Technologies")
-- Languages: Python, JavaScript, Java, SQL
+- Languages: Python, JavaScript, Java, Kotlin, SQL
 - SAP: SAP BW, SAP Datasphere, SAP BusinessObjects (WebI), SAP Analytics Cloud, SAP HANA, SAP CPI-DS
 - Backend & APIs: FastAPI, Node.js, Express.js, REST APIs, Model Context Protocol (MCP)
 - AI: LLM integration (Gemini API), AI chatbots, AI-assisted development (Claude Code)
-- Frontend & Mobile: Next.js, React, React Native, Tailwind CSS
+- Frontend & Mobile: Next.js, React, React Native, Tailwind CSS, Jetpack Compose
 - Databases: SQLite, MongoDB, Firestore
 - Cloud & Tools: Git, GitHub, GitHub Actions (CI), Vercel, AWS S3, Firebase Authentication, JWT
 

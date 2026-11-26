@@ -204,9 +204,6 @@ export default function DesignSystemPage() {
               any of them can be split with a group, and nothing leaves the phone.
             </p>
             <p className="m-0 mb-4 text-[0.95rem] font-semibold">Kotlin, Jetpack Compose, Room, SQLCipher, Hilt, WorkManager</p>
-            <p className="m-0 flex gap-6 font-semibold">
-              <a href="https://github.com/meleo2125/kharcha" target="_blank" rel="noopener noreferrer">Source</a>
-            </p>
           </div>
           <figure className="m-0 grid grid-cols-3 items-start gap-3 bay:gap-6">
             {kharchaScreens.map((s, i) => (
